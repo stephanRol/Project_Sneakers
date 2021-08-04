@@ -1,0 +1,396 @@
+@import url("https://fonts.googleapis.com/css2?family=Oswald:wght@200;400&display=swap");
+@import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css");
+@font-face {
+  font-family: "outback";
+  src: url("../assets/outback.ttf") format("truetype");
+  font-weight: 700;
+  font-style: normal;
+}
+body {
+  background-image: linear-gradient(to left bottom, #210000, #310706, #440609, #57040a, #6a0108, #7b070d, #8d0f10, #9f1713, #b52520, #cb312e, #e13e3b, #f84a4a);
+  background-repeat: no-repeat;
+  margin: 0;
+  padding: 0;
+  width: 100vw;
+}
+
+.home {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  width: 100%;
+  padding: 0 1.2rem;
+  overflow: hidden;
+}
+
+.main-home {
+  display: flex;
+  justify-content: space-between;
+  flex-grow: 1;
+  width: clamp(83%, calc(1920px - 62vw), 95%);
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.main-title {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  font-family: "outback";
+  font-style: italic;
+  color: #d6d6d6;
+}
+.main-title-2 {
+  padding: 0 6%;
+  margin: 0;
+  font-size: clamp(3rem, calc(3rem + 12vw), 16.5rem);
+  filter: drop-shadow(5px 4px 2px rgba(0, 0, 0, 0.6));
+  background-image: linear-gradient(to bottom, #ff9c32, #ffa74c, #ffb163, #ffbc7a, #ffc690, #fece9e, #fdd6ac, #fcddbb, #fce3c5, #fce9cf, #fcefda, #fdf4e5);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  filter: drop-shadow(5px 5px 12px rgba(0, 0, 0, 0.95));
+}
+.main-title-3, .main-title-1 {
+  padding: 0 5%;
+  margin: 0;
+  margin-left: 9rem;
+  filter: drop-shadow(5px 4px 2px rgba(0, 0, 0, 0.7));
+  background-image: linear-gradient(to bottom, #ffffff, #fafafa, #f6f6f6, #f1f1f1, #ededed, #e6e6e6, #e0e0e0, #d9d9d9, #cfcfcf, #c5c5c5, #bbbbbb, #b1b1b1);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  filter: drop-shadow(5px 5px 5px rgba(0, 0, 0, 0.95));
+}
+.main-title-1 {
+  position: relative;
+  font-size: clamp(0.5rem, calc(0.5rem + 2.4vw), 3.1rem);
+}
+.main-title-3 {
+  position: relative;
+  top: -1.9rem;
+  font-size: clamp(0.5rem, calc(0.5rem + 5vw), 5.6rem);
+}
+
+.sneaker-home-img {
+  position: absolute;
+  top: -5%;
+  left: -36%;
+  background: no-repeat url("/src/assets/sneaker.png");
+  background-position: center;
+  background-size: cover;
+  width: 165%;
+  height: 100%;
+  transform: rotate3d(0, 1, 0, 180deg)rotate(25deg);
+}
+
+.glassmorphism-box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.glassmorphism {
+  position: relative;
+  top: 0vh;
+  margin-right: 8vw;
+  width: 27vw;
+  height: 27vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.2);
+  box-shadow: 0 8px 42px 0 rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(3.5px);
+  -webkit-backdrop-filter: blur(3.5px);
+  border-radius: 50%;
+  border: 3px solid rgba(255, 255, 255, 0.7);
+}
+
+.social-media-icons {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  width: 50%;
+  height: 10vh;
+  margin: 0 auto;
+  font-size: 2rem;
+}
+
+.icons {
+  color: rgba(255, 255, 255, 0.3);
+  margin: 0 2vw;
+}
+
+.fa-facebook,
+.fa-instagram,
+.fa-twitter,
+.fa-pinterest {
+  transition: 0.3s;
+}
+.fa-facebook:hover,
+.fa-instagram:hover,
+.fa-twitter:hover,
+.fa-pinterest:hover {
+  cursor: pointer;
+  color: white;
+  filter: brightness(500%);
+  text-shadow: 0px 0px 30px white;
+  transition: 0.3s;
+}
+
+@media (max-width: 768px) {
+  .main-home {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .main-title {
+    position: relative;
+    left: -3vw;
+    margin-bottom: 5vw;
+  }
+  .main-title-1 {
+    left: calc((110vw - 768px) / 10);
+  }
+  .main-title-3 {
+    top: -2vh;
+    left: calc((110vw - 768px) / 10);
+  }
+
+  .glassmorphism-box {
+    position: relative;
+    left: 3vw;
+  }
+
+  .glassmorphism {
+    width: 50vw;
+    height: 50vw;
+  }
+}
+.about {
+  padding: 0 1.2rem;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 2vh;
+  height: 10vh;
+  z-index: 10;
+}
+.navbar__logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.navbar__logo-text {
+  font-family: "Oswald", sans-serif;
+  font-size: clamp(1.3rem, calc(0.8rem + 0.8vw), 1.8rem);
+  text-decoration: none;
+  color: #dadada;
+}
+.navbar__logo-img {
+  width: clamp(2.3rem, calc(1.5rem + 2vw), 2.9rem);
+  margin: 0 2vw;
+  margin-right: 10px;
+}
+.navbar__items {
+  display: flex;
+  align-items: center;
+  list-style: none;
+  font-size: clamp(1rem, calc(0.8rem + 0.7vw), 1.3rem);
+  margin: 0 2vw;
+}
+.navbar__item {
+  font-family: "Oswald", sans-serif;
+  color: rgba(218, 218, 218, 0.3);
+  margin: 0 clamp(0.6rem, calc(0.4rem + 1.3vw), 1.5rem);
+  text-decoration: none;
+  transition: 0.3s;
+}
+.navbar__item:hover {
+  color: white;
+  filter: brightness(500%);
+  text-shadow: 0px 0px 30px white;
+  transition: 0.3s;
+}
+
+@media (max-width: 480px) {
+  .navbar__items {
+    display: none;
+  }
+}
+/*!
+ * Hamburgers
+ * @description Tasty CSS-animated hamburgers
+ * @author Jonathan Suh @jonsuh
+ * @site https://jonsuh.com/hamburgers
+ * @link https://github.com/jonsuh/hamburgers
+ */
+.hamburger {
+  display: none;
+  cursor: pointer;
+  transition-property: opacity, filter;
+  transition-duration: 0.15s;
+  transition-timing-function: linear;
+  font: inherit;
+  color: inherit;
+  text-transform: none;
+  background-color: transparent;
+  border: 0;
+  margin: 0;
+  overflow: visible;
+}
+
+.hamburger.is-active .hamburger-inner,
+.hamburger.is-active .hamburger-inner::before,
+.hamburger.is-active .hamburger-inner::after {
+  background-color: rgba(218, 218, 218, 0.5);
+}
+
+.hamburger-box {
+  width: 40px;
+  height: 24px;
+  display: inline-block;
+  position: relative;
+}
+
+.hamburger-inner {
+  display: block;
+  top: 50%;
+  margin-top: -2px;
+}
+
+.hamburger-inner, .hamburger-inner::before, .hamburger-inner::after {
+  width: 40px;
+  height: 4px;
+  background-color: rgba(218, 218, 218, 0.5);
+  border-radius: 4px;
+  position: absolute;
+  transition-property: transform;
+  transition-duration: 0.15s;
+  transition-timing-function: ease;
+}
+
+.hamburger-inner::before, .hamburger-inner::after {
+  content: "";
+  display: block;
+}
+
+.hamburger-inner::before {
+  top: -10px;
+}
+
+.hamburger-inner::after {
+  bottom: -10px;
+}
+
+.hamburger:hover .hamburger-inner {
+  background-color: #fff;
+  filter: brightness(500%);
+  box-shadow: 0px 0px 30px white;
+  transition: 0.3s;
+}
+
+.hamburger:hover .hamburger-inner::before {
+  background-color: #fff;
+  filter: brightness(500%);
+  box-shadow: 0px 0px 30px white;
+  transition: 0.3s;
+}
+
+.hamburger:hover .hamburger-inner::after {
+  background-color: #fff;
+  filter: brightness(500%);
+  box-shadow: 0px 0px 30px white;
+  transition: 0.3s;
+}
+
+.hamburger--squeeze .hamburger-inner {
+  transition-duration: 0.075s;
+  transition-timing-function: cubic-bezier(0.55, 0.055, 0.675, 0.19);
+}
+
+.hamburger--squeeze .hamburger-inner::before {
+  transition: top 0.075s 0.12s ease, opacity 0.075s ease;
+}
+
+.hamburger--squeeze .hamburger-inner::after {
+  transition: bottom 0.075s 0.12s ease, transform 0.075s cubic-bezier(0.55, 0.055, 0.675, 0.19);
+}
+
+.hamburger--squeeze.is-active .hamburger-inner {
+  transform: rotate(45deg);
+  transition-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+}
+
+.hamburger--squeeze.is-active .hamburger-inner::before {
+  top: 0;
+  opacity: 0;
+}
+
+.hamburger--squeeze.is-active .hamburger-inner::after {
+  bottom: 0;
+  transform: rotate(-90deg);
+}
+
+ul {
+  list-style: none;
+}
+
+.black-bg {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  width: 100%;
+  height: 100vh;
+  z-index: -10;
+  font-family: "Oswald", sans-serif;
+  font-size: clamp(3vw, calc(2rem + 1vw), 5vw);
+  color: rgba(218, 218, 218, 0.5);
+  background-color: rgba(0, 0, 0, 0.98);
+}
+.black-bg.is-active {
+  display: flex;
+  transition: 1s;
+}
+
+.hamburger-menu-list {
+  margin: 10vw 0;
+  transition: 0.3s;
+  cursor: pointer;
+}
+.hamburger-menu-list:hover {
+  color: white;
+  filter: brightness(500%);
+  text-shadow: 0px 0px 30px white;
+  transition: 0.3s;
+}
+
+@media (max-width: 480px) {
+  .hamburger {
+    display: inline-block;
+  }
+}
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+}
+
+/*# sourceMappingURL=main.css.map */

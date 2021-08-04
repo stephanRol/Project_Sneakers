@@ -1,0 +1,25 @@
+$font-path: "../assets";
+
+//Deeperst Possible Browser Support
+
+// @font-face {
+//   font-family: 'MyWebFont';
+//   src: url('webfont.eot'); /* IE9 Compat Modes */
+//   src: url('webfont.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+//        url('webfont.woff2') format('woff2'), /* Super Modern Browsers */
+//        url('webfont.woff') format('woff'), /* Pretty Modern Browsers */
+//        url('webfont.ttf')  format('truetype'), /* Safari, Android, iOS */
+//        url('webfont.svg#svgFontName') format('svg'); /* Legacy iOS */
+// }
+
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200;400&display=swap');
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css');
+
+
+@font-face {
+    font-family: "outback";
+    // src: url("#{$font-path}/outback.woff") format('woff'),
+    src: url("#{$font-path}/outback.ttf") format('truetype');
+    font-weight: 700;
+    font-style: normal;
+}

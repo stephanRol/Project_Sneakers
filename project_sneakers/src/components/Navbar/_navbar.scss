@@ -1,0 +1,72 @@
+//Styles
+$font-secondary: 'Oswald', sans-serif;
+
+
+.navbar{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 2vh;
+    height: 10vh;
+    z-index: 10;
+
+    &__logo{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        &-text{
+        font-family: $font-secondary;
+        font-size: clamp(1.3rem, calc(0.8rem + 0.8vw), 1.8rem); 
+
+        text-decoration: none;
+        color: rgb(218, 218, 218);
+        }
+
+        &-img{
+        width: clamp(2.3rem, calc(1.5rem + 2vw), 2.9rem); 
+        margin: 0 2vw;
+        margin-right: 10px;
+        }
+    }
+    
+    &__items{
+        display: flex;
+        align-items: center;
+        list-style: none;
+        font-size: clamp(1rem, calc(0.8rem + 0.7vw), 1.3rem); 
+        margin: 0 2vw;
+    }
+
+    &__item{
+        font-family: $font-secondary;
+        color: rgba(218, 218, 218, 0.3);
+        margin: 0 clamp(0.6rem, calc(0.4rem + 1.3vw), 1.5rem);
+        text-decoration: none;
+        transition: 0.3s;
+
+        
+        &:hover{
+            color: rgb(255, 255, 255);
+            filter: brightness(500%);
+            text-shadow: 0px 0px 30px rgb(255, 255, 255);
+            transition: 0.3s;
+        }
+    }
+}
+
+//Common breakpoints for widths of devices:
+
+// 320px — 480px: Mobile devices
+// 481px — 768px: iPads, Tablets
+// 769px — 1024px: Small screens, laptops
+// 1025px — 1200px: Desktops, large screens
+// 1201px and more —  Extra large screens, TV
+
+@media (max-width: 480px) {
+    .navbar__items{
+        display: none;
+    }
+
+
+}
