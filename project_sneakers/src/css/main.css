@@ -7,11 +7,8 @@
   font-style: normal;
 }
 body {
-  background-image: linear-gradient(to left bottom, #210000, #310706, #440609, #57040a, #6a0108, #7b070d, #8d0f10, #9f1713, #b52520, #cb312e, #e13e3b, #f84a4a);
-  background-repeat: no-repeat;
   margin: 0;
   padding: 0;
-  width: 100vw;
 }
 
 .home {
@@ -21,6 +18,8 @@ body {
   width: 100%;
   padding: 0 1.2rem;
   overflow: hidden;
+  background-image: linear-gradient(to left bottom, #210000, #310706, #440609, #57040a, #6a0108, #7b070d, #8d0f10, #9f1713, #b52520, #cb312e, #e13e3b, #f84a4a);
+  background-repeat: no-repeat;
 }
 
 .main-home {
@@ -46,11 +45,10 @@ body {
   padding: 0 6%;
   margin: 0;
   font-size: clamp(3rem, calc(3rem + 12vw), 16.5rem);
-  filter: drop-shadow(5px 4px 2px rgba(0, 0, 0, 0.6));
+  filter: drop-shadow(5px 10px 10px black);
   background-image: linear-gradient(to bottom, #ff9c32, #ffa74c, #ffb163, #ffbc7a, #ffc690, #fece9e, #fdd6ac, #fcddbb, #fce3c5, #fce9cf, #fcefda, #fdf4e5);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  filter: drop-shadow(5px 5px 12px rgba(0, 0, 0, 0.95));
 }
 .main-title-3, .main-title-1 {
   padding: 0 5%;
@@ -173,10 +171,202 @@ body {
     height: 50vw;
   }
 }
-.about {
-  padding: 0 1.2rem;
+body {
+  margin: 0;
+  padding: 0;
 }
 
+.about {
+  min-height: 100vh;
+  background-color: #d8d8d8;
+}
+.about header {
+  height: 100vh;
+}
+.about header .about-header {
+  width: 100%;
+  height: 100%;
+  padding: 0rem 1.2rem;
+  overflow: hidden;
+  background: linear-gradient(to left bottom, rgba(33, 0, 0, 0.99), rgba(49, 7, 6, 0.98), rgba(68, 6, 9, 0.97), rgba(87, 4, 10, 0.95), rgba(106, 1, 8, 0.93), rgba(120, 7, 13, 0.91), rgba(141, 15, 15, 0.89), rgba(159, 24, 19, 0.87), rgba(181, 37, 32, 0.85), rgba(204, 49, 46, 0.83), rgba(225, 62, 59, 0.81), rgba(248, 74, 74, 0.81)), url("/src/assets/bg-about.webp");
+  background-repeat: no-repeat;
+  background-position: center top 0px;
+  background-size: cover;
+  background-attachment: fixed;
+  clip-path: polygon(0 0, 100% 0, 100% 75%, 50% 90%, 0 75%);
+}
+.about header .about-header .wrap-text-about {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 70%;
+}
+.about header .about-header .wrap-text-about h2 {
+  text-align: center;
+  font-family: "outback";
+  font-style: italic;
+  color: #d6d6d6;
+  font-size: clamp(3rem, calc((3rem + 20vw) / 2), 12rem);
+  padding: 0 2vw;
+  background-image: linear-gradient(to bottom, #ff9c32, #ffa74c, #ffb163, #ffbc7a, #ffc690, #fece9e, #fdd6ac, #fcddbb, #fce3c5, #fce9cf, #fcefda, #fdf4e5);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  filter: drop-shadow(5px 10px 10px black);
+}
+.about main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+.about main .about-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 60vw;
+  opacity: 0;
+}
+@media (max-width: 1024px) {
+  .about main .about-info {
+    width: 100vw;
+    flex-direction: column;
+    justify-content: start;
+  }
+}
+.about main .about-info .about-title-description {
+  width: 50%;
+  font-family: "Oswald";
+  color: #2b2b2b;
+  font-size: clamp(0.6rem, calc(0.6rem + 0.8vw), 1.1rem);
+}
+@media (max-width: 1024px) {
+  .about main .about-info .about-title-description {
+    width: 80%;
+  }
+}
+.about main .about-info .about-title-description h2 .border {
+  position: relative;
+  width: 0%;
+  max-width: 30%;
+  height: 3px;
+  background-color: #2b2b2b;
+  top: 6px;
+}
+.about main .about-info .about-title-description p {
+  text-align: justify;
+  margin-bottom: 2rem;
+}
+.about main .about-info img {
+  width: 25vw;
+  height: 16vw;
+}
+@media (max-width: 1024px) {
+  .about main .about-info img {
+    width: 50vw;
+    height: 30vw;
+    margin-bottom: 2rem;
+  }
+}
+@media (max-width: 480px) {
+  .about main .about-info img {
+    width: 65vw;
+    height: 40vw;
+  }
+}
+.about main .about-info-2 {
+  position: relative;
+  width: 100%;
+  height: 70vh;
+}
+.about main .about-info-2 .about-info-bg {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  clip-path: polygon(0 40%, 100% 0, 100% 90%, 0 70%);
+  background: linear-gradient(to left bottom, rgba(20, 0, 31, 0.9), rgba(53, 24, 72, 0.9), rgba(93, 40, 114, 0.9), rgba(139, 57, 157, 0.9), rgba(91, 81, 92, 0.9)), url("/src/assets/sneakers-women-bg.webp");
+  background-repeat: no-repeat;
+  background-position: center top 0px;
+  background-size: cover;
+  background-attachment: fixed;
+  opacity: 0.9;
+}
+.about main .about-info-2 section {
+  position: absolute;
+  display: flex;
+  width: 100%;
+  height: 100%;
+}
+.about main .about-info-2 section .sneaker-women-img {
+  position: absolute;
+  top: 8%;
+  left: 8%;
+  background: no-repeat url("/src/assets/sneakers-women.webp");
+  background-position: center;
+  background-size: cover;
+  width: 55vw;
+  height: 75%;
+  transform: rotate3d(0, 0, 0, 180deg)rotate(25deg);
+}
+.about main .about-info-2 section article {
+  position: absolute;
+  top: 25%;
+  right: 7%;
+  display: flex;
+  flex-direction: column;
+}
+.about main .about-info-2 section article h2 {
+  font-family: "outback";
+  font-style: italic;
+  color: #d6d6d6;
+  font-size: clamp(3rem, calc((3rem + 20vw) / 2), 12rem);
+  padding: 0 3vw;
+  margin: 0;
+  background-image: linear-gradient(to bottom, #ff9c32, #ffa74c, #ffb163, #ffbc7a, #ffc690, #fece9e, #fdd6ac, #fcddbb, #fce3c5, #fce9cf, #fcefda, #fdf4e5);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  filter: drop-shadow(5px 10px 10px black);
+}
+.about main .about-info-2 section article p {
+  width: 25vw;
+  margin: 0 auto;
+  text-align: justify;
+  color: #d6d6d6;
+  font-family: "Oswald";
+  font-size: clamp(0.4rem, calc(0.4rem + 0.8vw), 1.1rem);
+}
+.about footer {
+  height: 100vh;
+}
+
+@media (max-width: 1024px) {
+  section {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .sneaker-women-img {
+    top: 10%;
+    width: 40vw;
+    height: 50%;
+    left: 5%;
+  }
+
+  footer {
+    background-color: #ff8888;
+  }
+}
+@media (max-width: 768px) {
+  footer {
+    background-color: #88bfff;
+  }
+
+  .about main .about-info-2 section {
+    display: flex;
+    flex-direction: column;
+  }
+}
 .navbar {
   display: flex;
   justify-content: space-between;
@@ -367,9 +557,11 @@ ul {
 }
 
 .hamburger-menu-list {
-  margin: 10vw 0;
+  margin-bottom: 10vw;
   transition: 0.3s;
   cursor: pointer;
+  text-decoration: none;
+  color: rgba(218, 218, 218, 0.5);
 }
 .hamburger-menu-list:hover {
   color: white;

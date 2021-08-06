@@ -1,9 +1,7 @@
 body{
-    background-image: linear-gradient(to left bottom, #210000, #310706, #440609, #57040a, #6a0108, #7b070d, #8d0f10, #9f1713, #b52520, #cb312e, #e13e3b, #f84a4a);
-    background-repeat: no-repeat;
     margin: 0;
     padding: 0;
-    width: 100vw;
+    // width: 100vw;
 }
 
 .home{
@@ -14,6 +12,9 @@ body{
     width: 100%;
     padding: 0 1.2rem;
     overflow: hidden;
+
+    background-image: linear-gradient(to left bottom, #210000, #310706, #440609, #57040a, #6a0108, #7b070d, #8d0f10, #9f1713, #b52520, #cb312e, #e13e3b, #f84a4a);
+    background-repeat: no-repeat;
 }
 
 .main-home{
@@ -40,12 +41,14 @@ body{
         padding: 0 6%;
         margin: 0;
         font-size: clamp(3rem, calc(3rem + 12vw), 16.5rem); 
-        filter: drop-shadow(5px 4px 2px rgba(0, 0, 0, 0.6));
+        // filter: drop-shadow(5px 4px 2px rgba(0, 0, 0, 0.6));
+        filter: drop-shadow(5px 10px 10px rgba(0, 0, 0, 1));
+
 
         background-image: linear-gradient(to bottom, #ff9c32, #ffa74c, #ffb163, #ffbc7a, #ffc690, #fece9e, #fdd6ac, #fcddbb, #fce3c5, #fce9cf, #fcefda, #fdf4e5);
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
-        filter: drop-shadow(5px 5px 12px rgba(0, 0, 0, 0.95));
+        // filter: drop-shadow(5px 5px 12px rgba(0, 0, 0, 0.95));
     }
     &-3, &-1{
         padding: 0 5%;

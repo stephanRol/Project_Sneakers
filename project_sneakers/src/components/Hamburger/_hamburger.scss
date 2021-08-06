@@ -148,9 +148,11 @@ ul{
 }
 
 .hamburger-menu-list{
-      margin: 10vw 0;
+      margin-bottom: 10vw;
       transition: 0.3s;
       cursor: pointer;
+      text-decoration: none;
+      color: rgba(218, 218, 218, 0.5);
       &:hover{
             color: rgb(255, 255, 255);
             filter: brightness(500%);

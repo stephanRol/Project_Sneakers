@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 
 const Hamburger = () => {
   const [isActive, setIsActive] = useState("false");
@@ -24,10 +25,26 @@ const Hamburger = () => {
       </button>
       <div className={isActive ? "black-bg" : "is-active black-bg"}>
         <ul>
-          <li className="hamburger-menu-list">Home</li>
-          <li className="hamburger-menu-list">About</li>
-          <li className="hamburger-menu-list">Sneakers</li>
-          <li className="hamburger-menu-list">Contact</li>
+          <li className="hamburger-menu-list">
+            <Link to="/" className="hamburger-menu-list">
+              Home
+            </Link>
+          </li>
+          <li className="hamburger-menu-list">
+            <Link to="/about" className="hamburger-menu-list">
+              About
+            </Link>
+          </li>
+          <li className="hamburger-menu-list">
+            <Link to="/sneakers" className="hamburger-menu-list">
+              Sneakers
+            </Link>
+          </li>
+          <li className="hamburger-menu-list">
+            <Link to="/contact" className="hamburger-menu-list">
+              Contact
+            </Link>
+          </li>
         </ul>
       </div>
     </div>
