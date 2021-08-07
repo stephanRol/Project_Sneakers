@@ -3,34 +3,68 @@ import Navbar from "../../components/Navbar/Navbar";
 import sneakersTeam from "../../assets/sneakers-team-small.webp";
 
 const About = () => {
-  useEffect(() => {
+  const animations = () => {
     const element = document.querySelector(".about-header");
     const title = document.querySelector(".wrap-text-about");
     const aboutInfo = document.querySelector(".about-info");
+    const aboutInfoWomen = document.querySelector(".about-info-women");
+    const aboutInfoMen = document.querySelector(".about-info-men");
+    const main = document.querySelector("main");
     const border = document.querySelector(".border");
-    const womenAbout = document.querySelector(".about-info-2 section article");
+    const womenAbout = document.querySelector(
+      ".about-info-women section article"
+    );
+    const menAbout = document.querySelector(".about-info-men section article");
     const womenSneakersImg = document.querySelector(".sneaker-women-img");
-    const womenAboutBg = document.querySelector(".about-info-bg");
+    const menSneakersImg = document.querySelector(".sneaker-men-img");
+    const womenAboutBg = document.querySelector(
+      ".about-info-women .about-info-bg"
+    );
+    const menAboutBg = document.querySelector(".about-info-men .about-info-bg");
 
-    window.addEventListener("scroll", () => {
-      let scroll = window.pageYOffset;
-      let headerHeight = element.offsetHeight;
+    let scroll = window.pageYOffset;
+    let headerHeight = element.offsetHeight;
+    let aboutInfoHeight = aboutInfo.offsetHeight;
+    let aboutInfoWomenHeight = aboutInfoWomen.offsetHeight;
+    let aboutInfoMenHeight = aboutInfoMen.offsetHeight;
+    let mainHeight = main.offsetHeight;
 
-      console.log(scroll);
-      // element.style.transform = `translateY(${scroll * -0.5}px)`;
-      element.style.backgroundPosition = `center top ${scroll * -0.5}px`;
-      title.style.opacity = 1 - scroll / (headerHeight / 2);
-      aboutInfo.style.opacity = scroll / (headerHeight / 1.4);
-      border.style.width = `${scroll / 25}%`;
-      womenAbout.style.opacity = scroll / (headerHeight / 0.65);
-      womenSneakersImg.style.transform = `rotate(${scroll * 0.012}deg)`;
-      womenAboutBg.style.backgroundPosition = `center top ${
-        (scroll - headerHeight) * -0.5
-      }px`;
-    });
-    // return () => {
-    //   cleanup
-    // };
+    // console.log("-------------------------------------------");
+    // console.log("scroll: " + scroll);
+    // console.log("headerHeight" + headerHeight);
+    // console.log("aboutInfoHeight" + aboutInfoHeight);
+    // console.log("aboutInfoWomenHeight" + aboutInfoWomenHeight);
+
+    // element.style.transform = `translateY(${scroll * -0.5}px)`;
+    element.style.backgroundPosition = `center top ${scroll * -0.5}px`;
+    title.style.opacity = 1 - scroll / (headerHeight / 2);
+    aboutInfo.style.opacity = scroll / (headerHeight / 1.4);
+    border.style.width = `${scroll / 25}%`;
+    womenAbout.style.opacity = scroll / (headerHeight / 0.65);
+    womenSneakersImg.style.transform = `rotate(${scroll * 0.012}deg)`;
+    womenAboutBg.style.backgroundPosition = `center top ${
+      (scroll - (headerHeight + aboutInfoHeight / 3)) * -0.6
+    }px`;
+
+    menAbout.style.opacity =
+      scroll /
+      ((headerHeight +
+        aboutInfoHeight +
+        aboutInfoWomenHeight +
+        aboutInfoMenHeight) /
+        1.1);
+    menSneakersImg.style.transform = `rotate3d(${scroll / 10000},1,0,180deg)`;
+    menAboutBg.style.backgroundPosition = `center top ${
+      ((scroll - (headerHeight + aboutInfoHeight + aboutInfoWomenHeight)) / 4) *
+      -0.8
+    }px`;
+  };
+
+  useEffect(() => {
+    window.addEventListener("scroll", animations);
+    return () => {
+      window.removeEventListener("scroll", animations);
+    };
   }, []);
 
   return (
@@ -69,7 +103,7 @@ const About = () => {
             alt="sneakers-team"
           />
         </div>
-        <div className="about-info-2">
+        <div className="about-info-women">
           <div className="about-info-bg"></div>
           <section>
             <div className="sneaker-women-img"></div>
@@ -83,6 +117,22 @@ const About = () => {
                 exercitationem. Accusamus.
               </p>
             </article>
+          </section>
+        </div>
+        <div className="about-info-men">
+          <div className="about-info-bg"></div>
+          <section>
+            <article>
+              <h2>Men</h2>
+              <p>
+                Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+                Corrupti tempore illo id nisi, voluptate culpa dolor, enim
+                minima sint quidem veritatis atque. Voluptatum nemo inventore
+                obcaecati Corrupti tempore illo id nisi quas cupiditate eaque
+                quisquam,enim minima sint quidem veritatis.
+              </p>
+            </article>
+            <div className="sneaker-men-img"></div>
           </section>
         </div>
       </main>

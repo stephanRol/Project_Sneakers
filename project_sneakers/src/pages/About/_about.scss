@@ -58,8 +58,8 @@ body{
             justify-content: space-between;
             align-items: center;
             width: 60vw;
-            // height: 40vh;
             opacity: 0;
+            margin-bottom: 3vw;
 
             @media (max-width: 1024px) {
                 width: 100vw;
@@ -110,22 +110,18 @@ body{
             }
         }
 
-        .about-info-2{
+        .about-info-women{
             position: relative;
             width: 100%;
-            height: 70vh; // BORRAR
-            // border: 5px solid blue;
+            min-height: 70vh; 
             .about-info-bg{
                 position: absolute;
                 width: 100%;
                 height: 100%; 
-                margin: 0;
                 clip-path: polygon(0 40%, 100% 0, 100% 90%, 0 70%);
-                // background-image: linear-gradient(to right top, #690541, #7b003c, #8c0035, #99022a, #a4171c);
-                // background-image: linear-gradient(to left bottom, #230136, #3f0b53, #5e1772, #802391, #a52eb0);
                 background: linear-gradient(to left bottom, rgba(20, 0, 31, 0.9), rgb(53, 24, 72, 0.9), rgb(93, 40, 114, 0.9), rgb(139, 57, 157, 0.9), rgb(91, 81, 92, 0.9)), url("/src/assets/sneakers-women-bg.webp");
                 background-repeat: no-repeat;
-                background-position: center top 0px;
+                background-position: center;
                 background-size: cover;
                 background-attachment: fixed;
                 opacity: 0.9;
@@ -133,33 +129,50 @@ body{
             section{
                 position: absolute;
                 display: flex;
+                justify-content: center;
+                align-items: center;
                 width: 100%;
                 height: 100%;
 
-                // @media (max-width: 1024px) {
-                //         
-                // }
+                @media (max-width: 768px) {
+                    flex-direction: column-reverse;
+                    align-items: flex-end;
+                }
 
                 .sneaker-women-img{
-                    position: absolute;
-                    top: 8%;
-                    left: 8%;
                     background: no-repeat url("/src/assets/sneakers-women.webp");
         
                     background-position: center;
                     background-size: cover;
-                    // width: 50%;
-                    width: 55vw;
-                    height: 75%;
+                    width: 53vw;
+                    height: 70%;
                     transform: rotate3d(0,0,0,180deg) + rotate(25deg);
+
+                    @media (max-width: 768px) {
+                        position: relative;
+                        top: 2%;
+                        left: -6%;
+                        height: 28%;
+                    }
+                    @media (max-width: 480px) {   
+                        height: 20%;
+                    }
+
                 }
 
                 article{
-                    position: absolute;
-                    top: 25%;
-                    right: 7%;
                     display: flex;
                     flex-direction: column;
+                    justify-content: center;
+                    align-items: center;
+                    margin-bottom: 2vw;
+
+                    @media (max-width: 768px) {
+                        position: relative;
+                        margin-bottom: 0;
+                        text-align: center;
+                    }
+                    
                     h2{
                         font-family: "outback";
                         font-style: italic;
@@ -174,20 +187,117 @@ body{
                         filter: drop-shadow(5px 10px 10px rgba(0, 0, 0, 1));
                     }
                     p{
-                        width: 25vw;
+                        width: 30vw;
                         margin: 0 auto;
                         text-align: justify;
                         color: rgb(214, 214, 214);
                         font-family: "Oswald";
-                        // font-size: clamp(0.4rem, calc(0.4rem + 0.8vw));
-                        font-size: clamp(0.4rem, calc(0.4rem + 0.8vw), 1.1rem);
-
+                        font-size: clamp(0.6rem, calc(0.6rem + 0.8vw), 1.1rem);
+                        
+                        @media (max-width: 768px) {
+                            width: 70vw;
+                            padding-right: 5vw;
+                        }
                     }
                 }
 
                 
             }
         }
+
+        .about-info-men{
+            position: relative;
+            top: -2vh;
+            width: 100%;
+            min-height: 70vh;
+            .about-info-bg{
+                position: absolute;
+                width: 100%;
+                height: 100%; 
+                clip-path: polygon(0 0%, 100% 40%, 100% 70%, 0 90%);
+                background: linear-gradient(to right bottom, rgba(0, 0, 0, 0.93), rgba(16, 16, 16, 0.93), rgba(26, 26, 26, 0.93), rgba(36, 36, 36, 0.93), rgba(46, 46, 46, 0.93)), url("/src/assets/sneakers-men-bg.webp");
+                background-repeat: no-repeat;
+                background-position: center;
+                background-size: cover;
+                background-attachment: fixed;
+                opacity: 0.9;
+            }
+            section{
+                position: absolute;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                width: 100%;
+                height: 100%;
+
+                @media (max-width: 768px) {
+                    flex-direction: column;
+                    align-items: flex-start;
+                }
+
+                article{
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    align-items: center;
+                    margin-bottom: 2vw;
+
+                    @media (max-width: 768px) {
+                        position: relative;
+                        margin-bottom: 0;
+                        text-align: center;
+                    }
+                    h2{                        
+                        font-family: "outback";
+                        font-style: italic;
+                        color: rgb(214, 214, 214);
+                        font-size: clamp(3rem, calc((3rem + 20vw) / 2), 12rem); 
+                        padding: 0 3vw;
+                        margin: 0;
+                    
+                        background-image: linear-gradient(to bottom, #ff9c32, #ffa74c, #ffb163, #ffbc7a, #ffc690, #fece9e, #fdd6ac, #fcddbb, #fce3c5, #fce9cf, #fcefda, #fdf4e5);
+                        -webkit-background-clip: text;
+                        -webkit-text-fill-color: transparent;
+                        filter: drop-shadow(5px 10px 10px rgba(0, 0, 0, 1));
+                    }
+                    p{                        
+                        width: 30vw;
+                        margin: 0 auto;
+                        text-align: justify;
+                        color: rgb(214, 214, 214);
+                        font-family: "Oswald";
+                        font-size: clamp(0.6rem, calc(0.6rem + 0.8vw), 1.1rem);
+                        
+                        @media (max-width: 768px) {
+                            width: 70vw;
+                            padding-left: 5vw;
+                        }
+                    }
+                }
+                .sneaker-men-img{
+                    background: no-repeat url("/src/assets/sneakers-men.webp");
+        
+                    background-position: center;
+                    background-size: cover;
+                    width: 53vw;
+                    height: 70%;
+                    // transform: rotate3d(0,1,0,180deg) + rotate(25deg);
+                    transform: rotate3d(0.22,1,0,180deg);
+
+                    @media (max-width: 768px) {
+                        position: relative;
+                        top: 2%; //CAMBIAR
+                        left: 6%; //CAMBIAR
+                        height: 28%;
+                    }
+                    @media (max-width: 480px) {   
+                        height: 20%;
+                    }
+
+                }
+            }
+        }
+
         
     }
 
@@ -206,23 +316,12 @@ body{
 
 @media (max-width: 1024px) {
 
-
-    section{
-        display: flex;
-        flex-direction: column;
-    }
-
-    .sneaker-women-img{
-        top: 10%;
-        width: 40vw;
-        height: 50%;
-        left: 5%;
-    }
-
     footer{
         background-color: rgb(255, 136, 136);
     }
 }
+
+
 
 @media (max-width: 768px) {
 
@@ -230,9 +329,13 @@ body{
         background-color: rgb(136, 191, 255);
     }
 
-    .about main .about-info-2 section{
-        display: flex;
-        flex-direction: column;
+}
+
+@media (max-width: 480px) {
+
+    footer{
+        background-color: rgb(255, 253, 136);
     }
+
 }
 
