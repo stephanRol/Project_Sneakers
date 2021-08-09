@@ -3,6 +3,17 @@ import Navbar from "../../components/Navbar/Navbar";
 import sneakersTeam from "../../assets/sneakers-team-small.webp";
 
 const About = () => {
+  const position = [
+    "Founder & CEO",
+    "Co-Founder",
+    "Business Development",
+    "Creative Director",
+    "Human Resources",
+    "Product Strategy",
+  ];
+
+  const [users, setUsers] = useState("");
+
   const animations = () => {
     const element = document.querySelector(".about-header");
     const title = document.querySelector(".wrap-text-about");
@@ -60,8 +71,17 @@ const About = () => {
     }px`;
   };
 
+  const randomUserApi = async () => {
+    const response = await fetch(
+      "https://randomuser.me/api/?results=6&&inc=name,email,phone,picture"
+    );
+    const responseJSON = await response.json();
+    setUsers(responseJSON.results);
+  };
+
   useEffect(() => {
     window.addEventListener("scroll", animations);
+    randomUserApi();
     return () => {
       window.removeEventListener("scroll", animations);
     };
@@ -133,6 +153,47 @@ const About = () => {
               </p>
             </article>
             <div className="sneaker-men-img"></div>
+          </section>
+        </div>
+
+        <div className="about-info-team">
+          <div className="about-info-bg"></div>
+          <section>
+            <article>
+              <h2>Meet Our Team</h2>
+              <p>
+                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Unde
+                minima quas aspernatur incidunt corrupti delectus voluptates
+                molestiae vitae cumque? Cum, voluptates quae voluptas molestias
+                nam veniam iure tempore earum accusamus, esse molestiae aliquam
+                dolores. Facilis libero voluptatem quisquam nam explicabo,
+                veniam iure saepe nisi error aliquid commodi hic debitis quidem.
+              </p>
+            </article>
+            <div className="team-info">
+              {!users
+                ? "Cargando..."
+                : users.map((user, index) => {
+                    return (
+                      <>
+                        <div key={index} className={`team-member-${index + 1}`}>
+                          <img src={user.picture.large} alt="" />
+                          <h2>
+                            {user.name.first}&nbsp;{user.name.last}
+                          </h2>
+                          <p>{position[index]}</p>
+                          <p>
+                            <i className="far fa-envelope"></i>
+                            &nbsp;&nbsp;{user.email}
+                          </p>
+                          <p>
+                            <i className="fas fa-phone"></i>&nbsp;{user.phone}
+                          </p>
+                        </div>
+                      </>
+                    );
+                  })}
+            </div>
           </section>
         </div>
       </main>

@@ -171,6 +171,39 @@ body {
     height: 50vw;
   }
 }
+.about main .about-info-team section .team-info .team-member-6, .about main .about-info-team section .team-info .team-member-5, .about main .about-info-team section .team-info .team-member-4, .about main .about-info-team section .team-info .team-member-3, .about main .about-info-team section .team-info .team-member-2, .about main .about-info-team section .team-info .team-member-1 {
+  position: relative;
+  width: 260px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #d6d6d6;
+  padding: 3% 0;
+  margin: 3% 3%;
+  font-family: "Oswald";
+  font-size: clamp(0.6rem, calc(0.6rem + 0.8vw), 1.1rem);
+  filter: drop-shadow(5px 13px 15px rgba(0, 0, 0, 0.9));
+  border-radius: 10%;
+}
+.about main .about-info-team section .team-info .team-member-6 img, .about main .about-info-team section .team-info .team-member-5 img, .about main .about-info-team section .team-info .team-member-4 img, .about main .about-info-team section .team-info .team-member-3 img, .about main .about-info-team section .team-info .team-member-2 img, .about main .about-info-team section .team-info .team-member-1 img {
+  position: relative;
+  width: 50%;
+  border-radius: 50%;
+}
+.about main .about-info-team section .team-info .team-member-6 h2, .about main .about-info-team section .team-info .team-member-5 h2, .about main .about-info-team section .team-info .team-member-4 h2, .about main .about-info-team section .team-info .team-member-3 h2, .about main .about-info-team section .team-info .team-member-2 h2, .about main .about-info-team section .team-info .team-member-1 h2 {
+  position: relative;
+  margin: 20px 0;
+}
+.about main .about-info-team section .team-info .team-member-6 p, .about main .about-info-team section .team-info .team-member-5 p, .about main .about-info-team section .team-info .team-member-4 p, .about main .about-info-team section .team-info .team-member-3 p, .about main .about-info-team section .team-info .team-member-2 p, .about main .about-info-team section .team-info .team-member-1 p {
+  margin: 5px 0;
+}
+@media (max-width: 480px) {
+  .about main .about-info-team section .team-info .team-member-6, .about main .about-info-team section .team-info .team-member-5, .about main .about-info-team section .team-info .team-member-4, .about main .about-info-team section .team-info .team-member-3, .about main .about-info-team section .team-info .team-member-2, .about main .about-info-team section .team-info .team-member-1 {
+    width: 190px;
+  }
+}
+
 body {
   margin: 0;
   padding: 0;
@@ -458,6 +491,71 @@ body {
 @media (max-width: 480px) {
   .about main .about-info-men section .sneaker-men-img {
     height: 20%;
+  }
+}
+.about main .about-info-team {
+  position: relative;
+  width: 100%;
+  height: 180vh;
+}
+@media (max-width: 1192px) {
+  .about main .about-info-team {
+    top: -10vh;
+  }
+}
+.about main .about-info-team .about-info-bg {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  clip-path: polygon(0 20%, 100% 0%, 100% 100%, 0 100%);
+  background: linear-gradient(to left bottom, rgba(18, 41, 16, 0.9), rgba(30, 53, 21, 0.9), rgba(43, 66, 26, 0.9), rgba(57, 78, 31, 0.9), rgba(73, 91, 35, 0.9)), url("/src/assets/team-bg.webp");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  background-attachment: fixed;
+  opacity: 0.9;
+}
+.about main .about-info-team section {
+  position: absolute;
+  top: 20%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+}
+.about main .about-info-team section article {
+  border: 1px solid black;
+  color: #d6d6d6;
+  font-family: "Oswald";
+  font-size: clamp(0.6rem, calc(0.6rem + 0.8vw), 1.1rem);
+}
+.about main .about-info-team section article h2 {
+  text-align: center;
+  font-size: 3rem;
+  font-size: clamp(1.5rem, calc(0.5rem + 2vw), 2.6rem);
+}
+.about main .about-info-team section article p {
+  width: 50vw;
+}
+.about main .about-info-team section .team-info {
+  border: 1px solid #0b3788;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  width: 80%;
+}
+.about main .about-info-team section .team-info .team-member-2,
+.about main .about-info-team section .team-info .team-member-5 {
+  position: relative;
+  top: 10%;
+}
+@media (max-width: 1192px) {
+  .about main .about-info-team section .team-info .team-member-2,
+.about main .about-info-team section .team-info .team-member-5 {
+    top: 0%;
   }
 }
 .about footer {
