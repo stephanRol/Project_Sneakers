@@ -1,6 +1,17 @@
 import React, { useEffect, useState } from "react";
 import Navbar from "../../components/Navbar/Navbar";
 import sneakersTeam from "../../assets/sneakers-team-small.webp";
+import nikeLogo from "../../assets/nike.webp";
+import adidasLogo from "../../assets/adidas.webp";
+import asicsLogo from "../../assets/asics.webp";
+import converseLogo from "../../assets/converse.webp";
+import jordanLogo from "../../assets/jordan.webp";
+import newBalanceLogo from "../../assets/new-balance.webp";
+import pumaLogo from "../../assets/puma.webp";
+import reebokLogo from "../../assets/reebok.webp";
+import sauconyLogo from "../../assets/saucony.webp";
+import underArmourLogo from "../../assets/under-armour.webp";
+import vansLogo from "../../assets/vans.webp";
 
 const About = () => {
   const position = [
@@ -20,12 +31,20 @@ const About = () => {
     const aboutInfo = document.querySelector(".about-info");
     const aboutInfoWomen = document.querySelector(".about-info-women");
     const aboutInfoMen = document.querySelector(".about-info-men");
+    const aboutInfoTeam = document.querySelector(".about-info-team");
     const main = document.querySelector("main");
     const border = document.querySelector(".border");
     const womenAbout = document.querySelector(
       ".about-info-women section article"
     );
     const menAbout = document.querySelector(".about-info-men section article");
+    const aboutInfoTeamArticle = document.querySelector(
+      ".about-info-team article"
+    );
+    const aboutInfoTeamImages = document.querySelector(
+      ".about-info-team .team-info"
+    );
+
     const womenSneakersImg = document.querySelector(".sneaker-women-img");
     const menSneakersImg = document.querySelector(".sneaker-men-img");
     const womenAboutBg = document.querySelector(
@@ -38,13 +57,22 @@ const About = () => {
     let aboutInfoHeight = aboutInfo.offsetHeight;
     let aboutInfoWomenHeight = aboutInfoWomen.offsetHeight;
     let aboutInfoMenHeight = aboutInfoMen.offsetHeight;
+    let aboutInfoTeamHeight = aboutInfoTeam.offsetHeight;
     let mainHeight = main.offsetHeight;
 
-    // console.log("-------------------------------------------");
-    // console.log("scroll: " + scroll);
-    // console.log("headerHeight" + headerHeight);
-    // console.log("aboutInfoHeight" + aboutInfoHeight);
-    // console.log("aboutInfoWomenHeight" + aboutInfoWomenHeight);
+    const height1 = headerHeight + aboutInfoHeight;
+    const height2 = headerHeight + aboutInfoHeight + aboutInfoWomenHeight;
+    const height3 =
+      headerHeight +
+      aboutInfoHeight +
+      aboutInfoWomenHeight +
+      aboutInfoMenHeight;
+    const height4 =
+      headerHeight +
+      aboutInfoHeight +
+      aboutInfoWomenHeight +
+      aboutInfoMenHeight +
+      aboutInfoTeamHeight;
 
     // element.style.transform = `translateY(${scroll * -0.5}px)`;
     element.style.backgroundPosition = `center top ${scroll * -0.5}px`;
@@ -54,26 +82,25 @@ const About = () => {
     womenAbout.style.opacity = scroll / (headerHeight / 0.65);
     womenSneakersImg.style.transform = `rotate(${scroll * 0.012}deg)`;
     womenAboutBg.style.backgroundPosition = `center top ${
-      (scroll - (headerHeight + aboutInfoHeight / 3)) * -0.6
+      (scroll - height4 / 4) * -0.6
     }px`;
-
-    menAbout.style.opacity =
-      scroll /
-      ((headerHeight +
-        aboutInfoHeight +
-        aboutInfoWomenHeight +
-        aboutInfoMenHeight) /
-        1.1);
+    menAbout.style.opacity = scroll / (height3 / 1.1);
     menSneakersImg.style.transform = `rotate3d(${scroll / 10000},1,0,180deg)`;
     menAboutBg.style.backgroundPosition = `center top ${
-      ((scroll - (headerHeight + aboutInfoHeight + aboutInfoWomenHeight)) / 4) *
-      -0.8
+      ((scroll - height2) / 4) * -0.8
     }px`;
+    if (scroll > height2 + aboutInfoMenHeight / 3) {
+      aboutInfoTeamArticle.style.animation = `scroll-reveal 2s ease-in forwards`;
+      aboutInfoTeamImages.style.animation = `scroll-reveal 2s ease-in forwards`;
+      console.log("ESTO ES TRUE!");
+    }
+    console.log("Scroll: " + scroll);
+    console.log("Height3: " + height3);
   };
 
   const randomUserApi = async () => {
     const response = await fetch(
-      "https://randomuser.me/api/?results=6&&inc=name,email,phone,picture"
+      "https://randomuser.me/api/?results=6&&inc=name,email,phone,picture,nat&&nat=au,br,ca,ch,de,dk,es,fi,fr,gb,ie,no,nl,nz,tr,us"
     );
     const responseJSON = await response.json();
     setUsers(responseJSON.results);
@@ -157,44 +184,77 @@ const About = () => {
         </div>
 
         <div className="about-info-team">
-          <div className="about-info-bg"></div>
-          <section>
-            <article>
-              <h2>Meet Our Team</h2>
-              <p>
-                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Unde
-                minima quas aspernatur incidunt corrupti delectus voluptates
-                molestiae vitae cumque? Cum, voluptates quae voluptas molestias
-                nam veniam iure tempore earum accusamus, esse molestiae aliquam
-                dolores. Facilis libero voluptatem quisquam nam explicabo,
-                veniam iure saepe nisi error aliquid commodi hic debitis quidem.
-              </p>
-            </article>
-            <div className="team-info">
-              {!users
-                ? "Cargando..."
-                : users.map((user, index) => {
-                    return (
-                      <>
-                        <div key={index} className={`team-member-${index + 1}`}>
-                          <img src={user.picture.large} alt="" />
-                          <h2>
-                            {user.name.first}&nbsp;{user.name.last}
-                          </h2>
-                          <p>{position[index]}</p>
-                          <p>
-                            <i className="far fa-envelope"></i>
-                            &nbsp;&nbsp;{user.email}
-                          </p>
-                          <p>
-                            <i className="fas fa-phone"></i>&nbsp;{user.phone}
-                          </p>
-                        </div>
-                      </>
-                    );
-                  })}
-            </div>
-          </section>
+          <article>
+            <h2>Meet Our Team</h2>
+            <p>
+              Lorem ipsum dolor sit, amet consectetur adipisicing elit. Unde
+              minima quas aspernatur incidunt corrupti delectus voluptates
+              molestiae vitae cumque? Cum, voluptates quae voluptas molestias
+              nam veniam iure tempore earum accusamus, esse molestiae aliquam
+              dolores. Facilis libero voluptatem quisquam nam explicabo, veniam
+              iure saepe nisi error aliquid commodi hic debitis quidem.
+            </p>
+          </article>
+          <div className="team-info">
+            {!users
+              ? "Cargando..."
+              : users.map((user, index) => {
+                  return (
+                    <>
+                      <div key={index} className={`team-member-${index + 1}`}>
+                        <img src={user.picture.large} alt="" />
+                        <h2>
+                          {user.name.first}&nbsp;{user.name.last}
+                        </h2>
+                        <p>{position[index]}</p>
+                        <p>
+                          <i className="far fa-envelope"></i>
+                          &nbsp;&nbsp;{user.email}
+                        </p>
+                        <p>
+                          <i className="fas fa-phone"></i>&nbsp;{user.phone}
+                        </p>
+                      </div>
+                    </>
+                  );
+                })}
+          </div>
+        </div>
+        <div className="about-brand">
+          <h2>Our Brands</h2>
+          <div className="brands">
+            <img className="brand-1" src={nikeLogo} alt="nike-logo" />
+            <img className="brand-2" src={adidasLogo} alt="adidas-logo" />
+            <img className="brand-3" src={pumaLogo} alt="puma-logo" />
+            <img className="brand-4" src={vansLogo} alt="vans-logo" />
+            <img className="brand-5" src={converseLogo} alt="converse-logo" />
+            <img
+              className="brand-6"
+              src={newBalanceLogo}
+              alt="new-balance-logo"
+            />
+            <img className="brand-7" src={jordanLogo} alt="jordan-logo" />
+            <img className="brand-8" src={reebokLogo} alt="reebok-logo" />
+            <img
+              className="brand-9"
+              src={underArmourLogo}
+              alt="under-armour-logo"
+            />
+            <img className="brand-10" src={sauconyLogo} alt="saucony-logo" />
+            <img className="brand-11" src={asicsLogo} alt="asics-logo" />
+            <img className="brand-1" src={nikeLogo} alt="nike-logo" />
+            <img className="brand-2" src={adidasLogo} alt="adidas-logo" />
+            <img className="brand-3" src={pumaLogo} alt="puma-logo" />
+            <img className="brand-4" src={vansLogo} alt="vans-logo" />
+            <img className="brand-5" src={converseLogo} alt="converse-logo" />
+            <img
+              className="brand-6"
+              src={newBalanceLogo}
+              alt="new-balance-logo"
+            />
+            <img className="brand-7" src={jordanLogo} alt="jordan-logo" />
+            <img className="brand-8" src={reebokLogo} alt="reebok-logo" />
+          </div>
         </div>
       </main>
       <footer></footer>

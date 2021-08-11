@@ -341,79 +341,183 @@ body{
 
         .about-info-team{
             position: relative;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
             width: 100%;
-            // min-height: 1300px;
-            height: 180vh;
+            padding: 12% 0 8% 0;
+            clip-path: polygon(0 20%,  100% 0%, 100% 100%, 0 100%);
+            background: linear-gradient(to left bottom, rgba(18, 41, 16, 0.9), rgba(30, 53, 21, 0.9), rgba(43, 66, 26, 0.9), rgba(57, 78, 31, 0.9), rgba(73, 91, 35, 0.9)), url("/src/assets/team-bg.webp");
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: cover;
+            background-attachment: fixed;
+            opacity: 0.95;
 
-            @media (max-width: 1192px) {
-                top: -10vh;
+
+            @media (max-width: 1200px) {
+                padding: 15% 0 10% 0;
+                clip-path: polygon(0 10%,  100% 0%, 100% 100%, 0 100%);
             }
-            .about-info-bg{
-                position: absolute;
-                width: 100%;
-                height: 100%;
-                clip-path: polygon(0 20%,  100% 0%, 100% 100%, 0 100%);
-                background: linear-gradient(to left bottom, rgba(18, 41, 16, 0.9), rgba(30, 53, 21, 0.9), rgba(43, 66, 26, 0.9), rgba(57, 78, 31, 0.9), rgba(73, 91, 35, 0.9)), url("/src/assets/team-bg.webp");
-                background-repeat: no-repeat;
-                background-position: center;
-                background-size: cover;
-                background-attachment: fixed;
-                opacity: 0.9;
+            @media (max-width: 1024px) {
+                padding: 15% 0 10% 0;
             }
-            section{
-                position: absolute;
-                top: 20%;
+            @media (max-width: 768px) {
+                padding: 30% 0 15% 0;
+            }
+            @media (max-width: 480px) {
+                padding: 45% 0 20% 0;
+            } 
+            
+
+            article{
                 display: flex;
                 flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                font-family: "Oswald";
+                font-size: clamp(0.6rem, calc(0.6rem + 0.8vw), 1.1rem);
+                color: $font-color-secondary;
+                text-align: center;
+                opacity: 0;
+                h2{
+                    font-size: 3rem;
+                    font-size: clamp(1.5rem, calc(0.5rem + 2vw), 2.6rem);
+                }
+                p{
+                    width: 50vw;
+                }
+            }
+            .team-info{
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                flex-wrap: wrap;
+                width: 80%;
+                max-width: 1320px;
+                margin: 0 auto;
+                opacity: 0;
+
+
+                @for $i from 1 through 6{
+                    .team-member-#{$i}{
+                        @extend %team-member;
+                    }
+                }   
+                .team-member-2,
+                    .team-member-5{
+                     @extend %team-member;
+                     position: relative;
+                     top: 60px;
+
+                     @media (max-width: 1191px) {
+                     top: 0%;
+                     }    
+                }
+            }
+            
+        }
+
+        .about-brand{
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: center;
+            width: 100%;
+            height: 50vh;
+            overflow: hidden;
+            // background-image: linear-gradient(to bottom, #090909, #161616, #1f1f1f, #282828, #323232);
+            background-image: linear-gradient(to top, #090909, #161616, #1f1f1f, #282828, #323232);
+            h2{
+                font-family: "Oswald";
+                font-size: clamp(1.5rem, calc(0.5rem + 2vw), 2.6rem);
+                padding-top: 50px;
+                margin: 0;
+                color: $font-color-secondary;
+            }
+            .brands{
+                display: flex;
+                position: absolute;
                 justify-content: flex-start;
                 align-items: center;
                 width: 100%;
                 height: 100%;
+                padding-top: 7vh;
+                animation: slide 100s infinite linear;
+                filter: invert(90%);
 
-                article{
-                    border: 1px solid black;
-                    color: $font-color-secondary;
-                    font-family: "Oswald";
-                    font-size: clamp(0.6rem, calc(0.6rem + 0.8vw), 1.1rem);
-                    h2{
-                        text-align: center;
-                        font-size: 3rem;
-                    font-size: clamp(1.5rem, calc(0.5rem + 2vw), 2.6rem);
 
-                    }
-                    p{
-                        width: 50vw;
-                    }
+                .brand-1,
+                .brand-2,
+                .brand-3,
+                .brand-4,
+                .brand-5,
+                .brand-6,
+                .brand-7,
+                .brand-8,
+                .brand-9,
+                .brand-10,
+                .brand-11{
+                    width: 18vw;
+                    height: 14vw;
+                    margin: 0 15px;
                 }
-                .team-info{
-                    border: 1px solid rgb(11, 55, 136);
-
-                    display: flex;
-                    justify-content: center;
-                    align-items: center;
-                    flex-wrap: wrap;
-                    width: 80%;
-
-                    @for $i from 1 through 6{
-                        .team-member-#{$i}{
-                            @extend %team-member;
-                        }
-                    }
-                    .team-member-2,
-                    .team-member-5{
-                     @extend %team-member;
-                     position: relative;
-                     top: 10%;
-
-                     @media (max-width: 1192px) {
-                     top: 0%;
-                    }
-                    }
+                .brand-2{
+                    width: 15vw;
+                    height: 8vw;
                 }
+                .brand-3{
+                    width: 18vw;
+                    height: 16vw;
+                    margin-left: 80px;
+                }
+                .brand-4{
+                    width: 24vw;
+                    height: 24vw;
+                    padding-top: 30px;
+                }
+                .brand-5{
+                    width: 12vw;
+                    height: 8vw;
+                }
+                .brand-6{
+                    width: 19vw;
+                    height: 13vw;
+                    margin-left: 30px;
+                }
+                .brand-7{
+                    width: 15vw;
+                    height: 9vw;
+                    margin-left: 30px;
+                }
+                .brand-8{
+                    width: 26vw;
+                    height: 9vw;
+                    margin-left: 40px;
+
+                }
+                .brand-9{
+                    width: 13vw;
+                    height: 8vw;
+                    margin-left: 60px;
+                }
+                .brand-10{
+                    width: 20vw;
+                    height: 18vw;
+                    margin-left: 60px;
+                }
+                .brand-11{
+                    width: 26vw;
+                    height: 21vw;
+                    margin-left: 0px;
+                } 
+                
             }
-        }
 
-        
+           
+        }
     }
 
     footer{
@@ -453,4 +557,23 @@ body{
     }
 
 }
+
+@keyframes scroll-reveal{
+    100%{
+        opacity: 1;
+    }
+}
+
+@keyframes slide{
+    0%{
+        transform: translateX(0%);
+    }
+    100%{
+        //1920px
+        transform: translateX(-215%);
+        //750px
+        // transform: translateX(-260%);
+    }
+}
+
 
