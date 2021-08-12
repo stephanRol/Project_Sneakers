@@ -1,9 +1,12 @@
 //MAIN SASS
 @use './sass/fonts';
+@use './sass/colors';
 @use './pages/Home/home';
 @use './pages/About/about';
 @use './components/Navbar/navbar';
 @use './components/Hamburger/hamburger';
+@use './components/AutoplayCarrousel/autoplayCarrousel';
+@use './components/CounterUpStats/counterUpStats';
 
 *,
 *::after,

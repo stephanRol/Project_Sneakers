@@ -1,0 +1,50 @@
+@use '../../sass/colors';
+@use '../../sass/fonts';
+
+.about-stats-counters{
+    background-color: colors.$font-color-secondary;
+    width: 100%;
+    height: 50vh;
+    padding: 0 10vw;
+
+    .stats{
+        display: grid;
+        grid-gap: 30px;
+        grid-template-columns: repeat(4, 1fr);
+        text-align: center;
+        width: 100%;
+        height: 100%;
+        color: colors.$font-color-primary;
+        font-family: fonts.$font-secondary;
+
+        .stat{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            margin: 0 5vw;
+            i{
+                font-size: clamp(1.5rem, calc(1.0rem + 5vw), 3rem);
+            }
+            h3{
+                margin: 0;
+                font-size: clamp(0.6rem, calc(0.6rem + 0.8vw), 1.1rem);
+            }
+            .container{
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                font-size: clamp(0.6rem, calc(0.6rem + 2vw), 2.8rem);
+
+                .counter{
+                    margin: 2.5vh 0;
+                    font-size: clamp(0.6rem, calc(0.6rem + 2vw), 2.8rem);
+                }
+                span{
+                    margin-left: 5px;
+                }
+            }
+            
+        }
+    }
+}

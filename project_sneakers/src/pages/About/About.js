@@ -1,17 +1,8 @@
 import React, { useEffect, useState } from "react";
 import Navbar from "../../components/Navbar/Navbar";
 import sneakersTeam from "../../assets/sneakers-team-small.webp";
-import nikeLogo from "../../assets/nike.webp";
-import adidasLogo from "../../assets/adidas.webp";
-import asicsLogo from "../../assets/asics.webp";
-import converseLogo from "../../assets/converse.webp";
-import jordanLogo from "../../assets/jordan.webp";
-import newBalanceLogo from "../../assets/new-balance.webp";
-import pumaLogo from "../../assets/puma.webp";
-import reebokLogo from "../../assets/reebok.webp";
-import sauconyLogo from "../../assets/saucony.webp";
-import underArmourLogo from "../../assets/under-armour.webp";
-import vansLogo from "../../assets/vans.webp";
+import AutoplayCarrousel from "../../components/AutoplayCarrousel/AutoplayCarrousel";
+import CounterUpStats from "../../components/CounterUpStats/CounterUpStats";
 
 const About = () => {
   const position = [
@@ -92,10 +83,7 @@ const About = () => {
     if (scroll > height2 + aboutInfoMenHeight / 3) {
       aboutInfoTeamArticle.style.animation = `scroll-reveal 2s ease-in forwards`;
       aboutInfoTeamImages.style.animation = `scroll-reveal 2s ease-in forwards`;
-      console.log("ESTO ES TRUE!");
     }
-    console.log("Scroll: " + scroll);
-    console.log("Height3: " + height3);
   };
 
   const randomUserApi = async () => {
@@ -182,7 +170,6 @@ const About = () => {
             <div className="sneaker-men-img"></div>
           </section>
         </div>
-
         <div className="about-info-team">
           <article>
             <h2>Meet Our Team</h2>
@@ -200,62 +187,26 @@ const About = () => {
               ? "Cargando..."
               : users.map((user, index) => {
                   return (
-                    <>
-                      <div key={index} className={`team-member-${index + 1}`}>
-                        <img src={user.picture.large} alt="" />
-                        <h2>
-                          {user.name.first}&nbsp;{user.name.last}
-                        </h2>
-                        <p>{position[index]}</p>
-                        <p>
-                          <i className="far fa-envelope"></i>
-                          &nbsp;&nbsp;{user.email}
-                        </p>
-                        <p>
-                          <i className="fas fa-phone"></i>&nbsp;{user.phone}
-                        </p>
-                      </div>
-                    </>
+                    <div key={index} className={`team-member-${index + 1}`}>
+                      <img src={user.picture.large} alt="" />
+                      <h2>
+                        {user.name.first}&nbsp;{user.name.last}
+                      </h2>
+                      <p>{position[index]}</p>
+                      <p>
+                        <i className="far fa-envelope"></i>
+                        &nbsp;&nbsp;{user.email}
+                      </p>
+                      <p>
+                        <i className="fas fa-phone"></i>&nbsp;{user.phone}
+                      </p>
+                    </div>
                   );
                 })}
           </div>
         </div>
-        <div className="about-brand">
-          <h2>Our Brands</h2>
-          <div className="brands">
-            <img className="brand-1" src={nikeLogo} alt="nike-logo" />
-            <img className="brand-2" src={adidasLogo} alt="adidas-logo" />
-            <img className="brand-3" src={pumaLogo} alt="puma-logo" />
-            <img className="brand-4" src={vansLogo} alt="vans-logo" />
-            <img className="brand-5" src={converseLogo} alt="converse-logo" />
-            <img
-              className="brand-6"
-              src={newBalanceLogo}
-              alt="new-balance-logo"
-            />
-            <img className="brand-7" src={jordanLogo} alt="jordan-logo" />
-            <img className="brand-8" src={reebokLogo} alt="reebok-logo" />
-            <img
-              className="brand-9"
-              src={underArmourLogo}
-              alt="under-armour-logo"
-            />
-            <img className="brand-10" src={sauconyLogo} alt="saucony-logo" />
-            <img className="brand-11" src={asicsLogo} alt="asics-logo" />
-            <img className="brand-1" src={nikeLogo} alt="nike-logo" />
-            <img className="brand-2" src={adidasLogo} alt="adidas-logo" />
-            <img className="brand-3" src={pumaLogo} alt="puma-logo" />
-            <img className="brand-4" src={vansLogo} alt="vans-logo" />
-            <img className="brand-5" src={converseLogo} alt="converse-logo" />
-            <img
-              className="brand-6"
-              src={newBalanceLogo}
-              alt="new-balance-logo"
-            />
-            <img className="brand-7" src={jordanLogo} alt="jordan-logo" />
-            <img className="brand-8" src={reebokLogo} alt="reebok-logo" />
-          </div>
-        </div>
+        <AutoplayCarrousel />
+        <CounterUpStats />
       </main>
       <footer></footer>
     </div>
