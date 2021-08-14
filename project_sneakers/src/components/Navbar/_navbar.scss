@@ -1,6 +1,5 @@
-//Styles
-$font-secondary: 'Oswald', sans-serif;
-
+@use '../../sass/fonts';
+@use '../../sass/colors';
 
 .navbar{
     display: flex;
@@ -16,7 +15,7 @@ $font-secondary: 'Oswald', sans-serif;
         align-items: center;
 
         &-text{
-        font-family: $font-secondary;
+        font-family: fonts.$font-secondary;
         font-size: clamp(1.3rem, calc(0.8rem + 0.8vw), 1.8rem); 
 
         text-decoration: none;
@@ -39,8 +38,8 @@ $font-secondary: 'Oswald', sans-serif;
     }
 
     &__item{
-        font-family: $font-secondary;
-        color: rgba(218, 218, 218, 0.3);
+        font-family: fonts.$font-secondary;
+        color: colors.$font-color-3;
         margin: 0 clamp(0.6rem, calc(0.4rem + 1.3vw), 1.5rem);
         text-decoration: none;
         transition: 0.3s;

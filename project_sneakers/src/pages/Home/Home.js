@@ -20,16 +20,16 @@ const Home = () => {
       </main>
       <footer className="social-media-icons">
         <a className="icons" href="https://www.facebook.com" target="_blank">
-          <i class="fab fa-facebook"></i>
+          <i className="fab fa-facebook"></i>
         </a>
         <a className="icons" href="https://www.instagram.com" target="_blank">
-          <i class="fab fa-instagram"></i>
+          <i className="fab fa-instagram"></i>
         </a>
         <a className="icons" href="https://www.twitter.com" target="_blank">
-          <i class="fab fa-twitter"></i>
+          <i className="fab fa-twitter"></i>
         </a>
         <a className="icons" href="https://www.pinterest.com" target="_blank">
-          <i class="fab fa-pinterest"></i>
+          <i className="fab fa-pinterest"></i>
         </a>
 
         {/* <i class="fas fa-circle-notch fa-spin"></i> */}
