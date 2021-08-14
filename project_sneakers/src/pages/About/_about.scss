@@ -1,43 +1,68 @@
 @use '../../sass/colors';
 @use '../../sass/fonts';
 
-//Extend/Inheritance
+//mixins 
+@mixin info-bg($gradient, $polygon){
+    position: absolute;
+    width: 100%;
+    height: 100%; 
+    clip-path: $polygon;
+    background: $gradient;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    background-attachment: fixed;
+    opacity: 0.9;                         
+}                       
 
+//Extend/Inheritance
 %team-member{
     position: relative;  
-        width: 260px;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        background-color: colors.$font-color-secondary;
-        padding:3% 0;
-        margin: 3% 3%;
-        font-family: "Oswald";
-        font-size: clamp(0.6rem, calc(0.6rem + 0.8vw), 1.1rem);
-        filter: drop-shadow(5px 13px 15px rgba(0, 0, 0, 0.9));
-        border-radius: 10%;                
-        img{
-            position: relative;  
-            width: 50%;
-            border-radius: 50%;
-        }
-        h2{
-          position: relative;  
-          margin: 20px 0;
-        }
-        p{
-          margin: 5px 0;
-        } 
+    width: 260px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: colors.$font-color-secondary;
+    padding:3% 0;
+    margin: 3% 3%;
+    font-family: "Oswald";
+    font-size: clamp(0.6rem, calc(0.6rem + 0.8vw), 1.1rem);
+    filter: drop-shadow(5px 13px 15px rgba(0, 0, 0, 0.9));
+    border-radius: 10%;                
+    img{
+        position: relative;  
+        width: 50%;
+        border-radius: 50%;
+    }
+    h2{
+      position: relative;  
+      margin: 20px 0;
+    }
+    p{
+      margin: 5px 0;
+    } 
 
-        @media (max-width: 480px) {
-            width: 190px;
-        }
+    @media (max-width: 480px) {
+        width: 190px;
+    }     
 }
 
+%font-stylish{
+    font-family: "outback";
+    font-style: italic;
+    color: rgb(214, 214, 214);
+    font-size: clamp(3rem, calc((3rem + 20vw) / 2), 12rem); 
+    padding: 0 3vw;
+    text-align: center;
+
+    background-image: linear-gradient(to bottom, #ff9c32, #ffa74c, #ffb163, #ffbc7a, #ffc690, #fece9e, #fdd6ac, #fcddbb, #fce3c5, #fce9cf, #fcefda, #fdf4e5);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    filter: drop-shadow(5px 10px 10px rgba(0, 0, 0, 1));      
+}
 
 //Page
-
 body{
     margin: 0;
     padding: 0;
@@ -49,8 +74,7 @@ body{
 
     header{
         height: 100vh;
-        // filter: drop-shadow(5px 13px 30px rgba(0, 0, 0, 9));
- 
+
         .about-header{
             width: 100%;
             height: 100%;
@@ -68,19 +92,8 @@ body{
                 justify-content: center;
                 align-items: center;
                 height: 70%;
-
                 h2{
-                    text-align: center;
-                    font-family: "outback";
-                    font-style: italic;
-                    color: rgb(214, 214, 214);
-                    font-size: clamp(3rem, calc((3rem + 20vw) / 2), 12rem); 
-                    padding: 0 2vw;
-                
-                    background-image: linear-gradient(to bottom, #ff9c32, #ffa74c, #ffb163, #ffbc7a, #ffc690, #fece9e, #fdd6ac, #fcddbb, #fce3c5, #fce9cf, #fcefda, #fdf4e5);
-                    -webkit-background-clip: text;
-                    -webkit-text-fill-color: transparent;
-                    filter: drop-shadow(5px 10px 10px rgba(0, 0, 0, 1));
+                    @extend %font-stylish;
                 }
             }
         }
@@ -108,7 +121,7 @@ body{
             }
             .about-title-description{
                 width: 50%;
-                font-family: "Oswald";
+                font-family: fonts.$font-secondary;
                 color: rgb(43, 43, 43);
                 font-size: clamp(0.6rem, calc(0.6rem + 0.8vw), 1.1rem);
 
@@ -129,7 +142,6 @@ body{
                 p{
                     text-align: justify;
                     margin-bottom: 2rem;
-
                 }
             } 
 
@@ -148,22 +160,14 @@ body{
                 } 
             }
         }
-
         .about-info-women{
             position: relative;
             width: 100%;
             min-height: 70vh; 
             .about-info-bg{
-                position: absolute;
-                width: 100%;
-                height: 100%; 
-                clip-path: polygon(0 40%, 100% 0, 100% 90%, 0 70%);
-                background: linear-gradient(to left bottom, rgba(20, 0, 31, 0.9), rgb(53, 24, 72, 0.9), rgb(93, 40, 114, 0.9), rgb(139, 57, 157, 0.9), rgb(91, 81, 92, 0.9)), url("/src/assets/sneakers-women-bg.webp");
-                background-repeat: no-repeat;
-                background-position: center;
-                background-size: cover;
-                background-attachment: fixed;
-                opacity: 0.9;
+                $linear-gradient: linear-gradient(to left bottom, rgba(20, 0, 31, 0.9), rgb(53, 24, 72, 0.9), rgb(93, 40, 114, 0.9), rgb(139, 57, 157, 0.9), rgb(91, 81, 92, 0.9)), url("/src/assets/sneakers-women-bg.webp");
+                $polygon: polygon(0 40%, 100% 0, 100% 90%, 0 70%);
+                @include info-bg($linear-gradient, $polygon);
             }
             section{
                 position: absolute;
@@ -213,24 +217,15 @@ body{
                     }
                     
                     h2{
-                        font-family: "outback";
-                        font-style: italic;
-                        color: rgb(214, 214, 214);
-                        font-size: clamp(3rem, calc((3rem + 20vw) / 2), 12rem); 
-                        padding: 0 3vw;
+                        @extend %font-stylish;
                         margin: 0;
-                    
-                        background-image: linear-gradient(to bottom, #ff9c32, #ffa74c, #ffb163, #ffbc7a, #ffc690, #fece9e, #fdd6ac, #fcddbb, #fce3c5, #fce9cf, #fcefda, #fdf4e5);
-                        -webkit-background-clip: text;
-                        -webkit-text-fill-color: transparent;
-                        filter: drop-shadow(5px 10px 10px rgba(0, 0, 0, 1));
                     }
                     p{
                         width: 30vw;
                         margin: 0 auto;
                         text-align: justify;
                         color: rgb(214, 214, 214);
-                        font-family: "Oswald";
+                        font-family: fonts.$font-secondary;
                         font-size: clamp(0.6rem, calc(0.6rem + 0.8vw), 1.1rem);
                         
                         @media (max-width: 768px) {
@@ -238,28 +233,18 @@ body{
                             padding-right: 5vw;
                         }
                     }
-                }
-
-                
+                } 
             }
         }
-
         .about-info-men{
             position: relative;
             top: -2vh;
             width: 100%;
             min-height: 70vh;
             .about-info-bg{
-                position: absolute;
-                width: 100%;
-                height: 100%; 
-                clip-path: polygon(0 0%, 100% 40%, 100% 70%, 0 90%);
-                background: linear-gradient(to right bottom, rgba(0, 0, 0, 0.93), rgba(16, 16, 16, 0.93), rgba(26, 26, 26, 0.93), rgba(36, 36, 36, 0.93), rgba(46, 46, 46, 0.93)), url("/src/assets/sneakers-men-bg.webp");
-                background-repeat: no-repeat;
-                background-position: center;
-                background-size: cover;
-                background-attachment: fixed;
-                opacity: 0.9;
+                $linear-gradient: linear-gradient(to right bottom, rgba(0, 0, 0, 0.93), rgba(16, 16, 16, 0.93), rgba(26, 26, 26, 0.93), rgba(36, 36, 36, 0.93), rgba(46, 46, 46, 0.93)), url("/src/assets/sneakers-men-bg.webp");
+                $polygon: polygon(0 0%, 100% 40%, 100% 70%, 0 90%);
+                @include info-bg($linear-gradient, $polygon);
             }
             section{
                 position: absolute;
@@ -287,24 +272,15 @@ body{
                         text-align: center;
                     }
                     h2{                        
-                        font-family: "outback";
-                        font-style: italic;
-                        color: rgb(214, 214, 214);
-                        font-size: clamp(3rem, calc((3rem + 20vw) / 2), 12rem); 
-                        padding: 0 3vw;
+                        @extend %font-stylish;
                         margin: 0;
-                    
-                        background-image: linear-gradient(to bottom, #ff9c32, #ffa74c, #ffb163, #ffbc7a, #ffc690, #fece9e, #fdd6ac, #fcddbb, #fce3c5, #fce9cf, #fcefda, #fdf4e5);
-                        -webkit-background-clip: text;
-                        -webkit-text-fill-color: transparent;
-                        filter: drop-shadow(5px 10px 10px rgba(0, 0, 0, 1));
                     }
                     p{                        
                         width: 30vw;
                         margin: 0 auto;
                         text-align: justify;
                         color: rgb(214, 214, 214);
-                        font-family: "Oswald";
+                        font-family: fonts.$font-secondary;
                         font-size: clamp(0.6rem, calc(0.6rem + 0.8vw), 1.1rem);
                         
                         @media (max-width: 768px) {
@@ -336,7 +312,6 @@ body{
                 }
             }
         }
-
         .about-info-team{
             position: relative;
             display: flex;
@@ -374,13 +349,12 @@ body{
                 flex-direction: column;
                 justify-content: center;
                 align-items: center;
-                font-family: "Oswald";
+                font-family: fonts.$font-secondary;
                 font-size: clamp(0.6rem, calc(0.6rem + 0.8vw), 1.1rem);
                 color: colors.$font-color-secondary;
                 text-align: center;
                 opacity: 0;
                 h2{
-                    font-size: 3rem;
                     font-size: clamp(1.5rem, calc(0.5rem + 2vw), 2.6rem);
                 }
                 p{
@@ -417,7 +391,6 @@ body{
             
         }
     }
-
     footer{
         height: 100vh;
     }
@@ -437,9 +410,6 @@ body{
         background-color: rgb(255, 136, 136);
     }
 }
-
-
-
 @media (max-width: 768px) {
 
     footer{
@@ -447,7 +417,6 @@ body{
     }
 
 }
-
 @media (max-width: 480px) {
 
     footer{

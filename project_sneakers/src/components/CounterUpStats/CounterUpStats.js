@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 
-const CocunterUpStats = () => {
-  function count() {
+const CounterUpStats = () => {
+  const count = () => {
     const counters = document.querySelectorAll(".counter");
     const speed = 200;
 
@@ -20,7 +20,7 @@ const CocunterUpStats = () => {
       };
       updateCount();
     });
-  }
+  };
 
   useEffect(() => {
     count();
@@ -34,7 +34,7 @@ const CocunterUpStats = () => {
           <div className="stat">
             <i className="fas fa-shoe-prints"></i>
             <div className="container">
-              <div className="counter" data-target="20000">
+              <div className="counter" data-target="10000">
                 0
               </div>
               <span>+</span>
@@ -64,7 +64,7 @@ const CocunterUpStats = () => {
           <div className="stat">
             <i className="fas fa-eye"></i>
             <div className="container">
-              <div className="counter" data-target="100000">
+              <div className="counter" data-target="200000">
                 0
               </div>
               <span>+</span>
@@ -77,4 +77,4 @@ const CocunterUpStats = () => {
   );
 };
 
-export default CocunterUpStats;
+export default CounterUpStats;

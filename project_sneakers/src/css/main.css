@@ -204,6 +204,19 @@ body {
   }
 }
 
+.about main .about-info-men section article h2, .about main .about-info-women section article h2, .about header .about-header .wrap-text-about h2 {
+  font-family: "outback";
+  font-style: italic;
+  color: #d6d6d6;
+  font-size: clamp(3rem, calc((3rem + 20vw) / 2), 12rem);
+  padding: 0 3vw;
+  text-align: center;
+  background-image: linear-gradient(to bottom, #ff9c32, #ffa74c, #ffb163, #ffbc7a, #ffc690, #fece9e, #fdd6ac, #fcddbb, #fce3c5, #fce9cf, #fcefda, #fdf4e5);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  filter: drop-shadow(5px 10px 10px black);
+}
+
 body {
   margin: 0;
   padding: 0;
@@ -233,18 +246,6 @@ body {
   justify-content: center;
   align-items: center;
   height: 70%;
-}
-.about header .about-header .wrap-text-about h2 {
-  text-align: center;
-  font-family: "outback";
-  font-style: italic;
-  color: #d6d6d6;
-  font-size: clamp(3rem, calc((3rem + 20vw) / 2), 12rem);
-  padding: 0 2vw;
-  background-image: linear-gradient(to bottom, #ff9c32, #ffa74c, #ffb163, #ffbc7a, #ffc690, #fece9e, #fdd6ac, #fcddbb, #fce3c5, #fce9cf, #fcefda, #fdf4e5);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  filter: drop-shadow(5px 10px 10px black);
 }
 .about main {
   display: flex;
@@ -375,16 +376,7 @@ body {
   }
 }
 .about main .about-info-women section article h2 {
-  font-family: "outback";
-  font-style: italic;
-  color: #d6d6d6;
-  font-size: clamp(3rem, calc((3rem + 20vw) / 2), 12rem);
-  padding: 0 3vw;
   margin: 0;
-  background-image: linear-gradient(to bottom, #ff9c32, #ffa74c, #ffb163, #ffbc7a, #ffc690, #fece9e, #fdd6ac, #fcddbb, #fce3c5, #fce9cf, #fcefda, #fdf4e5);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  filter: drop-shadow(5px 10px 10px black);
 }
 .about main .about-info-women section article p {
   width: 30vw;
@@ -447,16 +439,7 @@ body {
   }
 }
 .about main .about-info-men section article h2 {
-  font-family: "outback";
-  font-style: italic;
-  color: #d6d6d6;
-  font-size: clamp(3rem, calc((3rem + 20vw) / 2), 12rem);
-  padding: 0 3vw;
   margin: 0;
-  background-image: linear-gradient(to bottom, #ff9c32, #ffa74c, #ffb163, #ffbc7a, #ffc690, #fece9e, #fdd6ac, #fcddbb, #fce3c5, #fce9cf, #fcefda, #fdf4e5);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  filter: drop-shadow(5px 10px 10px black);
 }
 .about main .about-info-men section article p {
   width: 30vw;
@@ -542,7 +525,6 @@ body {
   opacity: 0;
 }
 .about main .about-info-team article h2 {
-  font-size: 3rem;
   font-size: clamp(1.5rem, calc(0.5rem + 2vw), 2.6rem);
 }
 .about main .about-info-team article p {
@@ -812,6 +794,16 @@ ul {
   overflow: hidden;
   background-image: linear-gradient(to top, #090909, #161616, #1f1f1f, #282828, #323232);
 }
+@media (max-width: 768px) {
+  .about-brand {
+    height: 35vh;
+  }
+}
+@media (max-width: 480px) {
+  .about-brand {
+    height: 30vh;
+  }
+}
 .about-brand h2 {
   font-family: "Oswald";
   font-size: clamp(1.5rem, calc(0.5rem + 2vw), 2.6rem);
@@ -827,8 +819,13 @@ ul {
   width: 100%;
   height: 100%;
   padding-top: 7vh;
-  animation: slide 100s infinite linear;
+  animation: slide 50s infinite linear;
   filter: invert(90%);
+}
+@media (max-width: 1024) {
+  .about-brand .brands {
+    transform: scale(2.5);
+  }
 }
 .about-brand .brands .brand-1,
 .about-brand .brands .brand-2,
@@ -854,10 +851,20 @@ ul {
   height: 16vw;
   margin-left: 80px;
 }
+@media (max-width: 768px) {
+  .about-brand .brands .brand-3 {
+    margin-left: 50px;
+  }
+}
 .about-brand .brands .brand-4 {
   width: 24vw;
   height: 24vw;
   padding-top: 30px;
+}
+@media (max-width: 768px) {
+  .about-brand .brands .brand-4 {
+    padding-top: 5px;
+  }
 }
 .about-brand .brands .brand-5 {
   width: 12vw;
@@ -883,10 +890,20 @@ ul {
   height: 8vw;
   margin-left: 60px;
 }
+@media (max-width: 768px) {
+  .about-brand .brands .brand-9 {
+    margin-left: 40px;
+  }
+}
 .about-brand .brands .brand-10 {
   width: 20vw;
   height: 18vw;
   margin-left: 60px;
+}
+@media (max-width: 768px) {
+  .about-brand .brands .brand-10 {
+    margin-left: 40px;
+  }
 }
 .about-brand .brands .brand-11 {
   width: 26vw;
@@ -894,12 +911,44 @@ ul {
   margin-left: 0px;
 }
 
-@keyframes slide {
-  0% {
-    transform: translateX(0%);
+@media (max-width: 1920px) {
+  @keyframes slide {
+    0% {
+      transform: translateX(0%);
+    }
+    100% {
+      transform: translateX(-215%);
+    }
   }
-  100% {
-    transform: translateX(-215%);
+}
+@media (max-width: 1024px) {
+  @keyframes slide {
+    0% {
+      transform: translateX(0%);
+    }
+    100% {
+      transform: translateX(-235%);
+    }
+  }
+}
+@media (max-width: 768px) {
+  @keyframes slide {
+    0% {
+      transform: translateX(0%);
+    }
+    100% {
+      transform: translateX(-242%);
+    }
+  }
+}
+@media (max-width: 480px) {
+  @keyframes slide {
+    0% {
+      transform: translateX(0%);
+    }
+    100% {
+      transform: translateX(-300%);
+    }
   }
 }
 .about-stats-counters {
@@ -909,14 +958,22 @@ ul {
   padding: 0 10vw;
 }
 .about-stats-counters .stats {
+  margin: 0 auto;
   display: grid;
   grid-gap: 30px;
   grid-template-columns: repeat(4, 1fr);
+  justify-content: center;
   text-align: center;
   width: 100%;
   height: 100%;
   color: #2b2b2b;
   font-family: "Oswald";
+}
+@media (max-width: 768px) {
+  .about-stats-counters .stats {
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 0px;
+  }
 }
 .about-stats-counters .stats .stat {
   display: flex;
@@ -926,7 +983,7 @@ ul {
   margin: 0 5vw;
 }
 .about-stats-counters .stats .stat i {
-  font-size: clamp(1.5rem, calc(1.0rem + 5vw), 3rem);
+  font-size: clamp(1rem, calc(0.5rem + 5vw), 3rem);
 }
 .about-stats-counters .stats .stat h3 {
   margin: 0;
