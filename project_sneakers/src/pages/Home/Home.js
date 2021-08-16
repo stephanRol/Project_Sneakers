@@ -18,7 +18,7 @@ const Home = () => {
           </div>
         </div>
       </main>
-      <footer className="social-media-icons">
+      <div className="social-media-icons">
         <a className="icons" href="https://www.facebook.com" target="_blank">
           <i className="fab fa-facebook"></i>
         </a>
@@ -33,7 +33,7 @@ const Home = () => {
         </a>
 
         {/* <i class="fas fa-circle-notch fa-spin"></i> */}
-      </footer>
+      </div>
     </div>
   );
 };

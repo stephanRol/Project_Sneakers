@@ -551,121 +551,6 @@ body {
     top: 0%;
   }
 }
-.about footer {
-  display: flex;
-  flex-direction: column;
-  height: 50vh;
-  width: 100%;
-  background-color: #080808;
-  font-family: "Oswald";
-  color: #d6d6d6;
-  padding: 0 5vw;
-}
-.about footer .container-above {
-  display: flex;
-  width: 100%;
-  margin-top: 3vh;
-  height: 80%;
-}
-.about footer .container-above .container-1 {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  width: 30%;
-  padding: 0 1vw;
-  line-height: 1.3rem;
-}
-.about footer .container-above .container-1 p {
-  padding: 1vw;
-}
-.about footer .container-above .container-2,
-.about footer .container-above .container-3 {
-  display: flex;
-  flex-direction: column;
-  width: 15%;
-  line-height: 3rem;
-  padding: 0 2vw;
-}
-.about footer .container-above .container-2 .footer-link,
-.about footer .container-above .container-3 .footer-link {
-  font-family: "Oswald";
-  color: rgba(218, 218, 218, 0.3);
-  text-decoration: none;
-  transition: 0.3s;
-}
-.about footer .container-above .container-2 .footer-link:hover,
-.about footer .container-above .container-3 .footer-link:hover {
-  color: white;
-  filter: brightness(500%);
-  text-shadow: 0px 0px 30px white;
-  transition: 0.3s;
-}
-.about footer .container-above .container-4 {
-  display: flex;
-  flex-direction: column;
-  width: 40%;
-  padding: 0 2vw;
-  font-size: clamp(0.6rem, calc(0.6rem + 0.8vw), 1.1rem);
-}
-.about footer .container-above .container-4 h2 {
-  font-weight: 400;
-  margin-bottom: 4vh;
-}
-.about footer .container-above .container-4 input {
-  height: 2vw;
-  width: 15vw;
-  border-radius: 10px;
-  padding: 0.5vw;
-  border: none;
-}
-.about footer .container-above .container-4 button {
-  height: 2vw;
-  width: 5vw;
-  font-size: 1rem;
-  padding: 0.5rem;
-  margin: 0 1vw;
-  border-radius: 10px;
-  background-color: #752020;
-  color: #d6d6d6;
-  border: none;
-  cursor: pointer;
-  transition: 0.3s;
-}
-.about footer .container-above .container-4 button:hover {
-  background-color: #f33b3b;
-  color: #ffffff;
-}
-.about footer .container-above .container-4 .social-media {
-  margin-top: 4vh;
-  font-size: 2rem;
-}
-.about footer .container-above .container-4 .social-media .icons {
-  margin-left: 0;
-  margin-right: 3vw;
-}
-.about footer .borderAlfa {
-  background-color: #d6d6d6;
-  width: 100%;
-  height: 1px;
-}
-.about footer .container-below {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  height: 20%;
-}
-.about footer .container-below a {
-  text-decoration: none;
-  color: #00ad79;
-  transition: 0.5s;
-}
-.about footer .container-below a:hover {
-  color: #0ada9b;
-  filter: brightness(500%);
-  text-shadow: 0px 0px 30px #0ada9b;
-  transition: 0.3s;
-}
 
 @media (max-width: 1024px) {
   footer {
@@ -1113,6 +998,155 @@ ul {
 }
 .about-stats-counters .stats .stat .container span {
   margin-left: 5px;
+}
+
+footer {
+  display: flex;
+  flex-direction: column;
+  min-height: 45vh;
+  width: 100%;
+  background-color: #080808;
+  font-family: "Oswald";
+  color: #d6d6d6;
+  padding: 0 5vw;
+}
+footer .container-above {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  margin: 5vh 0;
+  height: 80%;
+}
+footer .container-above .container-1 {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 30%;
+  flex-grow: 1;
+  padding: 0 1vw;
+  line-height: 1.3rem;
+}
+footer .container-above .container-1 p {
+  padding: 1vw;
+}
+@media (max-width: 768px) {
+  footer .container-above .container-1 {
+    width: auto;
+  }
+}
+footer .container-above .container-2,
+footer .container-above .container-3 {
+  display: flex;
+  flex-direction: column;
+  width: 15%;
+  flex-grow: 1;
+  line-height: 3rem;
+  padding: 0 2vw;
+}
+@media (max-width: 768px) {
+  footer .container-above .container-2,
+footer .container-above .container-3 {
+    padding-bottom: 3vh;
+  }
+}
+@media (max-width: 1024px) {
+  footer .container-above .container-2,
+footer .container-above .container-3 {
+    line-height: 2.4rem;
+    align-items: center;
+    flex-basis: 160px;
+  }
+}
+footer .container-above .container-2 .footer-link,
+footer .container-above .container-3 .footer-link {
+  font-family: "Oswald";
+  color: rgba(218, 218, 218, 0.3);
+  text-decoration: none;
+  transition: 0.3s;
+}
+footer .container-above .container-2 .footer-link:hover,
+footer .container-above .container-3 .footer-link:hover {
+  color: white;
+  filter: brightness(500%);
+  text-shadow: 0px 0px 30px white;
+  transition: 0.3s;
+}
+footer .container-above .container-4 {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 2;
+  padding: 0 2vw;
+  font-size: clamp(0.6rem, calc(0.6rem + 0.8vw), 1.1rem);
+}
+footer .container-above .container-4 h2 {
+  font-weight: 400;
+  margin-bottom: 4vh;
+}
+footer .container-above .container-4 input {
+  height: 2.2rem;
+  width: 15rem;
+  border-radius: 10px;
+  padding: 0.5vw;
+  margin-right: 1rem;
+  border: none;
+}
+@media (max-width: 480px) {
+  footer .container-above .container-4 input {
+    width: 14rem;
+  }
+}
+footer .container-above .container-4 button {
+  height: 2.2rem;
+  width: 5.5rem;
+  font-size: 1rem;
+  padding: 0.5rem;
+  margin-top: 0.5rem;
+  border-radius: 10px;
+  background-color: #752020;
+  color: #d6d6d6;
+  border: none;
+  cursor: pointer;
+  transition: 0.3s;
+}
+footer .container-above .container-4 button:hover {
+  background-color: #f33b3b;
+  color: #ffffff;
+}
+footer .container-above .container-4 .social-media {
+  margin-top: 4vh;
+  font-size: 2rem;
+}
+footer .container-above .container-4 .social-media .icons {
+  margin-left: 0;
+  margin-right: 3vw;
+}
+footer .border-footer {
+  background-color: #d6d6d6;
+  width: 100%;
+  height: 1px;
+}
+footer .container-below {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 20%;
+}
+@media (max-width: 480px) {
+  footer .container-below {
+    font-size: 0.7rem;
+  }
+}
+footer .container-below a {
+  text-decoration: none;
+  color: #00ad79;
+  transition: 0.5s;
+}
+footer .container-below a:hover {
+  color: #0ada9b;
+  filter: brightness(500%);
+  text-shadow: 0px 0px 30px #0ada9b;
+  transition: 0.3s;
 }
 
 *,
