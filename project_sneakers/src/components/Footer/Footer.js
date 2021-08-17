@@ -26,7 +26,7 @@ const Footer = () => {
           <div className="container-2">
             <p>Product</p>
             <Link className="footer-link" to="/">
-              Terms & Conditions
+              <span>Terms & Conditions</span>
             </Link>
             <Link className="footer-link" to="/">
               Privacy Policy
@@ -64,28 +64,28 @@ const Footer = () => {
                   href="https://www.facebook.com"
                   target="_blank"
                 >
-                  <i class="fab fa-facebook"></i>
+                  <i className="fab fa-facebook"></i>
                 </a>
                 <a
                   className="icons"
                   href="https://www.instagram.com"
                   target="_blank"
                 >
-                  <i class="fab fa-instagram"></i>
+                  <i className="fab fa-instagram"></i>
                 </a>
                 <a
                   className="icons"
                   href="https://www.twitter.com"
                   target="_blank"
                 >
-                  <i class="fab fa-twitter"></i>
+                  <i className="fab fa-twitter"></i>
                 </a>
                 <a
                   className="icons"
                   href="https://www.pinterest.com"
                   target="_blank"
                 >
-                  <i class="fab fa-pinterest"></i>
+                  <i className="fab fa-pinterest"></i>
                 </a>
               </div>
             </form>

@@ -16,6 +16,7 @@ const About = () => {
   ];
 
   const [users, setUsers] = useState("");
+  const [counterHeight, setCounterHeight] = useState(false);
 
   const animations = () => {
     const element = document.querySelector(".about-header");
@@ -51,20 +52,15 @@ const About = () => {
     let aboutInfoMenHeight = aboutInfoMen.offsetHeight;
     let aboutInfoTeamHeight = aboutInfoTeam.offsetHeight;
     let mainHeight = main.offsetHeight;
+    //let carrouselHeight = carrousel.offsetHeight;
+    console.log("La altura del main es: " + mainHeight);
+    console.log("La altura del scroll es: " + scroll);
 
     const height1 = headerHeight + aboutInfoHeight;
-    const height2 = headerHeight + aboutInfoHeight + aboutInfoWomenHeight;
-    const height3 =
-      headerHeight +
-      aboutInfoHeight +
-      aboutInfoWomenHeight +
-      aboutInfoMenHeight;
-    const height4 =
-      headerHeight +
-      aboutInfoHeight +
-      aboutInfoWomenHeight +
-      aboutInfoMenHeight +
-      aboutInfoTeamHeight;
+    const height2 = height1 + aboutInfoWomenHeight;
+    const height3 = height2 + aboutInfoMenHeight;
+    const height4 = height3 + aboutInfoTeamHeight;
+    //const height5 = height4 + carrouselHeight;
 
     // element.style.transform = `translateY(${scroll * -0.5}px)`;
     element.style.backgroundPosition = `center top ${scroll * -0.5}px`;
@@ -84,6 +80,10 @@ const About = () => {
     if (scroll > height2 + aboutInfoMenHeight / 3) {
       aboutInfoTeamArticle.style.animation = `scroll-reveal 2s ease-in forwards`;
       aboutInfoTeamImages.style.animation = `scroll-reveal 2s ease-in forwards`;
+    }
+
+    if (scroll > mainHeight) {
+      setCounterHeight(true);
     }
   };
 
@@ -207,7 +207,7 @@ const About = () => {
           </div>
         </div>
         <AutoplayCarrousel />
-        <CounterUpStats />
+        <CounterUpStats counterHeight={counterHeight} />
       </main>
       <Footer />
     </div>
