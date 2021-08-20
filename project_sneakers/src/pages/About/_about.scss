@@ -87,11 +87,12 @@ body{
             background-attachment: fixed;
             clip-path: polygon(0 0, 100% 0, 100% 75%, 50% 90%, 0 75%);
 
+
             .wrap-text-about{
                 display: flex;
                 justify-content: center;
                 align-items: center;
-                height: 70%;
+                height: 90%;
                 h2{
                     @extend %font-stylish;
                 }

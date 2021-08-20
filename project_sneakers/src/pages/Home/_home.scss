@@ -1,7 +1,6 @@
 body{
     margin: 0;
     padding: 0;
-    // width: 100vw;
 }
 
 .home{
@@ -10,7 +9,6 @@ body{
 
     min-height: 100vh;
     width: 100%;
-    padding: 0 1.2rem;
     overflow: hidden;
 
     background-image: linear-gradient(to left bottom, #210000, #310706, #440609, #57040a, #6a0108, #7b070d, #8d0f10, #9f1713, #b52520, #cb312e, #e13e3b, #f84a4a);
@@ -24,6 +22,7 @@ body{
     width:  clamp(83%, calc(1920px - 62vw), 95%);
     margin-left: auto;
     margin-right: auto;
+    margin-top: 11vh;
 }
 
 .main-title{

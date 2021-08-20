@@ -4,6 +4,7 @@ import sneakersTeam from "../../assets/sneakers-team-small.webp";
 import AutoplayCarrousel from "../../components/AutoplayCarrousel/AutoplayCarrousel";
 import CounterUpStats from "../../components/CounterUpStats/CounterUpStats";
 import Footer from "../../components/Footer/Footer";
+import Loader from "../../components/Loader/Loader";
 
 const About = () => {
   const position = [
@@ -17,6 +18,7 @@ const About = () => {
 
   const [users, setUsers] = useState("");
   const [counterHeight, setCounterHeight] = useState(false);
+  const [loading, setLoading] = useState(true);
 
   const animations = () => {
     const element = document.querySelector(".about-header");
@@ -93,124 +95,137 @@ const About = () => {
     );
     const responseJSON = await response.json();
     setUsers(responseJSON.results);
+    setLoading(false);
   };
 
   useEffect(() => {
     window.addEventListener("scroll", animations);
     randomUserApi();
+    window.addEventListener("DOMContentLoaded", () => setLoading(false));
+    // setTimeout(() => {
+    //   setLoading(false);
+    // }, 5000);
     return () => {
       window.removeEventListener("scroll", animations);
     };
   }, []);
 
   return (
-    <div className="about">
-      <header>
-        <div className="about-header">
-          <Navbar />
-          <div className="wrap-text-about">
-            <h2>We make your move</h2>
-          </div>
+    <>
+      {loading ? (
+        <Loader />
+      ) : (
+        <div className="about">
+          <header>
+            <Navbar />
+            <div className="about-header">
+              <div className="wrap-text-about">
+                <h2>We make your move</h2>
+              </div>
+            </div>
+          </header>
+          <main>
+            <div className="about-info">
+              <div className="about-title-description">
+                <h2>
+                  About Us
+                  <div className="border"></div>
+                </h2>
+                <p>
+                  Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+                  Pariatur iste voluptas distinctio corporis rem vero, harum
+                  nulla, doloremque, sed voluptatum ullam! Tempore ut quam
+                  expedita nam in pariatur nemo aliquid doloremque unde
+                  molestiae nihil quasi ad atque, saepe minus placeat
+                  perferendis quis sit nesciunt facilis! Aliquid praesentium
+                  facere iure repellat. <br />
+                  <br />
+                  Pariatur nemo aliquid doloremque unde molestiae nihil quasi ad
+                  atque, saepe minus placeat perferendis quis sit nesciunt
+                  facilis! Aliquid praesentium facere iure repellat.
+                </p>
+              </div>
+              <img
+                className="about-team-img"
+                src={sneakersTeam}
+                alt="sneakers-team"
+              />
+            </div>
+            <div className="about-info-women">
+              <div className="about-info-bg"></div>
+              <section>
+                <div className="sneaker-women-img"></div>
+                <article>
+                  <h2>Women</h2>
+                  <p>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    Nisi neque, soluta, veniam nihil aut, repellendus hic vitae
+                    quas minus nesciunt inventore corrupti eaque. Eos, porro
+                    blanditiis soluta quas reiciendis voluptatem hic possimus
+                    incidunt officiis exercitationem. Accusamus.
+                  </p>
+                </article>
+              </section>
+            </div>
+            <div className="about-info-men">
+              <div className="about-info-bg"></div>
+              <section>
+                <article>
+                  <h2>Men</h2>
+                  <p>
+                    Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+                    Corrupti tempore illo id nisi, voluptate culpa dolor, enim
+                    minima sint quidem veritatis atque. Voluptatum nemo
+                    inventore obcaecati Corrupti tempore illo id nisi quas
+                    cupiditate eaque quisquam,enim minima sint quidem veritatis.
+                  </p>
+                </article>
+                <div className="sneaker-men-img"></div>
+              </section>
+            </div>
+            <div className="about-info-team">
+              <article>
+                <h2>Meet Our Team</h2>
+                <p>
+                  Lorem ipsum dolor sit, amet consectetur adipisicing elit. Unde
+                  minima quas aspernatur incidunt corrupti delectus voluptates
+                  molestiae vitae cumque? Cum, voluptates quae voluptas
+                  molestias nam veniam iure tempore earum accusamus, esse
+                  molestiae aliquam dolores. Facilis libero voluptatem quisquam
+                  nam explicabo, veniam iure saepe nisi error aliquid commodi
+                  hic debitis quidem.
+                </p>
+              </article>
+              <div className="team-info">
+                {!users
+                  ? "Cargando..."
+                  : users.map((user, index) => {
+                      return (
+                        <div key={index} className={`team-member-${index + 1}`}>
+                          <img src={user.picture.large} alt="" />
+                          <h2>
+                            {user.name.first}&nbsp;{user.name.last}
+                          </h2>
+                          <p>{position[index]}</p>
+                          <p>
+                            <i className="far fa-envelope"></i>
+                            &nbsp;&nbsp;{user.email}
+                          </p>
+                          <p>
+                            <i className="fas fa-phone"></i>&nbsp;{user.phone}
+                          </p>
+                        </div>
+                      );
+                    })}
+              </div>
+            </div>
+            <AutoplayCarrousel />
+            <CounterUpStats counterHeight={counterHeight} />
+          </main>
+          <Footer />
         </div>
-      </header>
-      <main>
-        <div className="about-info">
-          <div className="about-title-description">
-            <h2>
-              About Us
-              <div className="border"></div>
-            </h2>
-            <p>
-              Lorem ipsum dolor sit, amet consectetur adipisicing elit. Pariatur
-              iste voluptas distinctio corporis rem vero, harum nulla,
-              doloremque, sed voluptatum ullam! Tempore ut quam expedita nam in
-              pariatur nemo aliquid doloremque unde molestiae nihil quasi ad
-              atque, saepe minus placeat perferendis quis sit nesciunt facilis!
-              Aliquid praesentium facere iure repellat. <br />
-              <br />
-              Pariatur nemo aliquid doloremque unde molestiae nihil quasi ad
-              atque, saepe minus placeat perferendis quis sit nesciunt facilis!
-              Aliquid praesentium facere iure repellat.
-            </p>
-          </div>
-          <img
-            className="about-team-img"
-            src={sneakersTeam}
-            alt="sneakers-team"
-          />
-        </div>
-        <div className="about-info-women">
-          <div className="about-info-bg"></div>
-          <section>
-            <div className="sneaker-women-img"></div>
-            <article>
-              <h2>Women</h2>
-              <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi
-                neque, soluta, veniam nihil aut, repellendus hic vitae quas
-                minus nesciunt inventore corrupti eaque. Eos, porro blanditiis
-                soluta quas reiciendis voluptatem hic possimus incidunt officiis
-                exercitationem. Accusamus.
-              </p>
-            </article>
-          </section>
-        </div>
-        <div className="about-info-men">
-          <div className="about-info-bg"></div>
-          <section>
-            <article>
-              <h2>Men</h2>
-              <p>
-                Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-                Corrupti tempore illo id nisi, voluptate culpa dolor, enim
-                minima sint quidem veritatis atque. Voluptatum nemo inventore
-                obcaecati Corrupti tempore illo id nisi quas cupiditate eaque
-                quisquam,enim minima sint quidem veritatis.
-              </p>
-            </article>
-            <div className="sneaker-men-img"></div>
-          </section>
-        </div>
-        <div className="about-info-team">
-          <article>
-            <h2>Meet Our Team</h2>
-            <p>
-              Lorem ipsum dolor sit, amet consectetur adipisicing elit. Unde
-              minima quas aspernatur incidunt corrupti delectus voluptates
-              molestiae vitae cumque? Cum, voluptates quae voluptas molestias
-              nam veniam iure tempore earum accusamus, esse molestiae aliquam
-              dolores. Facilis libero voluptatem quisquam nam explicabo, veniam
-              iure saepe nisi error aliquid commodi hic debitis quidem.
-            </p>
-          </article>
-          <div className="team-info">
-            {!users
-              ? "Cargando..."
-              : users.map((user, index) => {
-                  return (
-                    <div key={index} className={`team-member-${index + 1}`}>
-                      <img src={user.picture.large} alt="" />
-                      <h2>
-                        {user.name.first}&nbsp;{user.name.last}
-                      </h2>
-                      <p>{position[index]}</p>
-                      <p>
-                        <i className="far fa-envelope"></i>
-                        &nbsp;&nbsp;{user.email}
-                      </p>
-                      <p>
-                        <i className="fas fa-phone"></i>&nbsp;{user.phone}
-                      </p>
-                    </div>
-                  );
-                })}
-          </div>
-        </div>
-        <AutoplayCarrousel />
-        <CounterUpStats counterHeight={counterHeight} />
-      </main>
-      <Footer />
-    </div>
+      )}
+    </>
   );
 };
 
