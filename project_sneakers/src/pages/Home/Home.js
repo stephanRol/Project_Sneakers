@@ -1,9 +1,16 @@
 import React from "react";
 import Navbar from "../../components/Navbar/Navbar";
+import { motion } from "framer-motion";
 
 const Home = () => {
   return (
-    <div className="home">
+    <motion.div
+      className="home"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ y: "-100vh" }}
+      transition={{ duration: 0.4 }}
+    >
       <Navbar />
       <main className="main-home">
         <div className="main-title">
@@ -31,10 +38,8 @@ const Home = () => {
         <a className="icons" href="https://www.pinterest.com" target="_blank">
           <i className="fab fa-pinterest"></i>
         </a>
-
-        {/* <i class="fas fa-circle-notch fa-spin"></i> */}
       </div>
-    </div>
+    </motion.div>
   );
 };
 

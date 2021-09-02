@@ -220,6 +220,7 @@ body {
 body {
   margin: 0;
   padding: 0;
+  background-color: #131212;
 }
 
 .about {
@@ -1152,6 +1153,27 @@ footer .container-below a:hover {
   filter: brightness(500%);
   text-shadow: 0px 0px 30px #0ada9b;
   transition: 0.3s;
+}
+
+.loader {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
+  margin: 0;
+  line-height: 6rem;
+  background-color: #131212;
+}
+.loader h2 {
+  margin: 0;
+  color: #fff;
+  font-size: 3rem;
+}
+.loader i {
+  color: #fff;
+  font-size: 3rem;
 }
 
 *,

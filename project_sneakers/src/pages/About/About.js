@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from "react";
+import { Route, Redirect, useHistory, useLocation } from "react-router-dom";
 import Navbar from "../../components/Navbar/Navbar";
 import sneakersTeam from "../../assets/sneakers-team-small.webp";
 import AutoplayCarrousel from "../../components/AutoplayCarrousel/AutoplayCarrousel";
 import CounterUpStats from "../../components/CounterUpStats/CounterUpStats";
 import Footer from "../../components/Footer/Footer";
 import Loader from "../../components/Loader/Loader";
+import { motion } from "framer-motion";
 
 const About = () => {
   const position = [
@@ -15,6 +17,8 @@ const About = () => {
     "Human Resources",
     "Product Strategy",
   ];
+  const location = useLocation();
+  const history = useHistory();
 
   const [users, setUsers] = useState("");
   const [counterHeight, setCounterHeight] = useState(false);
@@ -89,7 +93,9 @@ const About = () => {
     }
   };
 
+  //FETCH API
   const randomUserApi = async () => {
+    //history.push({ pathname: "/about" });
     const response = await fetch(
       "https://randomuser.me/api/?results=6&&inc=name,email,phone,picture,nat&&nat=au,br,ca,ch,de,dk,es,fi,fr,gb,ie,no,nl,nz,tr,us"
     );
@@ -101,10 +107,11 @@ const About = () => {
   useEffect(() => {
     window.addEventListener("scroll", animations);
     randomUserApi();
-    window.addEventListener("DOMContentLoaded", () => setLoading(false));
+
     // setTimeout(() => {
-    //   setLoading(false);
-    // }, 5000);
+    //   //history.push({ pathname: "/about" });
+    // }, 2000);
+
     return () => {
       window.removeEventListener("scroll", animations);
     };
@@ -113,9 +120,22 @@ const About = () => {
   return (
     <>
       {loading ? (
-        <Loader />
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          transition={{ duration: 0.8 }}
+        >
+          <Loader />
+        </motion.div>
       ) : (
-        <div className="about">
+        <motion.div
+          className="about"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          transition={{ duration: 0.4 }}
+        >
           <header>
             <Navbar />
             <div className="about-header">
@@ -223,7 +243,7 @@ const About = () => {
             <CounterUpStats counterHeight={counterHeight} />
           </main>
           <Footer />
-        </div>
+        </motion.div>
       )}
     </>
   );
