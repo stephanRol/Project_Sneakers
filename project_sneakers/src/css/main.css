@@ -573,6 +573,43 @@ body {
     opacity: 1;
   }
 }
+.sneakers {
+  min-height: 100vh;
+  width: 100%;
+  background-image: linear-gradient(to left bottom, #210000, #310706, #440609, #57040a, #6a0108, #7b070d, #8d0f10, #9f1713, #b52520, #cb312e, #e13e3b, #f84a4a);
+  background-repeat: no-repeat;
+}
+.sneakers header {
+  height: 20vh;
+}
+.sneakers main {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  margin: 0;
+}
+.sneakers main aside {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: column;
+  width: 25%;
+}
+.sneakers main aside .filters {
+  width: 70%;
+  height: 70vh;
+  border-radius: 30px;
+  background-image: linear-gradient(to right top, #ffffff33, #cecece33, #a0a0a033, #73737333, #4a4a4a33);
+  border: 1px solid #ffffff33;
+  backdrop-filter: blur(3.5px);
+  -webkit-backdrop-filter: blur(3.5px);
+}
+.sneakers main section {
+  display: flex;
+  flex-wrap: wrap;
+  width: 75%;
+}
+
 .navbar {
   position: absolute;
   width: 100%;
@@ -1174,6 +1211,76 @@ footer .container-below a:hover {
 .loader i {
   color: #fff;
   font-size: 3rem;
+}
+
+.product-card {
+  margin: 0 2rem;
+  margin-bottom: 4rem;
+  width: 20vw;
+  height: 67vh;
+  border-radius: 30px;
+  border: 1px solid #ffffff33;
+  font-family: "Oswald";
+  color: #d6d6d6;
+  transition: 0.3s;
+  background-image: linear-gradient(to right top, #ffffff33, #cecece33, #a0a0a033, #73737333, #4a4a4a33);
+  backdrop-filter: blur(3.5px);
+  -webkit-backdrop-filter: blur(3.5px);
+}
+.product-card:hover {
+  box-shadow: 0px 0px 30px white;
+}
+.product-card:hover img {
+  transform: rotate3d(0, 1, 0, 180deg)rotate(25deg)scale(1.2);
+}
+.product-card .title {
+  margin: 0;
+  padding: 40px;
+  padding-bottom: 0px;
+  font-size: 30px;
+}
+.product-card .brand {
+  color: #af9090;
+  padding-left: 40px;
+}
+.product-card img {
+  position: relative;
+  top: -30px;
+  left: -35px;
+  width: 400px;
+  height: 400px;
+  transform: rotate3d(0, 1, 0, 180deg)rotate(25deg);
+  transition: 0.3s;
+}
+.product-card .price {
+  position: absolute;
+  bottom: 60px;
+  right: 40px;
+  margin: 0;
+  padding: 0;
+  font-size: 70px;
+}
+.product-card button {
+  position: absolute;
+  bottom: 60px;
+  left: 40px;
+  height: 2.2rem;
+  font-size: 1rem;
+  padding: 0.5rem;
+  margin-top: 0.5rem;
+  border-radius: 10px;
+  background-color: transparent;
+  font-family: "Oswald";
+  color: #d6d6d6;
+  border: 1px solid white;
+  cursor: pointer;
+  transition: 0.3s;
+  letter-spacing: 0.1rem;
+}
+.product-card button:hover {
+  background-color: #d6d6d6;
+  color: #9c1515;
+  letter-spacing: 0.4rem;
 }
 
 *,

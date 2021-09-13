@@ -3,12 +3,14 @@
 @use './sass/colors';
 @use './pages/Home/home';
 @use './pages/About/about';
+@use './pages/Sneakers/sneakers';
 @use './components/Navbar/navbar';
 @use './components/Hamburger/hamburger';
 @use './components/AutoplayCarrousel/autoplayCarrousel';
 @use './components/CounterUpStats/counterUpStats';
 @use './components/Footer/footer';
 @use './components/Loader/loader';
+@use './components/ProductCard/productCard';
 
 *,
 *::after,

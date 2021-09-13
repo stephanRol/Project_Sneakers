@@ -19,7 +19,8 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "sass": "sass --watch src/main.scss:src/css/main.css"
+    "sass": "sass --watch src/main.scss:src/css/main.css",
+    "json-server": "json-server --watch sneakers.json --port 3004"
   },
   "eslintConfig": {
     "extends": [
