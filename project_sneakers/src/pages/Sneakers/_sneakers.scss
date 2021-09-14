@@ -1,4 +1,3 @@
-
 .sneakers{
     min-height: 100vh;
     width: 100%;
@@ -19,16 +18,6 @@
             align-items: center;
             flex-direction: column;
             width: 25%;
-            .filters{
-                width: 70%;
-                height: 70vh;
-                border-radius: 30px;
-                background-image: linear-gradient(to right top, #ffffff33, #cecece33, #a0a0a033, #73737333, #4a4a4a33);
-                border: 1px solid #ffffff33;
-
-                backdrop-filter: blur( 3.5px );
-                -webkit-backdrop-filter: blur( 3.5px );
-            }
         }
         section{
             display: flex;

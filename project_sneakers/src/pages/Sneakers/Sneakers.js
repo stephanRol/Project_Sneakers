@@ -1,4 +1,5 @@
 import React from "react";
+import Filters from "../../components/Filters/Filters";
 import Footer from "../../components/Footer/Footer";
 import Loader from "../../components/Loader/Loader";
 import Navbar from "../../components/Navbar/Navbar";
@@ -23,7 +24,7 @@ const Sneakers = () => {
           </header>
           <main>
             <aside>
-              <div className="filters"></div>
+              <Filters />
             </aside>
             <section>
               {data.results.map((el, index) =>
