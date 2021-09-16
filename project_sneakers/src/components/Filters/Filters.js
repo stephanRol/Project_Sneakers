@@ -16,7 +16,8 @@ const Filters = ({ setFilters }) => {
     if (e.target.checked === true) {
       setForm({
         ...form,
-        [e.target.name]: e.target.checked,
+        // [e.target.name]: e.target.checked,
+        [e.target.name]: e.target.dataset.sort,
       });
     } else {
       delete form[e.target.name];
@@ -43,6 +44,7 @@ const Filters = ({ setFilters }) => {
               <div key={index}>
                 <input
                   type="checkbox"
+                  data-sort="brand"
                   id={el}
                   name={el}
                   onChange={handleChecked}
@@ -58,6 +60,7 @@ const Filters = ({ setFilters }) => {
               <div key={index}>
                 <input
                   type="checkbox"
+                  data-sort="gender"
                   id={el}
                   name={el}
                   onChange={handleChecked}

@@ -13,23 +13,61 @@ const Sneakers = () => {
   let { data } = useFetch(url);
 
   const setFilters = (e) => {
+    let brand = false;
+    let gender = false;
     let filtrado;
     let resultado = "";
-    console.log(Object.keys(e));
-    Object.keys(e).forEach((brand) => {
-      filtrado = data.results.filter(
-        (el) => el.brand.toLowerCase() === brand.toLowerCase()
-      );
-      resultado = [...resultado, ...filtrado];
+    let resultado2 = "";
+
+    console.log(e);
+    console.log(Object.entries(e));
+
+    Object.entries(e).forEach((element) => {
+      if (element[1] === "brand") {
+        brand = true;
+      } else if (element[1] === "gender") {
+        gender = true;
+      }
     });
 
-    console.log(resultado);
-    console.log("-----------------------------FIN---------------------------");
+    console.log(brand);
+    console.log(gender);
 
-    //const brands = Object.entries(e);
-    // console.log(brands);
-    // const filtrado = brands.filter((el) => el[1] === true);
-    // console.log(filtrado);
+    if (brand === true && gender === false) {
+      Object.entries(e).forEach((element) => {
+        filtrado = data.results.filter(
+          (el) => el.brand.toLowerCase() === element[0].toLowerCase()
+        );
+        resultado = [...resultado, ...filtrado];
+      });
+      resultado2 = resultado;
+    } else if (brand === false && gender === true) {
+      Object.entries(e).forEach((element) => {
+        filtrado = data.results.filter(
+          (el) => el.gender.toLowerCase() === element[0].toLowerCase()
+        );
+        resultado = [...resultado, ...filtrado];
+      });
+      resultado2 = resultado;
+    } else if (brand === true && gender === true) {
+      Object.entries(e).forEach((element) => {
+        filtrado = data.results.filter(
+          (el) => el.brand.toLowerCase() === element[0].toLowerCase()
+        );
+        resultado = [...resultado, ...filtrado];
+      });
+
+      Object.entries(e).forEach((element) => {
+        filtrado = resultado.filter(
+          (el) => el.gender.toLowerCase() === element[0].toLowerCase()
+        );
+        resultado2 = [...resultado2, ...filtrado];
+      });
+    }
+
+    // console.log(resultado);
+    console.log(resultado2);
+    console.log("-----------------------------FIN---------------------------");
   };
 
   return (
