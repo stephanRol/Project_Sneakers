@@ -1,10 +1,28 @@
+@use '../../sass/fonts';
+
 .filters{
-    width: 70%;
+    width: 17.5vw;
     height: 70vh;
     border-radius: 30px;
     background-image: linear-gradient(to right top, #ffffff33, #cecece33, #a0a0a033, #73737333, #4a4a4a33);
     border: 1px solid #ffffff33;
-
+    //Glasmorphism
     backdrop-filter: blur( 3.5px );
     -webkit-backdrop-filter: blur( 3.5px );
+
+    input {
+        outline: none;
+    }
+    input[type=search]{
+        width: 60%;
+        padding: 0.5rem 1rem;
+        border: 1px solid #808080;
+        border-radius: 30px;
+        font-family: fonts.$font-secondary;
+        transition: all .5s;
+    }
+    input[type=search]:focus {
+        border-color: #ffffff;
+        box-shadow: 0 0 10px #c5c5c5;
+    }
 }

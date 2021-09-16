@@ -63,6 +63,7 @@ const Footer = () => {
                   className="icons"
                   href="https://www.facebook.com"
                   target="_blank"
+                  rel="noreferrer"
                 >
                   <i className="fab fa-facebook"></i>
                 </a>
@@ -70,6 +71,7 @@ const Footer = () => {
                   className="icons"
                   href="https://www.instagram.com"
                   target="_blank"
+                  rel="noreferrer"
                 >
                   <i className="fab fa-instagram"></i>
                 </a>
@@ -77,6 +79,7 @@ const Footer = () => {
                   className="icons"
                   href="https://www.twitter.com"
                   target="_blank"
+                  rel="noreferrer"
                 >
                   <i className="fab fa-twitter"></i>
                 </a>
@@ -84,6 +87,7 @@ const Footer = () => {
                   className="icons"
                   href="https://www.pinterest.com"
                   target="_blank"
+                  rel="noreferrer"
                 >
                   <i className="fab fa-pinterest"></i>
                 </a>
@@ -95,7 +99,7 @@ const Footer = () => {
         <div className="container-below">
           <p>
             Copyright &copy; 2021 Sneakers GmbH Created by{" "}
-            <a href="#">StepDevs</a>{" "}
+            <a href="#html">StepDevs</a>{" "}
           </p>
         </div>
       </footer>

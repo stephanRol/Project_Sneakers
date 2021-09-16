@@ -1214,7 +1214,6 @@ footer .container-below a:hover {
   font-family: "Oswald";
   color: #d6d6d6;
   transition: 0.3s;
-  overflow: hidden;
   background-image: linear-gradient(to right top, #ffffff33, #cecece33, #a0a0a033, #73737333, #4a4a4a33);
   backdrop-filter: blur(3.5px);
   -webkit-backdrop-filter: blur(3.5px);
@@ -1276,13 +1275,28 @@ footer .container-below a:hover {
 }
 
 .filters {
-  width: 70%;
+  width: 17.5vw;
   height: 70vh;
   border-radius: 30px;
   background-image: linear-gradient(to right top, #ffffff33, #cecece33, #a0a0a033, #73737333, #4a4a4a33);
   border: 1px solid #ffffff33;
   backdrop-filter: blur(3.5px);
   -webkit-backdrop-filter: blur(3.5px);
+}
+.filters input {
+  outline: none;
+}
+.filters input[type=search] {
+  width: 60%;
+  padding: 0.5rem 1rem;
+  border: 1px solid #808080;
+  border-radius: 30px;
+  font-family: "Oswald";
+  transition: all 0.5s;
+}
+.filters input[type=search]:focus {
+  border-color: #ffffff;
+  box-shadow: 0 0 10px #c5c5c5;
 }
 
 *,

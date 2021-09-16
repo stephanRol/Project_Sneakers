@@ -1,9 +1,6 @@
 import React from "react";
 
 const ProductCard = ({ brand, name, gender, price, image }) => {
-  console.log(name);
-  console.log(gender);
-  console.log(image);
   return (
     <>
       <div className="product-card">

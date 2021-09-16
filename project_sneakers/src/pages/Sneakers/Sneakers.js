@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Filters from "../../components/Filters/Filters";
 import Footer from "../../components/Footer/Footer";
 import Loader from "../../components/Loader/Loader";
@@ -7,11 +7,30 @@ import ProductCard from "../../components/ProductCard/ProductCard";
 import { useFetch } from "../../hooks/useFetch";
 
 const Sneakers = () => {
-  let url = "http://localhost:3004/db";
-
+  const [url, setUrl] = useState("http://localhost:3004/db");
   // let url = "https://the-sneaker-database.p.rapidapi.com/sneakers?limit=100";
 
-  let { data, isPending, error } = useFetch(url);
+  let { data } = useFetch(url);
+
+  const setFilters = (e) => {
+    let filtrado;
+    let resultado = "";
+    console.log(Object.keys(e));
+    Object.keys(e).forEach((brand) => {
+      filtrado = data.results.filter(
+        (el) => el.brand.toLowerCase() === brand.toLowerCase()
+      );
+      resultado = [...resultado, ...filtrado];
+    });
+
+    console.log(resultado);
+    console.log("-----------------------------FIN---------------------------");
+
+    //const brands = Object.entries(e);
+    // console.log(brands);
+    // const filtrado = brands.filter((el) => el[1] === true);
+    // console.log(filtrado);
+  };
 
   return (
     <>
@@ -24,7 +43,7 @@ const Sneakers = () => {
           </header>
           <main>
             <aside>
-              <Filters />
+              <Filters setFilters={setFilters} />
             </aside>
             <section>
               {data.results.map((el, index) =>

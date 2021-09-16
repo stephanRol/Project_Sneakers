@@ -26,16 +26,36 @@ const Home = () => {
         </div>
       </main>
       <div className="social-media-icons">
-        <a className="icons" href="https://www.facebook.com" target="_blank">
+        <a
+          className="icons"
+          href="https://www.facebook.com"
+          target="_blank"
+          rel="noreferrer"
+        >
           <i className="fab fa-facebook"></i>
         </a>
-        <a className="icons" href="https://www.instagram.com" target="_blank">
+        <a
+          className="icons"
+          href="https://www.instagram.com"
+          target="_blank"
+          rel="noreferrer"
+        >
           <i className="fab fa-instagram"></i>
         </a>
-        <a className="icons" href="https://www.twitter.com" target="_blank">
+        <a
+          className="icons"
+          href="https://www.twitter.com"
+          target="_blank"
+          rel="noreferrer"
+        >
           <i className="fab fa-twitter"></i>
         </a>
-        <a className="icons" href="https://www.pinterest.com" target="_blank">
+        <a
+          className="icons"
+          href="https://www.pinterest.com"
+          target="_blank"
+          rel="noreferrer"
+        >
           <i className="fab fa-pinterest"></i>
         </a>
       </div>

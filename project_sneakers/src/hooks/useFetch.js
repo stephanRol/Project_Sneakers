@@ -35,7 +35,6 @@ export const useFetch = (url) => {
 
     const getData = async (url) => {
       try {
-        //fetch(url)
         // fetch(url, {
         //   method: "GET",
         //   headers: {

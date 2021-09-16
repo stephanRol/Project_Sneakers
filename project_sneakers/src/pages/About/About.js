@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import { Route, Redirect, useHistory, useLocation } from "react-router-dom";
 import Navbar from "../../components/Navbar/Navbar";
 import sneakersTeam from "../../assets/sneakers-team-small.webp";
 import AutoplayCarrousel from "../../components/AutoplayCarrousel/AutoplayCarrousel";
@@ -17,8 +16,6 @@ const About = () => {
     "Human Resources",
     "Product Strategy",
   ];
-  const location = useLocation();
-  const history = useHistory();
 
   const [users, setUsers] = useState("");
   const [counterHeight, setCounterHeight] = useState(false);
