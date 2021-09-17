@@ -9,8 +9,11 @@ import { useFetch } from "../../hooks/useFetch";
 const Sneakers = () => {
   const [url, setUrl] = useState("http://localhost:3004/db");
   // let url = "https://the-sneaker-database.p.rapidapi.com/sneakers?limit=100";
+  const [valoresFiltrados, setValoresFiltrados] = useState("");
 
   let { data } = useFetch(url);
+
+  let resultadoFinal = "";
 
   const setFilters = (e) => {
     let brand = false;
@@ -40,7 +43,7 @@ const Sneakers = () => {
         );
         resultado = [...resultado, ...filtrado];
       });
-      resultado2 = resultado;
+      resultadoFinal = resultado;
     } else if (brand === false && gender === true) {
       Object.entries(e).forEach((element) => {
         filtrado = data.results.filter(
@@ -48,7 +51,7 @@ const Sneakers = () => {
         );
         resultado = [...resultado, ...filtrado];
       });
-      resultado2 = resultado;
+      resultadoFinal = resultado;
     } else if (brand === true && gender === true) {
       Object.entries(e).forEach((element) => {
         filtrado = data.results.filter(
@@ -63,11 +66,13 @@ const Sneakers = () => {
         );
         resultado2 = [...resultado2, ...filtrado];
       });
+      resultadoFinal = resultado2;
     }
 
-    // console.log(resultado);
-    console.log(resultado2);
+    console.log(resultadoFinal);
+    console.log(valoresFiltrados);
     console.log("-----------------------------FIN---------------------------");
+    setValoresFiltrados(resultadoFinal);
   };
 
   return (
@@ -84,20 +89,21 @@ const Sneakers = () => {
               <Filters setFilters={setFilters} />
             </aside>
             <section>
-              {data.results.map((el, index) =>
-                el.image.original === "" ||
-                el.image.original.slice(-4) !== ".png" ? (
-                  ""
-                ) : (
-                  <ProductCard
-                    key={index}
-                    brand={el.brand}
-                    name={el.name}
-                    gender={el.gender}
-                    price={el.retailPrice}
-                    image={el.image.small}
-                  />
-                )
+              {(valoresFiltrados === "" ? data.results : valoresFiltrados).map(
+                (el, index) =>
+                  el.image.original === "" ||
+                  el.image.original.slice(-4) !== ".png" ? (
+                    ""
+                  ) : (
+                    <ProductCard
+                      key={index}
+                      brand={el.brand}
+                      name={el.name}
+                      gender={el.gender}
+                      price={el.retailPrice}
+                      image={el.image.small}
+                    />
+                  )
               )}
             </section>
           </main>

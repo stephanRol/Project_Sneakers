@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 const Filters = ({ setFilters }) => {
   const [form, setForm] = useState("");
@@ -25,7 +25,9 @@ const Filters = ({ setFilters }) => {
     }
   };
 
-  setFilters(form);
+  useEffect(() => {
+    setFilters(form);
+  }, [form]);
 
   return (
     <>
@@ -38,7 +40,7 @@ const Filters = ({ setFilters }) => {
             onChange={handleChange}
           />
           <br />
-          <br />
+          <h3>Brand</h3>
           {brand.map((el, index) => {
             return (
               <div key={index}>
@@ -54,7 +56,7 @@ const Filters = ({ setFilters }) => {
             );
           })}
           <br />
-          <br />
+          <h3>Gender</h3>
           {gender.map((el, index) => {
             return (
               <div key={index}>
