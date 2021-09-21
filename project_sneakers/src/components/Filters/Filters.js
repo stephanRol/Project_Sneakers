@@ -2,8 +2,30 @@ import React, { useState, useEffect } from "react";
 
 const Filters = ({ setFilters }) => {
   const [form, setForm] = useState("");
-  const brand = ["Nike", "Adidas", "Air Jordan", "Jordan", "Reebok"];
-  const gender = ["Men", "Women", "Youth", "Infant"];
+  const brand = [
+    "Nike",
+    "Adidas",
+    "Air Jordan",
+    "Jordan",
+    "Reebok",
+    "Vans",
+    "Puma",
+    "Converse",
+    "New Balance",
+    "Saucony",
+    "Asics",
+    "Under Armour",
+  ];
+  const gender = [
+    "Men",
+    "Women",
+    "Child",
+    "Preschool",
+    "Toddler",
+    "Unisex",
+    "Youth",
+    "Infant",
+  ];
 
   const handleChange = (e) => {
     setForm({
@@ -35,7 +57,7 @@ const Filters = ({ setFilters }) => {
         <form>
           <input
             type="search"
-            placeholder="Search"
+            placeholder="Search by name"
             name="search"
             onChange={handleChange}
           />

@@ -72,5 +72,6 @@ export const useFetch = (url) => {
     getData(url);
   }, [url]);
 
+  console.log("Me ejecuto beta veces...");
   return { data, isPending, error };
 };

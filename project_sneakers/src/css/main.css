@@ -580,7 +580,13 @@ body {
   background-repeat: no-repeat;
 }
 .sneakers header {
-  height: 20vh;
+  height: 15vh;
+}
+.sneakers .sort {
+  display: flex;
+  justify-content: right;
+  margin-bottom: 2.5rem;
+  margin-right: 5vw;
 }
 .sneakers main {
   display: flex;
@@ -1277,9 +1283,14 @@ footer .container-below a:hover {
 .filters {
   width: 17.5vw;
   height: 70vh;
+  padding: 2.5rem;
   border-radius: 30px;
   background-image: linear-gradient(to right top, #ffffff33, #cecece33, #a0a0a033, #73737333, #4a4a4a33);
   border: 1px solid #ffffff33;
+  font-family: "Oswald";
+  font-weight: 300;
+  letter-spacing: 0.08rem;
+  line-height: 1.2rem;
   backdrop-filter: blur(3.5px);
   -webkit-backdrop-filter: blur(3.5px);
 }
@@ -1287,14 +1298,49 @@ footer .container-below a:hover {
   outline: none;
 }
 .filters input[type=search] {
-  width: 60%;
+  width: 90%;
   padding: 0.5rem 1rem;
   border: 1px solid #808080;
   border-radius: 30px;
   font-family: "Oswald";
   transition: all 0.5s;
+  background: url("https://upload.wikimedia.org/wikipedia/commons/e/e9/Vector_search_icon.png") no-repeat scroll 14px 12px;
+  background-color: #d6d6d6;
+  padding-left: 35px;
 }
 .filters input[type=search]:focus {
+  border-color: #ffffff;
+  box-shadow: 0 0 10px #c5c5c5;
+}
+.filters label {
+  margin-left: 0.5rem;
+  color: #d6d6d6;
+}
+.filters h3 {
+  color: #d6d6d6;
+}
+.filters input[type=checkbox] {
+  margin-left: 0.1rem;
+  background-color: #d6d6d6;
+}
+
+select {
+  outline: none;
+}
+
+select {
+  width: 170px;
+  padding: 0.2rem 1rem;
+  border: 1px solid #808080;
+  border-radius: 30px;
+  font-family: "Oswald";
+  transition: all 0.5s;
+  background-color: #d6d6d6;
+  padding-left: 15px;
+  color: #494949;
+}
+
+select:focus {
   border-color: #ffffff;
   box-shadow: 0 0 10px #c5c5c5;
 }

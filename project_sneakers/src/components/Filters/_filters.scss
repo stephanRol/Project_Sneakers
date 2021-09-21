@@ -1,11 +1,18 @@
 @use '../../sass/fonts';
+@use '../../sass/colors';
 
 .filters{
     width: 17.5vw;
     height: 70vh;
+    padding: 2.5rem;
     border-radius: 30px;
     background-image: linear-gradient(to right top, #ffffff33, #cecece33, #a0a0a033, #73737333, #4a4a4a33);
     border: 1px solid #ffffff33;
+    font-family: fonts.$font-secondary;
+    font-weight: 300;
+    letter-spacing: 0.08rem;
+    line-height: 1.2rem;
+
     //Glasmorphism
     backdrop-filter: blur( 3.5px );
     -webkit-backdrop-filter: blur( 3.5px );
@@ -14,15 +21,29 @@
         outline: none;
     }
     input[type=search]{
-        width: 60%;
+        width: 90%;
         padding: 0.5rem 1rem;
         border: 1px solid #808080;
         border-radius: 30px;
         font-family: fonts.$font-secondary;
         transition: all .5s;
+        background: url("https://upload.wikimedia.org/wikipedia/commons/e/e9/Vector_search_icon.png") no-repeat scroll 14px 12px;
+        background-color: colors.$font-color-secondary;
+        padding-left: 35px;
     }
     input[type=search]:focus {
         border-color: #ffffff;
         box-shadow: 0 0 10px #c5c5c5;
+    }
+    label{
+        margin-left: 0.5rem;
+        color: colors.$font-color-secondary;
+    }
+    h3{
+        color: colors.$font-color-secondary;
+    }
+    input[type=checkbox]{
+        margin-left: 0.1rem;
+        background-color: colors.$font-color-secondary;
     }
 }

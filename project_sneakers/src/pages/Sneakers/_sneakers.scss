@@ -5,7 +5,13 @@
     background-repeat: no-repeat;
 
     header{
-        height: 20vh;
+        height: 15vh;
+    }
+    .sort{
+        display: flex;
+        justify-content: right;
+        margin-bottom: 2.5rem;
+        margin-right: 5vw;
     }
     main{
         display: flex;
