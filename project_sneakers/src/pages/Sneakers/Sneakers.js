@@ -15,7 +15,9 @@ const Sneakers = () => {
   const [url, setUrl] = useState("http://localhost:3004/db");
   // let url = "https://the-sneaker-database.p.rapidapi.com/sneakers?limit=100";
   const [filteredValues, setFilteredValues] = useState("");
-  let finalResult = "";
+
+  console.log("Valores Filtrados desde Sneakers:");
+  console.log(filteredValues);
 
   //let { data } = useFetch(url);
 
@@ -55,81 +57,8 @@ const Sneakers = () => {
         setError(err);
       }
     };
-
     getData(url);
-    console.log("me ejecuto una vez");
   }, []);
-
-  const setFilters = (e) => {
-    let brand = false;
-    let gender = false;
-    let search = false;
-    let filtered;
-    let result = "";
-    let result2 = "";
-
-    console.log(e);
-    console.log(Object.entries(e));
-
-    Object.entries(e).forEach((element) => {
-      if (element[1] === "brand") {
-        brand = true;
-      } else if (element[1] === "gender") {
-        gender = true;
-      } else if (element[0] === "search") {
-        search = true;
-      }
-    });
-
-    console.log(brand);
-    console.log(gender);
-
-    if (brand === true && gender === false) {
-      Object.entries(e).forEach((element) => {
-        filtered = data.results.filter(
-          (el) => el.brand.toLowerCase() === element[0].toLowerCase()
-        );
-        result = [...result, ...filtered];
-      });
-      finalResult = result;
-    } else if (brand === false && gender === true) {
-      Object.entries(e).forEach((element) => {
-        filtered = data.results.filter(
-          (el) => el.gender.toLowerCase() === element[0].toLowerCase()
-        );
-        result = [...result, ...filtered];
-      });
-      finalResult = result;
-    } else if (brand === true && gender === true) {
-      Object.entries(e).forEach((element) => {
-        filtered = data.results.filter(
-          (el) => el.brand.toLowerCase() === element[0].toLowerCase()
-        );
-        result = [...result, ...filtered];
-      });
-
-      Object.entries(e).forEach((element) => {
-        filtered = result.filter(
-          (el) => el.gender.toLowerCase() === element[0].toLowerCase()
-        );
-        result2 = [...result2, ...filtered];
-      });
-      finalResult = result2;
-    } else if (search === true) {
-      Object.entries(e).forEach((element) => {
-        filtered = data.results.filter((el) =>
-          el.name.toLowerCase().includes(element[1].toLowerCase())
-        );
-        result = [...result, ...filtered];
-      });
-      finalResult = result;
-    }
-
-    console.log(finalResult);
-    setFilteredValues(finalResult);
-    console.log(filteredValues);
-    console.log("-----------------------------FIN---------------------------");
-  };
 
   return (
     <>
@@ -141,11 +70,18 @@ const Sneakers = () => {
             <Navbar />
           </header>
           <div className="sort">
-            <SortList />
+            <SortList
+              filteredValues={filteredValues}
+              setFilteredValues={setFilteredValues}
+            />
           </div>
           <main>
             <aside>
-              <Filters setFilters={setFilters} />
+              <Filters
+                data={data}
+                filteredValues={filteredValues}
+                setFilteredValues={setFilteredValues}
+              />
             </aside>
             <section>
               {(filteredValues === "" ? data.results : filteredValues).map(
