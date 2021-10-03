@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
 
-const Filters = ({ data, setFilteredValues }) => {
+const Filters = ({ data, filteredValues, setFilteredValues }) => {
   const [form, setForm] = useState("");
+
   const brand = [
     "Nike",
     "Adidas",
@@ -28,10 +29,16 @@ const Filters = ({ data, setFilteredValues }) => {
   ];
 
   const handleChange = (e) => {
-    setForm({
-      ...form,
-      [e.target.name]: e.target.value,
-    });
+    console.log(e.target.value);
+    if (e.target.value !== "") {
+      setForm({
+        ...form,
+        [e.target.name]: e.target.value,
+      });
+    } else {
+      delete form[e.target.name];
+      setForm({ ...form });
+    }
   };
 
   const handleChecked = (e) => {
@@ -49,68 +56,72 @@ const Filters = ({ data, setFilteredValues }) => {
 
   //-----------------------------------------------
   const setFilters = (e) => {
-    let finalResult;
+    let box = data.results;
+    let extern = data.results;
     let brand = false;
     let gender = false;
     let search = false;
-    let filtered;
-    let result = "";
-    let result2 = "";
+    let results = [];
+    let filtered = [];
+    let counter = 0;
 
     Object.entries(e).forEach((element) => {
       if (element[1] === "brand") {
         brand = true;
-      } else if (element[1] === "gender") {
+        counter = counter + 1;
+      }
+      if (element[1] === "gender") {
         gender = true;
-      } else if (element[0] === "search") {
+        counter = counter + 1;
+      }
+      if (element[0] === "search") {
         search = true;
+        counter = counter + 1;
       }
     });
 
-    if (brand === true && gender === false) {
-      Object.entries(e).forEach((element) => {
-        filtered = data.results.filter(
-          (el) => el.brand.toLowerCase() === element[0].toLowerCase()
-        );
-        result = [...result, ...filtered];
-      });
-      finalResult = result;
-    } else if (brand === false && gender === true) {
-      Object.entries(e).forEach((element) => {
-        filtered = data.results.filter(
-          (el) => el.gender.toLowerCase() === element[0].toLowerCase()
-        );
-        result = [...result, ...filtered];
-      });
-      finalResult = result;
-    } else if (brand === true && gender === true) {
-      Object.entries(e).forEach((element) => {
-        filtered = data.results.filter(
-          (el) => el.brand.toLowerCase() === element[0].toLowerCase()
-        );
-        result = [...result, ...filtered];
-      });
+    if (brand) {
+      results = "";
+      if (counter > 1) box = [...extern];
 
       Object.entries(e).forEach((element) => {
-        filtered = result.filter(
-          (el) => el.gender.toLowerCase() === element[0].toLowerCase()
+        filtered = box.filter(
+          (el) => el.brand.toLowerCase() === element[0].toLowerCase()
         );
-        result2 = [...result2, ...filtered];
+        results = [...results, ...filtered];
       });
-      finalResult = result2;
-    } else if (search === true) {
-      Object.entries(e).forEach((element) => {
-        filtered = data.results.filter((el) =>
-          el.name.toLowerCase().includes(element[1].toLowerCase())
-        );
-        result = [...result, ...filtered];
-      });
-      finalResult = result;
-    } else if (brand === false && gender === false) {
-      setFilteredValues("");
+      extern = results;
+      setFilteredValues(results);
     }
 
-    if (finalResult !== undefined) setFilteredValues(finalResult);
+    if (gender) {
+      results = "";
+      if (counter > 1) box = [...extern];
+
+      Object.entries(e).forEach((element) => {
+        filtered = box.filter(
+          (el) => el.gender.toLowerCase() === element[0].toLowerCase()
+        );
+        results = [...results, ...filtered];
+      });
+      extern = results;
+      setFilteredValues(results);
+    }
+
+    if (search) {
+      results = "";
+      if (counter > 1) box = [...extern];
+
+      filtered = box.filter((el) =>
+        el.name.toLowerCase().includes(e.search.toLowerCase())
+      );
+      results = [...filtered];
+      setFilteredValues(results);
+    }
+
+    if (brand === false && gender === false && search === false) {
+      setFilteredValues([...data.results]);
+    }
   };
 
   //-----------------------------------------------
@@ -120,6 +131,8 @@ const Filters = ({ data, setFilteredValues }) => {
       setFilters(form);
     }
   }, [form]);
+
+  //-----------------------------------------------
 
   return (
     <>

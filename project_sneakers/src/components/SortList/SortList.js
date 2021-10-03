@@ -15,6 +15,7 @@ const SortList = ({ filteredValues, setFilteredValues }) => {
         return a.retailPrice - b.retailPrice;
       });
     }
+
     setFilteredValues([...items]);
   };
 

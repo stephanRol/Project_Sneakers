@@ -57,8 +57,15 @@ const Sneakers = () => {
         setError(err);
       }
     };
+
     getData(url);
   }, []);
+
+  useEffect(() => {
+    if (data !== null) {
+      setFilteredValues([...data.results]);
+    }
+  }, [data]);
 
   return (
     <>
