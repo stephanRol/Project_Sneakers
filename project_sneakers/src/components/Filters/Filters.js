@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react";
 
 const Filters = ({ data, filteredValues, setFilteredValues }) => {
   const [form, setForm] = useState("");
+  const [selected, setSelected] = useState("");
+  const [sortActive, setSortActive] = useState(false);
 
   const brand = [
     "Nike",
@@ -55,88 +57,134 @@ const Filters = ({ data, filteredValues, setFilteredValues }) => {
   };
 
   //-----------------------------------------------
+  //FILTERS
+  //-----------------------------------------------
   const setFilters = (e) => {
     let box = data.results;
-    let extern = data.results;
     let brand = false;
     let gender = false;
     let search = false;
     let results = [];
     let filtered = [];
-    let counter = 0;
 
     Object.entries(e).forEach((element) => {
-      if (element[1] === "brand") {
-        brand = true;
-        counter = counter + 1;
-      }
-      if (element[1] === "gender") {
-        gender = true;
-        counter = counter + 1;
-      }
-      if (element[0] === "search") {
-        search = true;
-        counter = counter + 1;
-      }
+      if (element[1] === "brand") brand = true;
+      if (element[1] === "gender") gender = true;
+      if (element[0] === "search") search = true;
     });
 
     if (brand) {
       results = "";
-      if (counter > 1) box = [...extern];
-
       Object.entries(e).forEach((element) => {
         filtered = box.filter(
           (el) => el.brand.toLowerCase() === element[0].toLowerCase()
         );
         results = [...results, ...filtered];
       });
-      extern = results;
-      setFilteredValues(results);
+      box = results;
     }
-
     if (gender) {
       results = "";
-      if (counter > 1) box = [...extern];
-
       Object.entries(e).forEach((element) => {
         filtered = box.filter(
           (el) => el.gender.toLowerCase() === element[0].toLowerCase()
         );
         results = [...results, ...filtered];
       });
-      extern = results;
-      setFilteredValues(results);
+      box = results;
     }
-
     if (search) {
       results = "";
-      if (counter > 1) box = [...extern];
-
       filtered = box.filter((el) =>
         el.name.toLowerCase().includes(e.search.toLowerCase())
       );
       results = [...filtered];
-      setFilteredValues(results);
     }
 
+    setFilteredValues(results);
+
     if (brand === false && gender === false && search === false) {
+      results = data.results;
       setFilteredValues([...data.results]);
+    }
+
+    if (sortActive) {
+      setSortList(selected, results);
     }
   };
 
   //-----------------------------------------------
+  // SORT LIST
+  //-----------------------------------------------
+  const setSortList = (e, results) => {
+    let items;
 
+    if (results !== undefined) {
+      items = results;
+    } else {
+      items = [...filteredValues];
+    }
+
+    if (e === "high") {
+      items.sort((a, b) => {
+        return b.retailPrice - a.retailPrice;
+      });
+    } else if (e === "low") {
+      items.sort((a, b) => {
+        return a.retailPrice - b.retailPrice;
+      });
+    } else if (e === "newest") {
+      items.sort((a, b) => {
+        let dateA = new Date(a.releaseDate);
+        let dateB = new Date(b.releaseDate);
+        return dateB - dateA;
+      });
+    } else if (e === "oldest") {
+      items.sort((a, b) => {
+        let dateA = new Date(a.releaseDate);
+        let dateB = new Date(b.releaseDate);
+        return dateA - dateB;
+      });
+    }
+    setFilteredValues([...items]);
+  };
+
+  //-----------------------------------------------
   useEffect(() => {
     if (form !== "") {
       setFilters(form);
     }
   }, [form]);
 
+  useEffect(() => {
+    if (selected !== "") {
+      setSortList(selected);
+      setSortActive(true);
+    }
+  }, [selected]);
   //-----------------------------------------------
 
   return (
     <>
       <div className="filters">
+        <div className="sortList">
+          <select
+            name="sortList"
+            defaultValue="sort by"
+            onChange={(e) => {
+              setSelected(e.target.value);
+            }}
+          >
+            <option value="sort by" hidden>
+              Sort by
+            </option>
+            <option value="high">Price: High-Low</option>
+            <option value="low">Price: Low-High</option>
+            <option value="newest">Date: Newest</option>
+            <option value="oldest">Date: Oldest</option>
+          </select>
+        </div>
+        <br />
         <form>
           <input
             type="search"

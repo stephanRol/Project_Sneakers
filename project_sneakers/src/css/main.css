@@ -1323,12 +1323,10 @@ footer .container-below a:hover {
   margin-left: 0.1rem;
   background-color: #d6d6d6;
 }
-
-select {
+.filters select {
   outline: none;
 }
-
-select {
+.filters select {
   width: 170px;
   padding: 0.2rem 1rem;
   border: 1px solid #808080;
@@ -1339,8 +1337,7 @@ select {
   padding-left: 15px;
   color: #494949;
 }
-
-select:focus {
+.filters select:focus {
   border-color: #ffffff;
   box-shadow: 0 0 10px #c5c5c5;
 }

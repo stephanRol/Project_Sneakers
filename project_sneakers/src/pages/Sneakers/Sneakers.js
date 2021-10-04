@@ -4,7 +4,6 @@ import Footer from "../../components/Footer/Footer";
 import Loader from "../../components/Loader/Loader";
 import Navbar from "../../components/Navbar/Navbar";
 import ProductCard from "../../components/ProductCard/ProductCard";
-import SortList from "../../components/SortList/SortList";
 //import { useFetch } from "../../hooks/useFetch";
 
 const Sneakers = () => {
@@ -15,9 +14,6 @@ const Sneakers = () => {
   const [url, setUrl] = useState("http://localhost:3004/db");
   // let url = "https://the-sneaker-database.p.rapidapi.com/sneakers?limit=100";
   const [filteredValues, setFilteredValues] = useState("");
-
-  console.log("Valores Filtrados desde Sneakers:");
-  console.log(filteredValues);
 
   //let { data } = useFetch(url);
 
@@ -76,12 +72,6 @@ const Sneakers = () => {
           <header>
             <Navbar />
           </header>
-          <div className="sort">
-            <SortList
-              filteredValues={filteredValues}
-              setFilteredValues={setFilteredValues}
-            />
-          </div>
           <main>
             <aside>
               <Filters
@@ -91,6 +81,11 @@ const Sneakers = () => {
               />
             </aside>
             <section>
+              {filteredValues.length === 0 ? (
+                <p>Sorry, we couldn't find any results</p>
+              ) : (
+                ""
+              )}
               {(filteredValues === "" ? data.results : filteredValues).map(
                 (el, index) =>
                   el.image.original === "" ||

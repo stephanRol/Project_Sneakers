@@ -46,4 +46,25 @@
         margin-left: 0.1rem;
         background-color: colors.$font-color-secondary;
     }
+
+    //SORT LIST
+    select {
+        outline: none;
+    }
+    
+    select{
+        width: 170px;
+        padding: 0.2rem 1rem;
+        border: 1px solid #808080;
+        border-radius: 30px;
+        font-family: fonts.$font-secondary;
+        transition: all .5s;
+        background-color: colors.$font-color-secondary;
+        padding-left: 15px;
+        color:#494949
+    }
+    select:focus {
+        border-color: #ffffff;
+        box-shadow: 0 0 10px #c5c5c5;
+    }
 }
