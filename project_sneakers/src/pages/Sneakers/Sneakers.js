@@ -4,6 +4,8 @@ import Footer from "../../components/Footer/Footer";
 import Loader from "../../components/Loader/Loader";
 import Navbar from "../../components/Navbar/Navbar";
 import ProductCard from "../../components/ProductCard/ProductCard";
+import Error404 from "../Error404/Error404";
+
 //import { useFetch } from "../../hooks/useFetch";
 
 const Sneakers = () => {
@@ -11,13 +13,19 @@ const Sneakers = () => {
   const [isPending, setIsPending] = useState(true);
   const [error, setError] = useState(null);
 
-  const [url, setUrl] = useState("http://localhost:3004/db");
+  let url = "http://localhost:3004/db";
   // let url = "https://the-sneaker-database.p.rapidapi.com/sneakers?limit=100";
   const [filteredValues, setFilteredValues] = useState("");
 
   //let { data } = useFetch(url);
 
   useEffect(() => {
+    // const options = {};
+    // const controller = new AbortController();
+    // options.signal = controller.signal;
+    // console.log(controller);
+    // setTimeout(() => controller.abort(), 1000);
+
     const getData = async (url) => {
       try {
         // fetch(url, {
@@ -28,45 +36,48 @@ const Sneakers = () => {
         //       "ea",
         //   },
         // })
-        fetch(url)
-          .then((res) => {
-            if (!res.ok) {
-              const errObj = {
-                err: true,
-                status: res.status,
-                statusText: res.statusText
-                  ? res.statusText
-                  : "Ocurrio un error",
-              };
-              throw errObj;
-            }
-            return res.json();
-          })
-          .then((result) => {
-            setIsPending(false);
-            setData(result);
-            setError({ err: false });
-          });
+        let res = await fetch(url);
+
+        if (!res.ok) {
+          let objError = {
+            err: true,
+            status: res.status,
+            statusText: res.statusText ? res.statusText : "Error occured",
+          };
+          throw objError;
+        }
+        let data = await res.json();
+
+        let result = data.results.filter(
+          (el) =>
+            el.image.original !== "" || el.image.original.slice(-4) === ".png"
+        );
+
+        setIsPending(false);
+        setData(result);
+        setError({ err: false });
       } catch (err) {
         setIsPending(true);
-        //setData(null); Optional
         setError(err);
       }
     };
-
     getData(url);
   }, []);
 
   useEffect(() => {
     if (data !== null) {
-      setFilteredValues([...data.results]);
+      setFilteredValues(data);
     }
   }, [data]);
 
   return (
     <>
-      {data === null ? (
-        <Loader />
+      {data === null || filteredValues === "" ? (
+        error ? (
+          <Error404 />
+        ) : (
+          <Loader />
+        )
       ) : (
         <div className="sneakers">
           <header>
@@ -82,11 +93,14 @@ const Sneakers = () => {
             </aside>
             <section>
               {filteredValues.length === 0 ? (
-                <p>Sorry, we couldn't find any results</p>
+                <div className="noResults">
+                  <p>Sorry, we couldn't find any results</p>
+                  <i className="fas fa-search"></i>
+                </div>
               ) : (
                 ""
               )}
-              {(filteredValues === "" ? data.results : filteredValues).map(
+              {(filteredValues === "" ? data : filteredValues).map(
                 (el, index) =>
                   el.image.original === "" ||
                   el.image.original.slice(-4) !== ".png" ? (

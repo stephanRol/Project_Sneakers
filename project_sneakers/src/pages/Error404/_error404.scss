@@ -1,0 +1,17 @@
+@use '../../sass/fonts';
+@use '../../sass/colors';
+
+.error{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 90vh;
+    font-family: fonts.$font-secondary;
+    color: colors.$font-color-secondary;
+    text-align: center;
+    font-size: 2rem;
+    font-weight: 300;
+    letter-spacing: 0.1rem;
+    line-height: 1.2rem;
+}

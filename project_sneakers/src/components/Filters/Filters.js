@@ -31,7 +31,6 @@ const Filters = ({ data, filteredValues, setFilteredValues }) => {
   ];
 
   const handleChange = (e) => {
-    console.log(e.target.value);
     if (e.target.value !== "") {
       setForm({
         ...form,
@@ -60,7 +59,7 @@ const Filters = ({ data, filteredValues, setFilteredValues }) => {
   //FILTERS
   //-----------------------------------------------
   const setFilters = (e) => {
-    let box = data.results;
+    let box = data;
     let brand = false;
     let gender = false;
     let search = false;
@@ -104,8 +103,8 @@ const Filters = ({ data, filteredValues, setFilteredValues }) => {
     setFilteredValues(results);
 
     if (brand === false && gender === false && search === false) {
-      results = data.results;
-      setFilteredValues([...data.results]);
+      results = data;
+      setFilteredValues(results);
     }
 
     if (sortActive) {
@@ -167,24 +166,6 @@ const Filters = ({ data, filteredValues, setFilteredValues }) => {
   return (
     <>
       <div className="filters">
-        <div className="sortList">
-          <select
-            name="sortList"
-            defaultValue="sort by"
-            onChange={(e) => {
-              setSelected(e.target.value);
-            }}
-          >
-            <option value="sort by" hidden>
-              Sort by
-            </option>
-            <option value="high">Price: High-Low</option>
-            <option value="low">Price: Low-High</option>
-            <option value="newest">Date: Newest</option>
-            <option value="oldest">Date: Oldest</option>
-          </select>
-        </div>
-        <br />
         <form>
           <input
             type="search"
@@ -192,7 +173,23 @@ const Filters = ({ data, filteredValues, setFilteredValues }) => {
             name="search"
             onChange={handleChange}
           />
-          <br />
+          <div className="sortList">
+            <select
+              name="sortList"
+              defaultValue="sort by"
+              onChange={(e) => {
+                setSelected(e.target.value);
+              }}
+            >
+              <option value="sort by" hidden>
+                Sort by
+              </option>
+              <option value="high">Price: High-Low</option>
+              <option value="low">Price: Low-High</option>
+              <option value="newest">Date: Newest</option>
+              <option value="oldest">Date: Oldest</option>
+            </select>
+          </div>
           <h3>Brand</h3>
           {brand.map((el, index) => {
             return (

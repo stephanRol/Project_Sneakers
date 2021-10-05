@@ -593,6 +593,7 @@ body {
   justify-content: center;
   width: 100%;
   margin: 0;
+  margin-top: 2rem;
 }
 .sneakers main aside {
   display: flex;
@@ -605,6 +606,46 @@ body {
   display: flex;
   flex-wrap: wrap;
   width: 75%;
+}
+.sneakers main section .noResults {
+  width: 100%;
+  text-align: center;
+  margin-top: 10rem;
+  color: #d6d6d6;
+  font-family: "Oswald";
+  font-size: 2rem;
+  font-weight: 300;
+  letter-spacing: 0.05rem;
+}
+
+.error {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 90vh;
+  font-family: "Oswald";
+  color: #d6d6d6;
+  text-align: center;
+  font-size: 2rem;
+  font-weight: 300;
+  letter-spacing: 0.1rem;
+  line-height: 1.2rem;
+}
+
+.error {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 90vh;
+  font-family: "Oswald";
+  color: #d6d6d6;
+  text-align: center;
+  font-size: 2rem;
+  font-weight: 300;
+  letter-spacing: 0.1rem;
+  line-height: 1.2rem;
 }
 
 .navbar {
@@ -1282,8 +1323,9 @@ footer .container-below a:hover {
 
 .filters {
   width: 17.5vw;
-  height: 70vh;
+  height: 75vh;
   padding: 2.5rem;
+  margin-bottom: 3rem;
   border-radius: 30px;
   background-image: linear-gradient(to right top, #ffffff33, #cecece33, #a0a0a033, #73737333, #4a4a4a33);
   border: 1px solid #ffffff33;
@@ -1294,39 +1336,13 @@ footer .container-below a:hover {
   backdrop-filter: blur(3.5px);
   -webkit-backdrop-filter: blur(3.5px);
 }
-.filters input {
+.filters .sortList {
+  margin: 1.5rem 0;
+}
+.filters .sortList select {
   outline: none;
 }
-.filters input[type=search] {
-  width: 90%;
-  padding: 0.5rem 1rem;
-  border: 1px solid #808080;
-  border-radius: 30px;
-  font-family: "Oswald";
-  transition: all 0.5s;
-  background: url("https://upload.wikimedia.org/wikipedia/commons/e/e9/Vector_search_icon.png") no-repeat scroll 14px 12px;
-  background-color: #d6d6d6;
-  padding-left: 35px;
-}
-.filters input[type=search]:focus {
-  border-color: #ffffff;
-  box-shadow: 0 0 10px #c5c5c5;
-}
-.filters label {
-  margin-left: 0.5rem;
-  color: #d6d6d6;
-}
-.filters h3 {
-  color: #d6d6d6;
-}
-.filters input[type=checkbox] {
-  margin-left: 0.1rem;
-  background-color: #d6d6d6;
-}
-.filters select {
-  outline: none;
-}
-.filters select {
+.filters .sortList select {
   width: 170px;
   padding: 0.2rem 1rem;
   border: 1px solid #808080;
@@ -1337,9 +1353,38 @@ footer .container-below a:hover {
   padding-left: 15px;
   color: #494949;
 }
-.filters select:focus {
+.filters .sortList select:focus {
   border-color: #ffffff;
   box-shadow: 0 0 10px #c5c5c5;
+}
+.filters form input {
+  outline: none;
+}
+.filters form input[type=search] {
+  width: 90%;
+  padding: 0.5rem 1rem;
+  border: 1px solid #808080;
+  border-radius: 30px;
+  font-family: "Oswald";
+  transition: all 0.5s;
+  background: url("https://upload.wikimedia.org/wikipedia/commons/e/e9/Vector_search_icon.png") no-repeat scroll 14px 12px;
+  background-color: #d6d6d6;
+  padding-left: 35px;
+}
+.filters form input[type=search]:focus {
+  border-color: #ffffff;
+  box-shadow: 0 0 10px #c5c5c5;
+}
+.filters form label {
+  margin-left: 0.5rem;
+  color: #d6d6d6;
+}
+.filters form h3 {
+  color: #d6d6d6;
+}
+.filters form input[type=checkbox] {
+  margin-left: 0.1rem;
+  background-color: #d6d6d6;
 }
 
 *,

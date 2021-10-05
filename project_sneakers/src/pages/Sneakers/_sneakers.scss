@@ -1,3 +1,6 @@
+@use '../../sass/fonts';
+@use '../../sass/colors';
+
 .sneakers{
     min-height: 100vh;
     width: 100%;
@@ -18,6 +21,8 @@
         justify-content: center;
         width: 100%;
         margin: 0;
+        margin-top: 2rem;
+
         aside{
             display: flex;
             justify-content: flex-start;
@@ -29,6 +34,32 @@
             display: flex;
             flex-wrap: wrap;
             width: 75%;
+            .noResults{
+                width: 100%;
+                text-align: center;
+                margin-top: 10rem;
+                color: colors.$font-color-secondary;
+                font-family: fonts.$font-secondary;
+                font-size: 2rem;
+                font-weight: 300;
+                letter-spacing: 0.05rem;
+
+            }
         }
     }
+}
+
+.error{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 90vh;
+    font-family: fonts.$font-secondary;
+    color: colors.$font-color-secondary;
+    text-align: center;
+    font-size: 2rem;
+    font-weight: 300;
+    letter-spacing: 0.1rem;
+    line-height: 1.2rem;
 }
