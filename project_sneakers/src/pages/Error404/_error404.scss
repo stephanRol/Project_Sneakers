@@ -1,17 +1,56 @@
 @use '../../sass/fonts';
 @use '../../sass/colors';
 
-.error{
+
+.error404{
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
     width: 100vw;
-    height: 90vh;
-    font-family: fonts.$font-secondary;
-    color: colors.$font-color-secondary;
-    text-align: center;
-    font-size: 2rem;
-    font-weight: 300;
-    letter-spacing: 0.1rem;
-    line-height: 1.2rem;
+    height: 100vh;
+    .error{
+        width: 60%;
+        height: 30%;
+        font-family: fonts.$font-secondary;
+        color: colors.$font-color-secondary;
+        text-align: center;
+        font-size: 1.5rem;
+        font-weight: 300;
+        letter-spacing: 0.1rem;
+        line-height: 3rem;
+
+        
+    }
+    button{
+        // position: absolute;
+        margin-bottom: 2rem;
+        bottom: 60px;
+        left: 40px;
+        height: 2.8rem;
+        width: 7.5rem;
+        font-size: 1rem;
+        padding: 0.5rem;
+        // margin-top: 0.5rem;
+        border-radius: 10px;
+        background-color: transparent;
+        font-family: fonts.$font-secondary;
+        color: colors.$font-color-secondary;
+        border: 1px solid white;
+        cursor: pointer;
+        transition: 0.3s;
+        letter-spacing: 0.1rem;
+
+        &:hover{
+        background-color: colors.$font-color-secondary;
+        color: transparent;
+        color: colors.$font-color-primary;
+        letter-spacing: 0.4rem;
+        width: 9rem;
+        }
+    }
+
+    .err{
+        font-size: 3rem;
+    }
 }

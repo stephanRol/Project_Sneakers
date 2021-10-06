@@ -2,7 +2,7 @@ import { Route, Switch, useLocation } from "react-router-dom";
 import Home from "./pages/Home/Home";
 import About from "./pages/About/About";
 import Sneakers from "./pages/Sneakers/Sneakers";
-import Contact from "./pages/Contact";
+import Contact from "./pages/Contact/Contact";
 import Error404 from "./pages/Error404/Error404";
 import "./css/normalize.css";
 import "./css/main.css";

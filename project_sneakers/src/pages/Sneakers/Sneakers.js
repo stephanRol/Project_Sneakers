@@ -74,7 +74,7 @@ const Sneakers = () => {
     <>
       {data === null || filteredValues === "" ? (
         error ? (
-          <Error404 />
+          <Error404 error={error} />
         ) : (
           <Loader />
         )
