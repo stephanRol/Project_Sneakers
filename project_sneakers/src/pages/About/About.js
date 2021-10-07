@@ -215,7 +215,7 @@ const About = () => {
               </article>
               <div className="team-info">
                 {!users
-                  ? "Cargando..."
+                  ? "Charging..."
                   : users.map((user, index) => {
                       return (
                         <div key={index} className={`team-member-${index + 1}`}>

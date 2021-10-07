@@ -2,6 +2,7 @@ import React from "react";
 import Footer from "../../components/Footer/Footer";
 import Navbar from "../../components/Navbar/Navbar";
 import { useForm } from "../../hooks/useForm";
+import Loader from "../../components/Loader/Loader";
 
 const initialForm = {
   name: "",
@@ -54,8 +55,61 @@ const Contact = () => {
     <div className="contact">
       <header>
         <Navbar />
+        <div className="contact-header">
+          <div className="wrap-text-contact">
+            <h2>Get in Touch</h2>
+          </div>
+        </div>
       </header>
       <main>
+        <section>
+          <div className="info-contact">
+            <div className="info-icons">
+              <div className="info-icon">
+                <i class="fas fa-map-marker-alt"></i>
+                <div className="container">Location</div>
+                <p>
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea,
+                  allorem dolorum ab:
+                  <br />
+                  <br />
+                  <h3>Sneakerstrasse 34</h3>
+                  <h3>22565 Hamburg</h3>
+                  <br />
+                  molestiae quas iure voluptate atque non magnam nihil.
+                </p>
+              </div>
+              <div className="info-icon">
+                <i class="fas fa-phone-alt"></i>
+                <div className="container">Phone</div>
+                <p>
+                  Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+                  Rerum totam aspernatur:
+                  <br />
+                  <br />
+                  <h3>+41-213-7689</h3>
+                  <br />
+                  autem consectetur rem, maiores velit quam. Quia repellat
+                  praesentium veniam quaerat ut? Architecto, nam nostrum.
+                </p>
+              </div>
+              <div className="info-icon">
+                <i class="far fa-envelope"></i>
+                <div className="container">Email</div>
+                <p>
+                  Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+                  Similique aliquid iste placeat voluptate eos quos minus:
+                  <br />
+                  <br />
+                  <h3>info@sneakers.com</h3>
+                  <br />
+                  blanditiis sint, ut ipsam deleniti molestiae quo accusantium,
+                  illo nemo eum at facer.
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
         <section>
           <h2>Contact Form</h2>
           <form onSubmit={handleSubmit}>
@@ -105,6 +159,8 @@ const Contact = () => {
 
             <input type="submit" value="Send" />
           </form>
+          {loading && <Loader />}
+          {response && <p>Form successfully submitted</p>}
         </section>
       </main>
       <footer>

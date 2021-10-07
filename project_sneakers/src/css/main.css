@@ -680,7 +680,102 @@ body {
   font-size: 3rem;
 }
 
-textarea {
+.contact header .contact-header .wrap-text-contact h2 {
+  font-family: "outback";
+  font-style: italic;
+  color: #d6d6d6;
+  font-size: clamp(3rem, calc((3rem + 20vw) / 2), 12rem);
+  padding: 0 3vw;
+  text-align: center;
+  background-image: linear-gradient(to bottom, #ff9c32, #ffa74c, #ffb163, #ffbc7a, #ffc690, #fece9e, #fdd6ac, #fcddbb, #fce3c5, #fce9cf, #fcefda, #fdf4e5);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  filter: drop-shadow(5px 10px 10px black);
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #131212;
+}
+
+.contact {
+  min-height: 100vh;
+  width: 100%;
+  background-color: #d8d8d8;
+}
+.contact header .contact-header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  width: 100%;
+  height: 100%;
+  padding: 0rem 1.2rem;
+  overflow: hidden;
+  background: linear-gradient(to left bottom, rgba(33, 0, 0, 0.99), rgba(49, 7, 6, 0.98), rgba(68, 6, 9, 0.97), rgba(87, 4, 10, 0.95), rgba(106, 1, 8, 0.93), rgba(120, 7, 13, 0.91), rgba(141, 15, 15, 0.89), rgba(159, 24, 19, 0.87), rgba(181, 37, 32, 0.85), rgba(204, 49, 46, 0.83), rgba(225, 62, 59, 0.81), rgba(248, 74, 74, 0.81)), url("/src/assets/vans-bg.webp");
+  background-repeat: no-repeat;
+  background-position: center top 0px;
+  background-size: cover;
+  background-attachment: fixed;
+  clip-path: polygon(0 0, 100% 0, 100% 75%, 50% 90%, 0 75%);
+}
+.contact header .contact-header .wrap-text-contact {
+  margin-bottom: 5rem;
+}
+.contact main {
+  min-height: 100vh;
+}
+.contact main section .info-contact {
+  width: 100%;
+  height: 50vh;
+  padding: 0 10vw;
+}
+.contact main section .info-contact .info-icons {
+  margin: 0 auto;
+  display: grid;
+  grid-gap: 30px;
+  grid-template-columns: repeat(3, 1fr);
+  justify-content: center;
+  text-align: center;
+  width: 100%;
+  height: 100%;
+  color: #2b2b2b;
+  font-family: "Oswald";
+}
+@media (max-width: 768px) {
+  .contact main section .info-contact .info-icons {
+    grid-template-columns: repeat(1, 1fr);
+    grid-gap: 0px;
+  }
+}
+.contact main section .info-contact .info-icons .info-icon {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 0 5vw;
+}
+.contact main section .info-contact .info-icons .info-icon i {
+  font-size: clamp(1rem, calc(0.5rem + 5vw), 3rem);
+  margin-bottom: 1rem;
+}
+.contact main section .info-contact .info-icons .info-icon h3 {
+  margin: 0;
+  font-size: clamp(0.6rem, calc(0.6rem + 0.8vw), 1.1rem);
+}
+.contact main section .info-contact .info-icons .info-icon .container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: clamp(0.6rem, calc(0.6rem + 2vw), 2.8rem);
+  margin-bottom: 1rem;
+}
+.contact main section form input[type=text] {
+  display: block;
+  background-color: red;
+}
+.contact textarea {
   resize: none;
 }
 
