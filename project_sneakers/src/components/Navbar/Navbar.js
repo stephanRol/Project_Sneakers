@@ -1,38 +1,57 @@
-import React from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 import logo from "../../assets/trainers.webp";
 import Hamburger from "../Hamburger/Hamburger";
 
 const Navbar = () => {
+  const [navbar, setNavbar] = useState(false);
+  const refNavbar = useRef();
+
+  const animations = () => {
+    let scroll = window.scrollY;
+    if (scroll > 500) {
+      setNavbar(true);
+    } else if (scroll > 0 && scroll < 20) {
+      setNavbar(false);
+    }
+  };
+
+  useEffect(() => {
+    window.addEventListener("scroll", animations);
+    return () => {
+      window.removeEventListener("scroll", animations);
+    };
+  }, []);
+
   return (
-    <nav className="navbar">
-      <div className="navbar__logo">
-        <img className="navbar__logo-img" src={logo} alt="" />
+    <nav className={navbar ? "navbar active" : "navbar"} ref={refNavbar}>
+      <div className="logo">
+        <img src={logo} alt="logo" />
         <h2>
-          <Link to="/" className="navbar__logo-text">
+          <Link to="/" className="logo-text">
             SNEAKERS
           </Link>
         </h2>
       </div>
       <Hamburger />
-      <ul className="navbar__items">
+      <ul className="items">
         <li>
-          <Link to="/" className="navbar__item" data-text="Home">
+          <Link to="/" className="item" data-text="Home">
             Home
           </Link>
         </li>
         <li>
-          <Link to="/about" className="navbar__item">
+          <Link to="/about" className="item">
             About
           </Link>
         </li>
         <li>
-          <Link to="/sneakers" className="navbar__item">
+          <Link to="/sneakers" className="item">
             Sneakers
           </Link>
         </li>
         <li>
-          <Link to="/contact" className="navbar__item">
+          <Link to="/contact" className="item">
             Contact
           </Link>
         </li>

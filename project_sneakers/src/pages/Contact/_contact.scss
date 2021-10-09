@@ -106,11 +106,125 @@ body{
         }
 
         section{
-            form{
-                input[type=text]{
-                    display: block;
-                    background-color: red;
+            display: flex;
+            justify-content: center;
+            font-family: fonts.$font-secondary;
+            color: colors.$font-color-primary;
+
+            .messageUs-container{
+                display: flex;
+                flex-direction: column;
+                align-items: end;
+                width: 50%;
+                margin-top: 2rem;
+
+                .messageUs{
+                width: 60%;
+                padding-right: 3rem;
+                    h2{
+                        font-size: clamp(1rem, calc(0.5rem + 5vw), 3rem);
+                    }
+                    p{
+                        width: 95%;
+                    }
+                    .logo{
+                        display: flex;
+                        align-items: center;
+                        h3{
+                            display: inline;
+                            font-size: 2rem;
+                            margin-bottom: 2rem;
+                        }
+                        img{
+                            width: 10%;
+                            margin-right: 0.5rem;
+                        }
+                    }
                 }
+            }
+            .form-container{
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                width: 50%;
+                .loader-form{
+                    text-align: center;
+                    margin-bottom: 3rem;
+                    margin-right: 18rem;
+                    h2{
+                        font-size: 3.5rem;
+                    }
+                    i{
+                        font-size: 4rem;
+                    }
+                }
+                .form{
+                width: 100%;
+                margin-left: 2rem;
+                    form{ 
+                        input[type=text],
+                        input[type=email],
+                        textarea{
+                            display: block;
+                            width: 60%;
+                            margin: 1rem 0;
+                            padding: 0.5rem 1rem;
+                            border: 1px solid #808080;
+                            border-radius: 30px;
+                            font-family: fonts.$font-secondary;
+                            transition: all .5s;
+                            background-color: #ffffff;
+                            padding-left: 25px;
+                        }
+                        textarea{
+                            border-radius: 20px;
+                        }
+                        input[type=search]:focus {
+                            border-color: #ffffff;
+                            box-shadow: 0 0 10px #c5c5c5;
+                        }
+
+                        input[type=submit]{
+                            bottom: 60px;
+                            left: 40px;
+                            height: 2.5rem;
+                            font-size: 1rem;
+                            padding: 0.5rem 1rem;
+                            margin-top: 0.5rem;
+                            border-radius: 10px;
+                            background-color: colors.$font-color-primary;
+                            font-family: fonts.$font-secondary;
+                            color: colors.$font-color-secondary;
+                            border: none;
+                            cursor: pointer;
+                            transition: 0.3s;
+                            letter-spacing: 0.1rem;
+                    
+                            &:hover{
+                            letter-spacing: 0.3rem;
+                            }
+                        }
+                        .inputError{
+                            color:#df1414;
+
+                        }
+                    }
+                    .inputSuccess{
+                        color:#069c06;
+                    }
+                }
+            }
+            
+            
+        }
+
+        section{
+            .google-map{
+            margin-top: 8rem;
+
+                width: 100%;
+                height: 450px;
+                border: 0;
             }
         }
     }

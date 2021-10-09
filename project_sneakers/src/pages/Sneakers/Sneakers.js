@@ -20,12 +20,6 @@ const Sneakers = () => {
   //let { data } = useFetch(url);
 
   useEffect(() => {
-    // const options = {};
-    // const controller = new AbortController();
-    // options.signal = controller.signal;
-    // console.log(controller);
-    // setTimeout(() => controller.abort(), 1000);
-
     const getData = async (url) => {
       try {
         // fetch(url, {

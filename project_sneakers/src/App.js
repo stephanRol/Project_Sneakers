@@ -7,12 +7,14 @@ import Error404 from "./pages/Error404/Error404";
 import "./css/normalize.css";
 import "./css/main.css";
 import { AnimatePresence } from "framer-motion";
+import ScrollToTop from "./helpers/ScrollToTop";
 
 function App() {
   const location = useLocation();
   return (
     <div>
       <AnimatePresence exitBeforeEnter initial={false}>
+        <ScrollToTop />
         <Switch location={location} key={location.pathname}>
           <Route exact path="/" component={Home} />
           <Route exact path="/about" component={About} />

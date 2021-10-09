@@ -48,6 +48,11 @@ const About = () => {
     );
     const menAboutBg = document.querySelector(".about-info-men .about-info-bg");
 
+    if (element == null) {
+      console.log("me viro de about");
+      return;
+    }
+
     let scroll = window.pageYOffset;
     let headerHeight = element.offsetHeight;
     let aboutInfoHeight = aboutInfo.offsetHeight;
@@ -92,7 +97,6 @@ const About = () => {
 
   //FETCH API
   const randomUserApi = async () => {
-    //history.push({ pathname: "/about" });
     const response = await fetch(
       "https://randomuser.me/api/?results=6&&inc=name,email,phone,picture,nat&&nat=au,br,ca,ch,de,dk,es,fi,fr,gb,ie,no,nl,nz,tr,us"
     );
@@ -104,11 +108,6 @@ const About = () => {
   useEffect(() => {
     window.addEventListener("scroll", animations);
     randomUserApi();
-
-    // setTimeout(() => {
-    //   //history.push({ pathname: "/about" });
-    // }, 2000);
-
     return () => {
       window.removeEventListener("scroll", animations);
     };
