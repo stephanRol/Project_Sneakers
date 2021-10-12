@@ -39,6 +39,11 @@
         font-size: clamp(1rem, calc(0.8rem + 0.7vw), 1.3rem); 
         margin: 0 2vw;
     }
+    @media (max-width: 480px) {
+        .items{
+            display: none;
+        }
+    }
 
     .item{
         font-family: fonts.$font-secondary;
@@ -73,8 +78,3 @@
 // 1025px — 1200px: Desktops, large screens
 // 1201px and more —  Extra large screens, TV
 
-@media (max-width: 480px) {
-    .navbar__items{
-        display: none;
-    }
-}

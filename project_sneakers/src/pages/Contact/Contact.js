@@ -3,6 +3,7 @@ import Footer from "../../components/Footer/Footer";
 import Navbar from "../../components/Navbar/Navbar";
 import { useForm } from "../../hooks/useForm";
 import logoImg from "../../assets/trainers.webp";
+import { motion } from "framer-motion";
 
 const initialForm = {
   name: "",
@@ -80,7 +81,14 @@ const Contact = () => {
   }, []);
 
   return (
-    <div className="contact">
+    <motion.div
+      className="contact"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      // exit={{ opacity: 0 }}
+      exit={{ y: "100vh" }}
+      transition={{ duration: 0.4 }}
+    >
       <header>
         <Navbar />
         <div className="contact-header" ref={refheader}>
@@ -243,7 +251,7 @@ const Contact = () => {
       <footer>
         <Footer />
       </footer>
-    </div>
+    </motion.div>
   );
 };
 

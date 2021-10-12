@@ -52,12 +52,12 @@ body{
         }
     }
     main{
-        min-height: 100vh;
+        min-height: 100vh;  
 
         section{
             .info-contact{
                 width: 100%;
-                height: 50vh;
+                min-height: 50vh;
                 padding: 0 10vw;
 
                 .info-icons{
@@ -87,6 +87,10 @@ body{
                         i{
                             font-size: clamp(1rem, calc(0.5rem + 5vw), 3rem);
                             margin-bottom: 1rem;
+                            @media (max-width: 768px){
+                                margin-top: 2rem;
+                                margin-bottom: 0;
+                            }
                         }
                         h3{
                             margin: 0;
@@ -111,6 +115,10 @@ body{
             font-family: fonts.$font-secondary;
             color: colors.$font-color-primary;
 
+            @media (max-width: 768px) {
+                    flex-direction: column;
+            }
+
             .messageUs-container{
                 display: flex;
                 flex-direction: column;
@@ -118,9 +126,20 @@ body{
                 width: 50%;
                 margin-top: 2rem;
 
+                @media (max-width: 768px) {
+                    width: 100%;
+                    align-items: center;
+                    text-align: center;
+                }
+
                 .messageUs{
                 width: 60%;
                 padding-right: 3rem;
+
+                @media (max-width: 768px) {
+                    width: 70%;
+                    padding-right: 0;
+                }
                     h2{
                         font-size: clamp(1rem, calc(0.5rem + 5vw), 3rem);
                     }
@@ -130,6 +149,10 @@ body{
                     .logo{
                         display: flex;
                         align-items: center;
+
+                        @media (max-width: 768px) {
+                            justify-content: center;
+                        }
                         h3{
                             display: inline;
                             font-size: 2rem;
@@ -147,6 +170,10 @@ body{
                 justify-content: center;
                 align-items: center;
                 width: 50%;
+
+                @media (max-width: 768px) {
+                    width: 100%;
+                }
                 .loader-form{
                     text-align: center;
                     margin-bottom: 3rem;
@@ -161,7 +188,15 @@ body{
                 .form{
                 width: 100%;
                 margin-left: 2rem;
+                @media (max-width: 768px) {
+                    margin-right: 10%;
+                    margin-left: 10%;
+                }
                     form{ 
+                        @media (max-width: 768px) {
+                            display: flex;
+                            flex-direction: column;
+                        }
                         input[type=text],
                         input[type=email],
                         textarea{
@@ -175,6 +210,10 @@ body{
                             transition: all .5s;
                             background-color: #ffffff;
                             padding-left: 25px;
+
+                            @media (max-width: 768px) {
+                                width: 100%;
+                            }
                         }
                         textarea{
                             border-radius: 20px;
@@ -202,6 +241,10 @@ body{
                     
                             &:hover{
                             letter-spacing: 0.3rem;
+                            }
+
+                            @media (max-width: 768px) {
+                                margin-top: 20px;
                             }
                         }
                         .inputError{
@@ -234,3 +277,10 @@ body{
 
 }
 
+//Common breakpoints for widths of devices:
+
+// 320px — 480px: Mobile devices
+// 481px — 768px: iPads, Tablets
+// 769px — 1024px: Small screens, laptops
+// 1025px — 1200px: Desktops, large screens
+// 1201px and more —  Extra large screens, TV

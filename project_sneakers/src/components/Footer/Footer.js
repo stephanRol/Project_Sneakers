@@ -8,10 +8,10 @@ const Footer = () => {
       <footer>
         <div className="container-above">
           <div className="container-1">
-            <div className="navbar__logo">
-              <img className="navbar__logo-img" src={logo} alt="" />
+            <div className="logo">
+              <img className="logo-img" src={logo} alt="" />
               <h2>
-                <Link to="/" className="navbar__logo-text">
+                <Link to="/" className="logo-text">
                   SNEAKERS
                 </Link>
               </h2>

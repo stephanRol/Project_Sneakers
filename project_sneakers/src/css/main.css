@@ -728,7 +728,7 @@ body {
 }
 .contact main section .info-contact {
   width: 100%;
-  height: 50vh;
+  min-height: 50vh;
   padding: 0 10vw;
 }
 .contact main section .info-contact .info-icons {
@@ -760,6 +760,12 @@ body {
   font-size: clamp(1rem, calc(0.5rem + 5vw), 3rem);
   margin-bottom: 1rem;
 }
+@media (max-width: 768px) {
+  .contact main section .info-contact .info-icons .info-icon i {
+    margin-top: 2rem;
+    margin-bottom: 0;
+  }
+}
 .contact main section .info-contact .info-icons .info-icon h3 {
   margin: 0;
   font-size: clamp(0.6rem, calc(0.6rem + 0.8vw), 1.1rem);
@@ -777,6 +783,11 @@ body {
   font-family: "Oswald";
   color: #2b2b2b;
 }
+@media (max-width: 768px) {
+  .contact main section {
+    flex-direction: column;
+  }
+}
 .contact main section .messageUs-container {
   display: flex;
   flex-direction: column;
@@ -784,9 +795,22 @@ body {
   width: 50%;
   margin-top: 2rem;
 }
+@media (max-width: 768px) {
+  .contact main section .messageUs-container {
+    width: 100%;
+    align-items: center;
+    text-align: center;
+  }
+}
 .contact main section .messageUs-container .messageUs {
   width: 60%;
   padding-right: 3rem;
+}
+@media (max-width: 768px) {
+  .contact main section .messageUs-container .messageUs {
+    width: 70%;
+    padding-right: 0;
+  }
 }
 .contact main section .messageUs-container .messageUs h2 {
   font-size: clamp(1rem, calc(0.5rem + 5vw), 3rem);
@@ -797,6 +821,11 @@ body {
 .contact main section .messageUs-container .messageUs .logo {
   display: flex;
   align-items: center;
+}
+@media (max-width: 768px) {
+  .contact main section .messageUs-container .messageUs .logo {
+    justify-content: center;
+  }
 }
 .contact main section .messageUs-container .messageUs .logo h3 {
   display: inline;
@@ -813,6 +842,11 @@ body {
   align-items: center;
   width: 50%;
 }
+@media (max-width: 768px) {
+  .contact main section .form-container {
+    width: 100%;
+  }
+}
 .contact main section .form-container .loader-form {
   text-align: center;
   margin-bottom: 3rem;
@@ -828,6 +862,18 @@ body {
   width: 100%;
   margin-left: 2rem;
 }
+@media (max-width: 768px) {
+  .contact main section .form-container .form {
+    margin-right: 10%;
+    margin-left: 10%;
+  }
+}
+@media (max-width: 768px) {
+  .contact main section .form-container .form form {
+    display: flex;
+    flex-direction: column;
+  }
+}
 .contact main section .form-container .form form input[type=text],
 .contact main section .form-container .form form input[type=email],
 .contact main section .form-container .form form textarea {
@@ -841,6 +887,13 @@ body {
   transition: all 0.5s;
   background-color: #ffffff;
   padding-left: 25px;
+}
+@media (max-width: 768px) {
+  .contact main section .form-container .form form input[type=text],
+.contact main section .form-container .form form input[type=email],
+.contact main section .form-container .form form textarea {
+    width: 100%;
+  }
 }
 .contact main section .form-container .form form textarea {
   border-radius: 20px;
@@ -867,6 +920,11 @@ body {
 }
 .contact main section .form-container .form form input[type=submit]:hover {
   letter-spacing: 0.3rem;
+}
+@media (max-width: 768px) {
+  .contact main section .form-container .form form input[type=submit] {
+    margin-top: 20px;
+  }
 }
 .contact main section .form-container .form form .inputError {
   color: #df1414;
@@ -918,6 +976,11 @@ body {
   font-size: clamp(1rem, calc(0.8rem + 0.7vw), 1.3rem);
   margin: 0 2vw;
 }
+@media (max-width: 480px) {
+  .navbar .items {
+    display: none;
+  }
+}
 .navbar .item {
   font-family: "Oswald";
   color: rgba(218, 218, 218, 0.3);
@@ -940,11 +1003,6 @@ body {
   transition: 0.5s;
 }
 
-@media (max-width: 480px) {
-  .navbar__items {
-    display: none;
-  }
-}
 /*!
  * Hamburgers
  * @description Tasty CSS-animated hamburgers
@@ -1359,6 +1417,22 @@ footer .container-above .container-1 p {
   footer .container-above .container-1 {
     width: auto;
   }
+}
+footer .container-above .container-1 .logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+footer .container-above .container-1 .logo-text {
+  font-family: "Oswald";
+  font-size: clamp(1.3rem, calc(0.8rem + 0.8vw), 1.8rem);
+  text-decoration: none;
+  color: #dadada;
+}
+footer .container-above .container-1 .logo img {
+  width: clamp(2.3rem, calc(1.5rem + 2vw), 2.9rem);
+  margin: 0 2vw;
+  margin-right: 10px;
 }
 footer .container-above .container-2,
 footer .container-above .container-3 {
