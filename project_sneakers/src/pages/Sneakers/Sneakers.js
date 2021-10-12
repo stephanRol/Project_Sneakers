@@ -93,30 +93,32 @@ const Sneakers = () => {
               />
             </aside>
             <section>
-              {filteredValues.length === 0 ? (
-                <div className="noResults">
-                  <p>Sorry, we couldn't find any results</p>
-                  <i className="fas fa-search"></i>
-                </div>
-              ) : (
-                ""
-              )}
-              {(filteredValues === "" ? data : filteredValues).map(
-                (el, index) =>
-                  el.image.original === "" ||
-                  el.image.original.slice(-4) !== ".png" ? (
-                    ""
-                  ) : (
-                    <ProductCard
-                      key={index}
-                      brand={el.brand}
-                      name={el.name}
-                      gender={el.gender}
-                      price={el.retailPrice}
-                      image={el.image.small}
-                    />
-                  )
-              )}
+              <div className="cards">
+                {filteredValues.length === 0 ? (
+                  <div className="noResults">
+                    <p>Sorry, we couldn't find any results</p>
+                    <i className="fas fa-search"></i>
+                  </div>
+                ) : (
+                  ""
+                )}
+                {(filteredValues === "" ? data : filteredValues).map(
+                  (el, index) =>
+                    el.image.original === "" ||
+                    el.image.original.slice(-4) !== ".png" ? (
+                      ""
+                    ) : (
+                      <ProductCard
+                        key={index}
+                        brand={el.brand}
+                        name={el.name}
+                        gender={el.gender}
+                        price={el.retailPrice}
+                        image={el.image.small}
+                      />
+                    )
+                )}
+              </div>
             </section>
           </main>
           <footer>

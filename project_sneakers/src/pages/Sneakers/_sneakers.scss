@@ -22,18 +22,46 @@
         width: 100%;
         margin: 0;
         margin-top: 2rem;
+        padding: 0 1rem;
+        
+        @media (max-width: 1260px) {
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
 
         aside{
             display: flex;
+            flex-direction: column;
             justify-content: flex-start;
             align-items: center;
-            flex-direction: column;
             width: 25%;
+            margin: 0 1rem;
         }
+
         section{
-            display: flex;
-            flex-wrap: wrap;
             width: 75%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0 1rem;
+            @media (max-width: 1260px) {
+                width: 100%;
+                margin: 0;
+            }
+
+            .cards{
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+
+                
+                // @media (max-width: 200px) {
+                //     width: 240px;
+                //     margin: 0;
+                // }
+            }
+
             .noResults{
                 width: 100%;
                 text-align: center;
@@ -46,6 +74,10 @@
 
             }
         }
+
+            
+        
+        
     }
 }
 
@@ -63,3 +95,12 @@
     letter-spacing: 0.1rem;
     line-height: 1.2rem;
 }
+
+
+//Common breakpoints for widths of devices:
+
+// 320px — 480px: Mobile devices
+// 481px — 768px: iPads, Tablets
+// 769px — 1024px: Small screens, laptops
+// 1025px — 1200px: Desktops, large screens
+// 1201px and more —  Extra large screens, TV

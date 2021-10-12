@@ -594,18 +594,40 @@ body {
   width: 100%;
   margin: 0;
   margin-top: 2rem;
+  padding: 0 1rem;
+}
+@media (max-width: 1260px) {
+  .sneakers main {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
 }
 .sneakers main aside {
   display: flex;
+  flex-direction: column;
   justify-content: flex-start;
   align-items: center;
-  flex-direction: column;
   width: 25%;
+  margin: 0 1rem;
 }
 .sneakers main section {
+  width: 75%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 1rem;
+}
+@media (max-width: 1260px) {
+  .sneakers main section {
+    width: 100%;
+    margin: 0;
+  }
+}
+.sneakers main section .cards {
   display: flex;
   flex-wrap: wrap;
-  width: 75%;
+  justify-content: center;
 }
 .sneakers main section .noResults {
   width: 100%;
@@ -1571,10 +1593,16 @@ footer .container-below a:hover {
 }
 
 .product-card {
-  margin: 0 2rem;
-  margin-bottom: 4rem;
-  width: 20vw;
-  height: 67vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0 2vw;
+  margin-bottom: 3rem;
+  width: 26%;
+  min-width: 230px;
+  height: 35vw;
+  min-height: 420px;
+  max-height: 640px;
   border-radius: 30px;
   border: 1px solid #ffffff33;
   font-family: "Oswald";
@@ -1584,43 +1612,61 @@ footer .container-below a:hover {
   backdrop-filter: blur(3.5px);
   -webkit-backdrop-filter: blur(3.5px);
 }
-.product-card:hover {
-  box-shadow: 0px 0px 30px white;
+.product-card .name-brand {
+  min-height: 30%;
 }
-.product-card:hover img {
-  transform: rotate3d(0, 1, 0, 180deg)rotate(25deg)scale(1.2);
-}
-.product-card .title {
+.product-card .name-brand .title {
   margin: 0;
   padding: 40px;
   padding-bottom: 0px;
-  font-size: 30px;
+  font-size: clamp(1rem, calc(0.5rem + 1vw), 2.5rem);
 }
-.product-card .brand {
+.product-card .name-brand .brand {
   color: #af9090;
   padding-left: 40px;
+  align-self: flex-start;
 }
-.product-card img {
+.product-card .image {
+  min-height: 30%;
+  max-height: 40%;
+}
+.product-card .image img {
   position: relative;
-  top: -30px;
-  left: -35px;
-  width: 400px;
-  height: 400px;
+  top: -3.6vw;
+  left: -1.5vw;
+  width: 20vw;
+  min-width: 220px;
+  height: 20vw;
+  min-height: 220px;
   transform: rotate3d(0, 1, 0, 180deg)rotate(25deg);
   transition: 0.3s;
 }
-.product-card .price {
-  position: absolute;
-  bottom: 60px;
-  right: 40px;
-  margin: 0;
-  padding: 0;
-  font-size: 70px;
+@media (max-width: 1200px) {
+  .product-card .image img {
+    top: -40px;
+  }
 }
-.product-card button {
-  position: absolute;
-  bottom: 60px;
-  left: 40px;
+.product-card .value-btn {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  min-height: 30%;
+  margin-bottom: 0.5rem;
+}
+@media (max-width: 1440px) {
+  .product-card .value-btn {
+    margin-bottom: 1.5rem;
+  }
+}
+.product-card .value-btn .price {
+  position: relative;
+  margin: 0;
+  padding: 0.5rem 0;
+  font-size: clamp(3rem, calc(2rem + 1.8vw), 4.3rem);
+}
+.product-card .value-btn button {
+  position: relative;
   height: 2.2rem;
   font-size: 1rem;
   padding: 0.5rem;
@@ -1634,15 +1680,21 @@ footer .container-below a:hover {
   transition: 0.3s;
   letter-spacing: 0.1rem;
 }
-.product-card button:hover {
+.product-card .value-btn button:hover {
   background-color: #d6d6d6;
   color: #9c1515;
   letter-spacing: 0.4rem;
 }
+.product-card:hover {
+  box-shadow: 0px 0px 30px white;
+}
+.product-card:hover img {
+  transform: rotate3d(0, 1, 0, 180deg)rotate(25deg)scale(1.2);
+}
 
 .filters {
-  width: 17.5vw;
-  height: 75vh;
+  width: 280px;
+  height: 710px;
   padding: 2.5rem;
   margin-bottom: 3rem;
   border-radius: 30px;
@@ -1654,6 +1706,25 @@ footer .container-below a:hover {
   line-height: 1.2rem;
   backdrop-filter: blur(3.5px);
   -webkit-backdrop-filter: blur(3.5px);
+}
+.filters h3 {
+  margin: 0;
+  margin-bottom: 1rem;
+}
+@media (max-width: 1260px) {
+  .filters {
+    width: 60vw;
+    min-width: 510px;
+    height: 350px;
+  }
+}
+@media (max-width: 1260px) {
+  .filters form {
+    display: flex;
+    justify-content: space-around;
+    width: 50vw;
+    min-width: 450px;
+  }
 }
 .filters .sortList {
   margin: 1.5rem 0;

@@ -2,98 +2,107 @@
 @use '../../sass/fonts';
 
 .product-card{
-    margin: 0 2rem;
-    margin-bottom: 4rem;
-    width: 20vw;
-    height: 67vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0 2vw;
+    margin-bottom: 3rem;
+    width: 26%;
+    min-width: 230px;
+    height: 35vw;
+    min-height: 420px;
+    max-height: 640px;
     border-radius: 30px;
     border: 1px solid #ffffff33;
     font-family: fonts.$font-secondary;
     color: colors.$font-color-secondary;
     transition: 0.3s;
-    // animation: fadeIn 2s linear 1s;
 
-    // @keyframes fadeIn {
-    //     0% {
-    //         color: blue;
-    //     }
-      
-    //     100% {
-    //         background-color: rgb(32, 117, 50);
-    //         display: block;
-    //     }
-    //   }
+    .name-brand{
+        min-height: 30%;
+        .title{
+            margin: 0;
+            padding: 40px;
+            padding-bottom: 0px;
+            font-size: clamp(1rem, calc(0.5rem + 1vw), 2.5rem);
+        }
+        .brand{
+            color: rgb(175, 144, 144);
+            padding-left: 40px;
+            align-self: flex-start;
+        }
+    }
+
+    .image{
+     min-height: 30%;
+     max-height: 40%;
+        img{
+            position: relative;
+            top: -3.6vw;
+            left: -1.5vw;
+            width: 20vw;
+            min-width: 220px;
+            height: 20vw;
+            min-height: 220px;
+            transform: rotate3d(0,1,0,180deg) + rotate(25deg);
+            transition: 0.3s;
+
+            @media (max-width: 1200px) {
+                top: -40px;
+            }
+        }
+    }
+    .value-btn{
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+        min-height: 30%;
+        margin-bottom: 0.5rem;
+
+        @media (max-width: 1440px) {
+            margin-bottom: 1.5rem;
+        }
+
+        .price{
+           position: relative;
+           margin: 0;
+           padding: 0.5rem 0;
+           font-size: clamp(3rem, calc(2rem + 1.8vw), 4.3rem);
+
+       }
+
+       button{
+           position: relative;
+           height: 2.2rem;
+           font-size: 1rem;
+           padding: 0.5rem;
+           margin-top: 0.5rem;
+           border-radius: 10px;
+           background-color: transparent;
+           font-family: fonts.$font-secondary;
+           color: colors.$font-color-secondary;
+           border: 1px solid white;
+           cursor: pointer;
+           transition: 0.3s;
+           letter-spacing: 0.1rem;
+
+           &:hover{
+           background-color: colors.$font-color-secondary;
+           color: rgb(156, 21, 21);
+           letter-spacing: 0.4rem;
+           }
+       }
+       }
 
     &:hover{
         box-shadow: 0px 0px 30px rgb(255, 255, 255);
     }
 
     &:hover img{
-        transform: rotate3d(0,1,0,180deg) + rotate(25deg) + scale(1.2); 
+        transform: rotate3d(0,1,0,180deg) + rotate(25deg) + scale(1.2);
     }
-
-
-    // background-image: linear-gradient(to right top, #ffffff33, #c3c3c333, #8a8a8a33, #55555533, #25252533);
     background-image: linear-gradient(to right top, #ffffff33, #cecece33, #a0a0a033, #73737333, #4a4a4a33);
     backdrop-filter: blur( 3.5px );
-    -webkit-backdrop-filter: blur( 3.5px );    
-       
-    .title{
-        margin: 0;
-        padding: 40px;
-        padding-bottom: 0px;
-        font-size: 30px;
-    }
-    .brand{
-        color: rgb(175, 144, 144);
-        padding-left: 40px;
-
-    }
-    img{
-        position: relative;
-        top: -30px;
-        left: -35px;
-        width: 400px;
-        height: 400px;
-        transform: rotate3d(0,1,0,180deg) + rotate(25deg);
-        transition: 0.3s;
-
-        // &:hover{
-        //     transform: rotate3d(0,1,0,180deg) + rotate(25deg) + scale(1.2); // NO FUNCAAAAAA
-        // }
-    }
-    
-    .price{
-        position: absolute;
-        bottom: 60px;
-        right: 40px;
-        margin: 0;
-        padding: 0;
-        font-size: 70px;
-    }
-    
-    button{
-        position: absolute;
-        bottom: 60px;
-        left: 40px;
-        height: 2.2rem;
-        // width: 5.5rem;
-        font-size: 1rem;
-        padding: 0.5rem;
-        margin-top: 0.5rem;
-        border-radius: 10px;
-        background-color: transparent;
-        font-family: fonts.$font-secondary;
-        color: colors.$font-color-secondary;
-        border: 1px solid white;
-        cursor: pointer;
-        transition: 0.3s;
-        letter-spacing: 0.1rem;
-
-        &:hover{
-        background-color: colors.$font-color-secondary;
-        color: rgb(156, 21, 21);
-        letter-spacing: 0.4rem;
-        }
-    }
+    -webkit-backdrop-filter: blur( 3.5px );
 }

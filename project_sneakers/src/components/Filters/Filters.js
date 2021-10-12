@@ -167,60 +167,66 @@ const Filters = ({ data, filteredValues, setFilteredValues }) => {
     <>
       <div className="filters">
         <form>
-          <input
-            type="search"
-            placeholder="Search by name"
-            name="search"
-            onChange={handleChange}
-          />
-          <div className="sortList">
-            <select
-              name="sortList"
-              defaultValue="sort by"
-              onChange={(e) => {
-                setSelected(e.target.value);
-              }}
-            >
-              <option value="sort by" hidden>
-                Sort by
-              </option>
-              <option value="high">Price: High-Low</option>
-              <option value="low">Price: Low-High</option>
-              <option value="newest">Date: Newest</option>
-              <option value="oldest">Date: Oldest</option>
-            </select>
+          <div>
+            <input
+              type="search"
+              placeholder="Search by name"
+              name="search"
+              onChange={handleChange}
+            />
+            <div className="sortList">
+              <select
+                name="sortList"
+                defaultValue="sort by"
+                onChange={(e) => {
+                  setSelected(e.target.value);
+                }}
+              >
+                <option value="sort by" hidden>
+                  Sort by
+                </option>
+                <option value="high">Price: High-Low</option>
+                <option value="low">Price: Low-High</option>
+                <option value="newest">Date: Newest</option>
+                <option value="oldest">Date: Oldest</option>
+              </select>
+            </div>
           </div>
-          <h3>Brand</h3>
-          {brand.map((el, index) => {
-            return (
-              <div key={index}>
-                <input
-                  type="checkbox"
-                  data-sort="brand"
-                  id={el}
-                  name={el}
-                  onChange={handleChecked}
-                />
-                <label htmlFor={el}>{el}</label>
-              </div>
-            );
-          })}
+          <div>
+            <h3>Brand</h3>
+            {brand.map((el, index) => {
+              return (
+                <div key={index}>
+                  <input
+                    type="checkbox"
+                    data-sort="brand"
+                    id={el}
+                    name={el}
+                    onChange={handleChecked}
+                  />
+                  <label htmlFor={el}>{el}</label>
+                </div>
+              );
+            })}
+          </div>
           <br />
-          <h3>Gender</h3>
-          {gender.map((el, index) => {
-            return (
-              <div key={index}>
-                <input
-                  type="checkbox"
-                  data-sort="gender"
-                  id={el}
-                  name={el}
-                  onChange={handleChecked}
-                />
-                <label htmlFor={el}>{el}</label>
-              </div>
-            );
-          })}
+          <div>
+            <h3>Gender</h3>
+            {gender.map((el, index) => {
+              return (
+                <div key={index}>
+                  <input
+                    type="checkbox"
+                    data-sort="gender"
+                    id={el}
+                    name={el}
+                    onChange={handleChecked}
+                  />
+                  <label htmlFor={el}>{el}</label>
+                </div>
+              );
+            })}
+          </div>
         </form>
       </div>
     </>
