@@ -6,6 +6,8 @@ import Navbar from "../../components/Navbar/Navbar";
 import ProductCard from "../../components/ProductCard/ProductCard";
 import Error404 from "../Error404/Error404";
 import { motion } from "framer-motion";
+import Modal from "../../components/Modal/Modal";
+import { useModal } from "../../hooks/useModal";
 
 //import { useFetch } from "../../hooks/useFetch";
 
@@ -17,6 +19,8 @@ const Sneakers = () => {
   let url = "http://localhost:3004/db";
   // let url = "https://the-sneaker-database.p.rapidapi.com/sneakers?limit=100";
   const [filteredValues, setFilteredValues] = useState("");
+
+  const [isOpen, openModal, closeModal, modalKey] = useModal();
 
   //let { data } = useFetch(url);
 
@@ -109,13 +113,36 @@ const Sneakers = () => {
                       ""
                     ) : (
                       <ProductCard
+                        openModal={openModal}
                         key={index}
+                        id={el.id}
                         brand={el.brand}
                         name={el.name}
                         gender={el.gender}
                         price={el.retailPrice}
                         image={el.image.small}
                       />
+                    )
+                )}
+                {(filteredValues === "" ? data : filteredValues).map(
+                  (el, index) =>
+                    el.id === modalKey ? (
+                      <Modal
+                        key={index}
+                        isOpen={isOpen}
+                        closeModal={closeModal}
+                        id={el.id}
+                        brand={el.brand}
+                        colorway={el.colorway}
+                        gender={el.gender}
+                        name={el.name}
+                        releaseYear={el.releaseYear}
+                        sku={el.sku}
+                        price={el.retailPrice}
+                        image={el.image.small}
+                      />
+                    ) : (
+                      ""
                     )
                 )}
               </div>

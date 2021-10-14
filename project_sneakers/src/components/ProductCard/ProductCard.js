@@ -1,6 +1,6 @@
 import React from "react";
 
-const ProductCard = ({ brand, name, gender, price, image }) => {
+const ProductCard = ({ id, brand, name, price, image, openModal }) => {
   return (
     <>
       <div className="product-card">
@@ -13,7 +13,9 @@ const ProductCard = ({ brand, name, gender, price, image }) => {
         </div>
         <div className="value-btn">
           <p className="price">${price}</p>
-          <button>See More</button>
+          <button onClick={openModal} id={id}>
+            See More
+          </button>
         </div>
       </div>
     </>

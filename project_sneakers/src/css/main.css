@@ -1718,12 +1718,26 @@ footer .container-below a:hover {
     height: 350px;
   }
 }
+@media (max-width: 537px) {
+  .filters {
+    min-width: 280px;
+    width: 280px;
+    height: 710px;
+  }
+}
 @media (max-width: 1260px) {
   .filters form {
     display: flex;
     justify-content: space-around;
     width: 50vw;
     min-width: 450px;
+  }
+}
+@media (max-width: 537px) {
+  .filters form {
+    flex-direction: column;
+    width: 1vw;
+    min-width: 220px;
   }
 }
 .filters .sortList {
@@ -1775,6 +1789,239 @@ footer .container-below a:hover {
 .filters form input[type=checkbox] {
   margin-left: 0.1rem;
   background-color: #d6d6d6;
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 999;
+  top: 0;
+  left: 0;
+  width: 100%;
+  min-height: 100vh;
+  background-color: rgba(0, 0, 0, 0.75);
+}
+.modal .container {
+  position: relative;
+  width: 60vw;
+  height: 80vh;
+  display: flex;
+  background-color: #d6d6d6;
+  padding: 1rem;
+  overflow: hidden;
+}
+.modal .container .image {
+  display: flex;
+  justify-content: center;
+  padding-right: 6rem;
+  width: 65%;
+  background: radial-gradient(#8892f1, #0c0e33);
+}
+.modal .container .image .test {
+  mix-blend-mode: hue;
+}
+.modal .container .image img {
+  width: 38vw;
+  height: 38vw;
+  transform: rotate3d(0, 1, 0, 180deg)rotate(25deg);
+}
+.modal .container .data {
+  z-index: 1;
+  width: 35%;
+  background-color: #121113;
+  color: #d6d6d6;
+  font-family: "Oswald";
+  letter-spacing: 0.1rem;
+  line-height: 3rem;
+  padding: 4rem 2rem;
+  font-size: clamp(3rem, calc(2rem + 1.8vw), 4.3rem);
+  font-size: clamp(0.1rem, calc(0.1rem + 2vw), 1rem);
+}
+.modal .container .data h1 {
+  padding-bottom: 2rem;
+  font-size: clamp(1rem, calc(0.8rem + 2vw), 2rem);
+}
+.modal .container .data .colorway {
+  display: flex;
+  align-items: center;
+}
+.modal .container .data .colorway .colors {
+  display: flex;
+}
+.modal .container .data .colorway .normal {
+  width: 20px;
+  height: 20px;
+  background-color: #b5afbb;
+  border-radius: 50%;
+  border: 1px solid #dbdbdb;
+  cursor: pointer;
+  transition: 0.3s;
+  margin: 0 0.4rem;
+  opacity: 0.8;
+}
+.modal .container .data .colorway .normal:hover {
+  opacity: 1;
+  filter: brightness(180%);
+  transition: 0.3s;
+}
+.modal .container .data .colorway .blue {
+  width: 20px;
+  height: 20px;
+  background-color: #0044d6;
+  border-radius: 50%;
+  border: 1px solid #dbdbdb;
+  cursor: pointer;
+  transition: 0.3s;
+  margin: 0 0.4rem;
+  opacity: 0.8;
+}
+.modal .container .data .colorway .blue:hover {
+  opacity: 1;
+  filter: brightness(180%);
+  transition: 0.3s;
+}
+.modal .container .data .colorway .brown {
+  width: 20px;
+  height: 20px;
+  background-color: #FF5500;
+  border-radius: 50%;
+  border: 1px solid #dbdbdb;
+  cursor: pointer;
+  transition: 0.3s;
+  margin: 0 0.4rem;
+  opacity: 0.8;
+}
+.modal .container .data .colorway .brown:hover {
+  opacity: 1;
+  filter: brightness(180%);
+  transition: 0.3s;
+}
+.modal .container .data .colorway .turquoise {
+  width: 20px;
+  height: 20px;
+  background-color: #00B3B3;
+  border-radius: 50%;
+  border: 1px solid #dbdbdb;
+  cursor: pointer;
+  transition: 0.3s;
+  margin: 0 0.4rem;
+  opacity: 0.8;
+}
+.modal .container .data .colorway .turquoise:hover {
+  opacity: 1;
+  filter: brightness(180%);
+  transition: 0.3s;
+}
+.modal .container .data .colorway .green {
+  width: 20px;
+  height: 20px;
+  background-color: #44CC00;
+  border-radius: 50%;
+  border: 1px solid #dbdbdb;
+  cursor: pointer;
+  transition: 0.3s;
+  margin: 0 0.4rem;
+  opacity: 0.8;
+}
+.modal .container .data .colorway .green:hover {
+  opacity: 1;
+  filter: brightness(180%);
+  transition: 0.3s;
+}
+.modal .container .data .colorway .pink {
+  width: 20px;
+  height: 20px;
+  background-color: #E645A0;
+  border-radius: 50%;
+  border: 1px solid #dbdbdb;
+  cursor: pointer;
+  transition: 0.3s;
+  margin: 0 0.4rem;
+  opacity: 0.8;
+}
+.modal .container .data .colorway .pink:hover {
+  opacity: 1;
+  filter: brightness(180%);
+  transition: 0.3s;
+}
+.modal .container .data .colorway .red {
+  width: 20px;
+  height: 20px;
+  background-color: #e64545;
+  border-radius: 50%;
+  border: 1px solid #dbdbdb;
+  cursor: pointer;
+  transition: 0.3s;
+  margin: 0 0.4rem;
+  opacity: 0.8;
+}
+.modal .container .data .colorway .red:hover {
+  opacity: 1;
+  filter: brightness(180%);
+  transition: 0.3s;
+}
+.modal .container .data .colorway .purple {
+  width: 20px;
+  height: 20px;
+  background-color: #8400ff;
+  border-radius: 50%;
+  border: 1px solid #dbdbdb;
+  cursor: pointer;
+  transition: 0.3s;
+  margin: 0 0.4rem;
+  opacity: 0.8;
+}
+.modal .container .data .colorway .purple:hover {
+  opacity: 1;
+  filter: brightness(180%);
+  transition: 0.3s;
+}
+.modal .container .data .addChart {
+  display: block;
+  margin: 0 auto;
+  margin-top: 4rem;
+  padding: 0.5rem 1rem;
+  border: 1px solid #d6d6d6;
+  border-radius: 2rem;
+  background-color: transparent;
+  color: #d6d6d6;
+  font-size: 1.3rem;
+  text-align: center;
+  cursor: pointer;
+  transition: 0.3s;
+}
+.modal .container .data .addChart:hover {
+  background-color: #d6d6d6;
+  color: #121113;
+  transition: 0.3s;
+  letter-spacing: 0.2rem;
+}
+.modal .container .modal-close {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  margin: 0.5rem;
+  color: #d6d6d6;
+  font-size: 1.7rem;
+  background-color: transparent;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+}
+.modal .container .modal-close i {
+  transition: 0.3s;
+}
+.modal .container .modal-close i:hover {
+  color: white;
+  filter: brightness(500%);
+  text-shadow: 0px 0px 30px white;
+  transition: 0.3s;
+}
+
+.is-open {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 *,

@@ -24,8 +24,10 @@
         min-width: 510px;
         height: 350px;
     }
-    @media (max-width: 1260px) {
-      // CONTINUAR ACA
+    @media (max-width: 537px) {
+        min-width: 280px;
+        width: 280px;
+        height: 710px;
     }
 
     form{
@@ -34,6 +36,11 @@
             justify-content: space-around;
             width: 50vw;
             min-width: 450px;
+        }
+        @media (max-width: 537px) {
+            flex-direction: column;
+            width: 1vw;
+            min-width: 220px;
         }
     }
 
