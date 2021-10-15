@@ -42,10 +42,11 @@
         section{
             width: 75%;
             display: flex;
-            justify-content: center;
-            align-items: center;
+            // justify-content: center;
+            // align-items: center;
             margin: 0 1rem;
             @media (max-width: 1260px) {
+                justify-content: center;
                 width: 100%;
                 margin: 0;
             }
@@ -53,13 +54,11 @@
             .cards{
                 display: flex;
                 flex-wrap: wrap;
-                justify-content: center;
-
-                
-                // @media (max-width: 200px) {
-                //     width: 240px;
-                //     margin: 0;
-                // }
+                width: 100%;
+                // justify-content: center; AQUI ORDENA EL ULTIMO ELEMENTO AL CENTRO
+                @media (max-width: 1260px) {
+                    justify-content: center;
+                }
             }
 
             .noResults{
@@ -73,11 +72,7 @@
                 letter-spacing: 0.05rem;
 
             }
-        }
-
-            
-        
-        
+        } 
     }
 }
 

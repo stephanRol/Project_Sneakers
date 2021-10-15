@@ -8,6 +8,7 @@ import Error404 from "../Error404/Error404";
 import { motion } from "framer-motion";
 import Modal from "../../components/Modal/Modal";
 import { useModal } from "../../hooks/useModal";
+import { useLocation } from "react-router";
 
 //import { useFetch } from "../../hooks/useFetch";
 
@@ -19,8 +20,13 @@ const Sneakers = () => {
   let url = "http://localhost:3004/db";
   // let url = "https://the-sneaker-database.p.rapidapi.com/sneakers?limit=100";
   const [filteredValues, setFilteredValues] = useState("");
-
   const [isOpen, openModal, closeModal, modalKey] = useModal();
+
+  let { search } = useLocation();
+  let query = new URLSearchParams(search);
+
+  let start = query.get("start");
+  let end = query.get("end");
 
   //let { data } = useFetch(url);
 

@@ -36,8 +36,8 @@ const Modal = ({
           <h1>{name}</h1>
           <div className="brand">Brand: {brand}</div>
           <div className="colorway">
-            Color:&nbsp;&nbsp;
-            <div className="colors">
+            <span>Color:&nbsp;&nbsp;</span>
+            <span>
               <div className="normal" id="none" onClick={handleColor}></div>
               <div className="blue" id="#0044d6" onClick={handleColor}></div>
               <div className="brown" id="#FF5500" onClick={handleColor}></div>
@@ -50,7 +50,7 @@ const Modal = ({
               <div className="pink" id="#E645A0" onClick={handleColor}></div>
               <div className="red" id="#e64545" onClick={handleColor}></div>
               <div className="purple" id="#8400ff" onClick={handleColor}></div>
-            </div>
+            </span>
           </div>
           <div className="gender">Gender: {gender}</div>
           <div className="releaseYear">Release Year: {releaseYear}</div>

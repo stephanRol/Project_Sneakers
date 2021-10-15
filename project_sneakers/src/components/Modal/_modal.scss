@@ -2,21 +2,26 @@
 @use '../../sass/fonts';
 
 @mixin shoeColor($shoe-color){
-    width: 20px;
-    height: 20px;
+    width: 15px;
+    height: 15px;
     background-color: $shoe-color;
     border-radius: 50%;
     border:1px solid #dbdbdb;
     cursor: pointer;
     transition: 0.3s;
-    margin: 0 0.4rem;
+    margin: 0 0.3rem;
     opacity: 0.8;
 
     &:hover{
         opacity: 1;
         filter: brightness(180%);
         transition: 0.3s;
-    }                   
+    }       
+    
+    @media(max-width: 420px) {
+        width: 10px;
+        height: 10px;   
+    }
 }
 
 .modal{
@@ -36,18 +41,32 @@
         display: flex;
         background-color: colors.$font-color-secondary;
         padding: 1rem;
-        // overflow: scroll;
         overflow: hidden;
+
+        @media(max-width: 1200px) {
+            flex-direction: column;
+            overflow: scroll;
+        }
+        @media(max-width: 1200px) {
+            width: 100vw;
+            min-height: 100vh;
+        }
 
         .image{
             display: flex;
             justify-content: center;
+            align-items: center;
             
             padding-right: 6rem;
             width: 65%;
             // background: radial-gradient(#9c5050, #750910);
             // background: radial-gradient(#8b8383, #161618);
             background: radial-gradient(#8892f1, #0c0e33);
+
+            @media(max-width: 1200px) {
+                width: 100%;
+                padding-right: 2rem;
+            }
 
             .test{
                 // box-shadow: 0 0 0 1500px #0044d6;
@@ -66,7 +85,13 @@
                 width: 38vw;
                 height: 38vw;
                 transform: rotate3d(0,1,0,180deg) + rotate(25deg);
+                
+                @media(max-width: 1200px) {
+                    min-width: 250px;
+                    min-height: 250px;
+                }
             }
+            
         }
 
         .data{
@@ -79,19 +104,38 @@
             line-height: 3rem;
             padding: 4rem 2rem;
             font-size: clamp(3rem, calc(2rem + 1.8vw), 4.3rem);
-            font-size: clamp(0.1rem, calc(0.1rem + 2vw), 1rem);
+            font-size: clamp(0.4rem, calc(0.4rem + 2vw), 1rem);
 
+            @media(max-width: 1200px) {
+                width: 100%;
+                padding: 2rem;
+            }
 
             h1{
+                margin: 0;
                 padding-bottom: 2rem;
                 font-size: clamp(1rem, calc(0.8rem + 2vw), 2rem);
+                
+                @media(max-width: 1200px) {
+                    width: 100%;
+                }
             }
 
             .colorway{
                 display: flex;
                 align-items: center; 
 
-                .colors{
+                @media(max-width: 1450px) {
+                    display: block;
+                }
+                @media(max-width: 1200px) {
+                    display: flex;
+                }
+                @media(max-width: 420px) {
+                    display: block;
+                }
+
+                span{
                     display: flex;
                 }
                 .normal{
@@ -139,6 +183,10 @@
                     color: #121113;;
                     transition: 0.3s;
                     letter-spacing: 0.2rem;
+                }
+
+                @media(max-width: 1200px) {
+                    margin: 2rem auto;
                 }
 
             }

@@ -614,12 +614,11 @@ body {
 .sneakers main section {
   width: 75%;
   display: flex;
-  justify-content: center;
-  align-items: center;
   margin: 0 1rem;
 }
 @media (max-width: 1260px) {
   .sneakers main section {
+    justify-content: center;
     width: 100%;
     margin: 0;
   }
@@ -627,7 +626,12 @@ body {
 .sneakers main section .cards {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
+  width: 100%;
+}
+@media (max-width: 1260px) {
+  .sneakers main section .cards {
+    justify-content: center;
+  }
 }
 .sneakers main section .noResults {
   width: 100%;
@@ -1598,7 +1602,7 @@ footer .container-below a:hover {
   align-items: center;
   margin: 0 2vw;
   margin-bottom: 3rem;
-  width: 26%;
+  width: 18vw;
   min-width: 230px;
   height: 35vw;
   min-height: 420px;
@@ -1810,12 +1814,31 @@ footer .container-below a:hover {
   padding: 1rem;
   overflow: hidden;
 }
+@media (max-width: 1200px) {
+  .modal .container {
+    flex-direction: column;
+    overflow: scroll;
+  }
+}
+@media (max-width: 1200px) {
+  .modal .container {
+    width: 100vw;
+    min-height: 100vh;
+  }
+}
 .modal .container .image {
   display: flex;
   justify-content: center;
+  align-items: center;
   padding-right: 6rem;
   width: 65%;
   background: radial-gradient(#8892f1, #0c0e33);
+}
+@media (max-width: 1200px) {
+  .modal .container .image {
+    width: 100%;
+    padding-right: 2rem;
+  }
 }
 .modal .container .image .test {
   mix-blend-mode: hue;
@@ -1824,6 +1847,12 @@ footer .container-below a:hover {
   width: 38vw;
   height: 38vw;
   transform: rotate3d(0, 1, 0, 180deg)rotate(25deg);
+}
+@media (max-width: 1200px) {
+  .modal .container .image img {
+    min-width: 250px;
+    min-height: 250px;
+  }
 }
 .modal .container .data {
   z-index: 1;
@@ -1835,28 +1864,55 @@ footer .container-below a:hover {
   line-height: 3rem;
   padding: 4rem 2rem;
   font-size: clamp(3rem, calc(2rem + 1.8vw), 4.3rem);
-  font-size: clamp(0.1rem, calc(0.1rem + 2vw), 1rem);
+  font-size: clamp(0.4rem, calc(0.4rem + 2vw), 1rem);
+}
+@media (max-width: 1200px) {
+  .modal .container .data {
+    width: 100%;
+    padding: 2rem;
+  }
 }
 .modal .container .data h1 {
+  margin: 0;
   padding-bottom: 2rem;
   font-size: clamp(1rem, calc(0.8rem + 2vw), 2rem);
+}
+@media (max-width: 1200px) {
+  .modal .container .data h1 {
+    width: 100%;
+  }
 }
 .modal .container .data .colorway {
   display: flex;
   align-items: center;
 }
-.modal .container .data .colorway .colors {
+@media (max-width: 1450px) {
+  .modal .container .data .colorway {
+    display: block;
+  }
+}
+@media (max-width: 1200px) {
+  .modal .container .data .colorway {
+    display: flex;
+  }
+}
+@media (max-width: 420px) {
+  .modal .container .data .colorway {
+    display: block;
+  }
+}
+.modal .container .data .colorway span {
   display: flex;
 }
 .modal .container .data .colorway .normal {
-  width: 20px;
-  height: 20px;
+  width: 15px;
+  height: 15px;
   background-color: #b5afbb;
   border-radius: 50%;
   border: 1px solid #dbdbdb;
   cursor: pointer;
   transition: 0.3s;
-  margin: 0 0.4rem;
+  margin: 0 0.3rem;
   opacity: 0.8;
 }
 .modal .container .data .colorway .normal:hover {
@@ -1864,15 +1920,21 @@ footer .container-below a:hover {
   filter: brightness(180%);
   transition: 0.3s;
 }
+@media (max-width: 420px) {
+  .modal .container .data .colorway .normal {
+    width: 10px;
+    height: 10px;
+  }
+}
 .modal .container .data .colorway .blue {
-  width: 20px;
-  height: 20px;
+  width: 15px;
+  height: 15px;
   background-color: #0044d6;
   border-radius: 50%;
   border: 1px solid #dbdbdb;
   cursor: pointer;
   transition: 0.3s;
-  margin: 0 0.4rem;
+  margin: 0 0.3rem;
   opacity: 0.8;
 }
 .modal .container .data .colorway .blue:hover {
@@ -1880,15 +1942,21 @@ footer .container-below a:hover {
   filter: brightness(180%);
   transition: 0.3s;
 }
+@media (max-width: 420px) {
+  .modal .container .data .colorway .blue {
+    width: 10px;
+    height: 10px;
+  }
+}
 .modal .container .data .colorway .brown {
-  width: 20px;
-  height: 20px;
+  width: 15px;
+  height: 15px;
   background-color: #FF5500;
   border-radius: 50%;
   border: 1px solid #dbdbdb;
   cursor: pointer;
   transition: 0.3s;
-  margin: 0 0.4rem;
+  margin: 0 0.3rem;
   opacity: 0.8;
 }
 .modal .container .data .colorway .brown:hover {
@@ -1896,15 +1964,21 @@ footer .container-below a:hover {
   filter: brightness(180%);
   transition: 0.3s;
 }
+@media (max-width: 420px) {
+  .modal .container .data .colorway .brown {
+    width: 10px;
+    height: 10px;
+  }
+}
 .modal .container .data .colorway .turquoise {
-  width: 20px;
-  height: 20px;
+  width: 15px;
+  height: 15px;
   background-color: #00B3B3;
   border-radius: 50%;
   border: 1px solid #dbdbdb;
   cursor: pointer;
   transition: 0.3s;
-  margin: 0 0.4rem;
+  margin: 0 0.3rem;
   opacity: 0.8;
 }
 .modal .container .data .colorway .turquoise:hover {
@@ -1912,15 +1986,21 @@ footer .container-below a:hover {
   filter: brightness(180%);
   transition: 0.3s;
 }
+@media (max-width: 420px) {
+  .modal .container .data .colorway .turquoise {
+    width: 10px;
+    height: 10px;
+  }
+}
 .modal .container .data .colorway .green {
-  width: 20px;
-  height: 20px;
+  width: 15px;
+  height: 15px;
   background-color: #44CC00;
   border-radius: 50%;
   border: 1px solid #dbdbdb;
   cursor: pointer;
   transition: 0.3s;
-  margin: 0 0.4rem;
+  margin: 0 0.3rem;
   opacity: 0.8;
 }
 .modal .container .data .colorway .green:hover {
@@ -1928,15 +2008,21 @@ footer .container-below a:hover {
   filter: brightness(180%);
   transition: 0.3s;
 }
+@media (max-width: 420px) {
+  .modal .container .data .colorway .green {
+    width: 10px;
+    height: 10px;
+  }
+}
 .modal .container .data .colorway .pink {
-  width: 20px;
-  height: 20px;
+  width: 15px;
+  height: 15px;
   background-color: #E645A0;
   border-radius: 50%;
   border: 1px solid #dbdbdb;
   cursor: pointer;
   transition: 0.3s;
-  margin: 0 0.4rem;
+  margin: 0 0.3rem;
   opacity: 0.8;
 }
 .modal .container .data .colorway .pink:hover {
@@ -1944,15 +2030,21 @@ footer .container-below a:hover {
   filter: brightness(180%);
   transition: 0.3s;
 }
+@media (max-width: 420px) {
+  .modal .container .data .colorway .pink {
+    width: 10px;
+    height: 10px;
+  }
+}
 .modal .container .data .colorway .red {
-  width: 20px;
-  height: 20px;
+  width: 15px;
+  height: 15px;
   background-color: #e64545;
   border-radius: 50%;
   border: 1px solid #dbdbdb;
   cursor: pointer;
   transition: 0.3s;
-  margin: 0 0.4rem;
+  margin: 0 0.3rem;
   opacity: 0.8;
 }
 .modal .container .data .colorway .red:hover {
@@ -1960,21 +2052,33 @@ footer .container-below a:hover {
   filter: brightness(180%);
   transition: 0.3s;
 }
+@media (max-width: 420px) {
+  .modal .container .data .colorway .red {
+    width: 10px;
+    height: 10px;
+  }
+}
 .modal .container .data .colorway .purple {
-  width: 20px;
-  height: 20px;
+  width: 15px;
+  height: 15px;
   background-color: #8400ff;
   border-radius: 50%;
   border: 1px solid #dbdbdb;
   cursor: pointer;
   transition: 0.3s;
-  margin: 0 0.4rem;
+  margin: 0 0.3rem;
   opacity: 0.8;
 }
 .modal .container .data .colorway .purple:hover {
   opacity: 1;
   filter: brightness(180%);
   transition: 0.3s;
+}
+@media (max-width: 420px) {
+  .modal .container .data .colorway .purple {
+    width: 10px;
+    height: 10px;
+  }
 }
 .modal .container .data .addChart {
   display: block;
@@ -1995,6 +2099,11 @@ footer .container-below a:hover {
   color: #121113;
   transition: 0.3s;
   letter-spacing: 0.2rem;
+}
+@media (max-width: 1200px) {
+  .modal .container .data .addChart {
+    margin: 2rem auto;
+  }
 }
 .modal .container .modal-close {
   position: absolute;
