@@ -10,14 +10,25 @@ export const usePagination = (filteredValues) => {
 
   let history = useHistory();
 
+  const scrollUp = () => {
+    window.scrollTo({
+      top: 0,
+      left: 0,
+      behavior: "smooth",
+    });
+  };
+
   const handlePrev = (e) => {
     history.push({ search: `?start=${start - LIMIT}&end=${end - LIMIT}` });
+    scrollUp();
   };
   const handleNext = (e) => {
     history.push({ search: `?start=${start + LIMIT}&end=${end + LIMIT}` });
+    scrollUp();
   };
   const handleBegin = (e) => {
     history.push({ search: `?start=1&end=${LIMIT}` });
+    scrollUp();
   };
   const handleFinal = (e) => {
     const final = Math.floor(filteredValues.length / LIMIT);
@@ -27,10 +38,12 @@ export const usePagination = (filteredValues) => {
       history.push({
         search: `?start=${final * LIMIT + 1}&end=${final * LIMIT + LIMIT}`,
       });
+      scrollUp();
     } else {
       history.push({
         search: `?start=${final * LIMIT - 2}&end=${final * LIMIT}`,
       });
+      scrollUp();
     }
   };
 

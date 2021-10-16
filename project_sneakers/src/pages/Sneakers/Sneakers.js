@@ -14,7 +14,7 @@ import { usePagination } from "../../hooks/usePagination";
 
 const Sneakers = () => {
   const [data, setData] = useState(null);
-  const [isPending, setIsPending] = useState(true);
+  // const [isPending, setIsPending] = useState(true);
   const [error, setError] = useState(null);
 
   let url = "http://localhost:3004/db";
@@ -52,14 +52,14 @@ const Sneakers = () => {
 
         let result = data.results.filter(
           (el) =>
-            el.image.original !== "" || el.image.original.slice(-4) === ".png"
+            el.image.original !== "" && el.image.original.slice(-4) === ".png"
         );
 
-        setIsPending(false);
+        // setIsPending(false);
         setData(result);
         setError({ err: false });
       } catch (err) {
-        setIsPending(true);
+        // setIsPending(true);
         setError(err);
       }
     };
@@ -160,20 +160,20 @@ const Sneakers = () => {
                     </p>
                     <div className="buttonsPagination">
                       <button onClick={handleBegin}>
-                        <i class="fas fa-angle-double-left"></i>
+                        <i className="fas fa-angle-double-left"></i>
                       </button>
                       {start > LIMIT && (
                         <button onClick={handlePrev}>
-                          <i class="fas fa-chevron-left"></i>
+                          <i className="fas fa-chevron-left"></i>
                         </button>
                       )}
                       {filteredValues.length > end && (
                         <button onClick={handleNext}>
-                          <i class="fas fa-chevron-right"></i>
+                          <i className="fas fa-chevron-right"></i>
                         </button>
                       )}
                       <button onClick={handleFinal}>
-                        <i class="fas fa-angle-double-right"></i>
+                        <i className="fas fa-angle-double-right"></i>
                       </button>
                     </div>
                   </div>
