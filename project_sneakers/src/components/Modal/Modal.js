@@ -1,4 +1,4 @@
-import React from "react";
+import { useRef } from "react";
 
 const Modal = ({
   isOpen,
@@ -13,12 +13,13 @@ const Modal = ({
   price,
   image,
 }) => {
+  const refNode = useRef();
+
   const handleColor = (e) => {
-    const nodo = document.querySelector(".test");
     if (e.target.id === "none") {
-      nodo.style.boxShadow = `${e.target.id}`;
+      refNode.current.style.boxShadow = `${e.target.id}`;
     } else {
-      nodo.style.boxShadow = `0 0 0 1500px ${e.target.id}`;
+      refNode.current.style.boxShadow = `0 0 0 1500px ${e.target.id}`;
     }
   };
 
@@ -27,7 +28,7 @@ const Modal = ({
       <div className="container" onClick={(e) => e.stopPropagation()}>
         <div className="image">
           <img src={image} alt={name} />
-          <div className="test"></div>
+          <div className="test" ref={refNode}></div>
         </div>
         <div className="data">
           <button className="modal-close" onClick={closeModal}>

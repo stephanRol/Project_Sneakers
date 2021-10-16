@@ -8,7 +8,7 @@ import Error404 from "../Error404/Error404";
 import { motion } from "framer-motion";
 import Modal from "../../components/Modal/Modal";
 import { useModal } from "../../hooks/useModal";
-import { useLocation } from "react-router";
+import { usePagination } from "../../hooks/usePagination";
 
 //import { useFetch } from "../../hooks/useFetch";
 
@@ -22,13 +22,10 @@ const Sneakers = () => {
   const [filteredValues, setFilteredValues] = useState("");
   const [isOpen, openModal, closeModal, modalKey] = useModal();
 
-  let { search } = useLocation();
-  let query = new URLSearchParams(search);
-
-  let start = query.get("start");
-  let end = query.get("end");
-
   //let { data } = useFetch(url);
+
+  let { start, end, LIMIT, handlePrev, handleNext, handleBegin, handleFinal } =
+    usePagination(filteredValues);
 
   useEffect(() => {
     const getData = async (url) => {
@@ -100,6 +97,7 @@ const Sneakers = () => {
                 data={data}
                 filteredValues={filteredValues}
                 setFilteredValues={setFilteredValues}
+                LIMIT={LIMIT}
               />
             </aside>
             <section>
@@ -117,7 +115,7 @@ const Sneakers = () => {
                     el.image.original === "" ||
                     el.image.original.slice(-4) !== ".png" ? (
                       ""
-                    ) : (
+                    ) : index >= start - 1 && index <= end - 1 ? (
                       <ProductCard
                         openModal={openModal}
                         key={index}
@@ -128,6 +126,8 @@ const Sneakers = () => {
                         price={el.retailPrice}
                         image={el.image.small}
                       />
+                    ) : (
+                      ""
                     )
                 )}
                 {(filteredValues === "" ? data : filteredValues).map(
@@ -152,6 +152,33 @@ const Sneakers = () => {
                     )
                 )}
               </div>
+              {filteredValues.length !== 0 && filteredValues.length > LIMIT && (
+                <div className="pagination">
+                  <div className="paginationContainer">
+                    <p>
+                      Showing from <b>{start}</b> to <b>{end}</b>.
+                    </p>
+                    <div className="buttonsPagination">
+                      <button onClick={handleBegin}>
+                        <i class="fas fa-angle-double-left"></i>
+                      </button>
+                      {start > LIMIT && (
+                        <button onClick={handlePrev}>
+                          <i class="fas fa-chevron-left"></i>
+                        </button>
+                      )}
+                      {filteredValues.length > end && (
+                        <button onClick={handleNext}>
+                          <i class="fas fa-chevron-right"></i>
+                        </button>
+                      )}
+                      <button onClick={handleFinal}>
+                        <i class="fas fa-angle-double-right"></i>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              )}
             </section>
           </main>
           <footer>

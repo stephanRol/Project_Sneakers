@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from "react";
+import { useHistory } from "react-router";
 
-const Filters = ({ data, filteredValues, setFilteredValues }) => {
+const Filters = ({ data, filteredValues, setFilteredValues, LIMIT }) => {
   const [form, setForm] = useState("");
   const [selected, setSelected] = useState("");
   const [sortActive, setSortActive] = useState(false);
+  let history = useHistory();
 
   const brand = [
     "Nike",
@@ -59,6 +61,9 @@ const Filters = ({ data, filteredValues, setFilteredValues }) => {
   //FILTERS
   //-----------------------------------------------
   const setFilters = (e) => {
+    history.push({ search: `?start=1&end=3` });
+    history.push({ search: `?start=1&end=${LIMIT}` });
+
     let box = data;
     let brand = false;
     let gender = false;

@@ -59,8 +59,6 @@
             
             padding-right: 6rem;
             width: 65%;
-            // background: radial-gradient(#9c5050, #750910);
-            // background: radial-gradient(#8b8383, #161618);
             background: radial-gradient(#8892f1, #0c0e33);
 
             @media(max-width: 1200px) {
@@ -69,16 +67,7 @@
             }
 
             .test{
-                // box-shadow: 0 0 0 1500px #0044d6;
-                // box-shadow: 0 0 0 1500px #FF5500;
-                // box-shadow: 0 0 0 1500px #00B3B3;
-                // box-shadow: 0 0 0 1500px #44CC00;
-                // box-shadow: 0 0 0 1500px #E645A0;
-                // box-shadow: 0 0 0 1500px #e64545;
-                // box-shadow: 0 0 0 1500px #8400ff;
-                // box-shadow: none;
                 mix-blend-mode: hue;
-
             }
 
             img{

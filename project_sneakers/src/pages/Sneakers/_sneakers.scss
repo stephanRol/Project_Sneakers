@@ -42,8 +42,7 @@
         section{
             width: 75%;
             display: flex;
-            // justify-content: center;
-            // align-items: center;
+            flex-direction: column; // PAGINATION
             margin: 0 1rem;
             @media (max-width: 1260px) {
                 justify-content: center;
@@ -71,6 +70,50 @@
                 font-weight: 300;
                 letter-spacing: 0.05rem;
 
+            }
+
+            .pagination{
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                flex-direction: column;
+                width: 100%;
+                margin: 1rem 0;
+                margin-bottom: 3rem ;
+
+                .paginationContainer{
+                text-align: center;
+                width: 40%;
+                p{
+                    font-family: fonts.$font-secondary;
+                    color: colors.$font-color-secondary;
+                    letter-spacing: 0.1rem; 
+                }
+                    .buttonsPagination{
+                        button{
+                            margin: 6px;
+                            background-color: transparent;
+                            border-radius: 50%;
+                            padding: 0.8rem 1rem;
+                            border: 1px solid colors.$font-color-3;
+                            font-family: fonts.$font-secondary;
+                            // color: colors.$font-color-secondary;
+                            color: colors.$font-color-3;
+                            cursor: pointer;
+                            transition: 0.3s;
+
+                            &:hover{
+                                color: rgb(255, 255, 255);
+                                border: 1px solid rgb(255, 255, 255);
+                                filter: brightness(500%);
+                                box-shadow: 0px 0px 6px rgb(255, 255, 255);
+                                text-shadow: 0px 0px 6px rgb(255, 255, 255);
+                                transition: 0.3s;
+                            }
+        
+                        }
+                    }
+                }
             }
         } 
     }
