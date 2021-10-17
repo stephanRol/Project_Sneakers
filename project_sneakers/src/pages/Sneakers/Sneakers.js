@@ -19,6 +19,7 @@ const Sneakers = () => {
 
   let url = "http://localhost:3004/db";
   // let url = "https://the-sneaker-database.p.rapidapi.com/sneakers?limit=100";
+
   const [filteredValues, setFilteredValues] = useState("");
   const [isOpen, openModal, closeModal, modalKey] = useModal();
 
@@ -30,14 +31,15 @@ const Sneakers = () => {
   useEffect(() => {
     const getData = async (url) => {
       try {
-        // fetch(url, {
+        // let res = await fetch(url, {
         //   method: "GET",
         //   headers: {
         //     "x-rapidapi-host": "the-sneaker-database.p.rapidapi.com",
         //     "x-rapidapi-key":
-        //       "ea",
+        //       "e68a",
         //   },
-        // })
+        // });
+
         let res = await fetch(url);
 
         if (!res.ok) {

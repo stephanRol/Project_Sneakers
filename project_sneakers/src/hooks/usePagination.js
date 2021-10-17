@@ -41,7 +41,7 @@ export const usePagination = (filteredValues) => {
       scrollUp();
     } else {
       history.push({
-        search: `?start=${final * LIMIT - 2}&end=${final * LIMIT}`,
+        search: `?start=${final * LIMIT - LIMIT + 1}&end=${final * LIMIT}`,
       });
       scrollUp();
     }
