@@ -169,15 +169,44 @@
 
                 &:hover{
                     background-color: colors.$font-color-secondary;
-                    color: #121113;;
+                    color: #121113;
                     transition: 0.3s;
                     letter-spacing: 0.2rem;
                 }
-
+                @media(max-width: 1300px) {
+                    margin-top: 1rem;
+                }
                 @media(max-width: 1200px) {
                     margin: 2rem auto;
                 }
+            }
 
+            .addedToCart{
+                @extend .addChart;
+                background-color: green;
+                &:hover{ 
+                    background-color: green;
+                    color:colors.$font-color-secondary;
+                    letter-spacing: 0rem;
+                    cursor: not-allowed;
+                }
+            }
+
+            .counter{
+                border: 1px solid colors.$font-color-secondary;
+                border-radius: 50%;
+                padding: 0 0.5rem;
+                background-color: transparent;
+                color:colors.$font-color-secondary;
+                font-size: 1.2rem;
+                text-align: center;
+                cursor: pointer;
+                transition: 0.3s;
+                &:hover{
+                    background-color: colors.$font-color-secondary;
+                    color: #121113;
+                    transition: 0.3s;
+                }
             }
         }
 

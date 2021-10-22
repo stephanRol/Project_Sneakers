@@ -244,6 +244,7 @@ const Contact = () => {
             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2369.4690840092626!2d9.912588215982918!3d53.56724436584297!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47b185c0264d9f37%3A0xa52f570cde364927!2sBoschstra%C3%9Fe%2C%2022761%20Hamburg!5e0!3m2!1ses!2sde!4v1633680336144!5m2!1ses!2sde"
             allowFullScreen=""
             loading="lazy"
+            title="map"
           ></iframe>
         </section>
       </main>

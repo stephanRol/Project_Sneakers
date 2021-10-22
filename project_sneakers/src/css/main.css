@@ -697,6 +697,31 @@ body {
   line-height: 1.2rem;
 }
 
+.shoppingCart {
+  min-height: 100vh;
+  width: 100%;
+  background-image: linear-gradient(to left bottom, #210000, #310706, #440609, #57040a, #6a0108, #7b070d, #8d0f10, #9f1713, #b52520, #cb312e, #e13e3b, #f84a4a);
+  background-repeat: no-repeat;
+}
+.shoppingCart header {
+  height: 15vh;
+}
+.shoppingCart main {
+  height: 85vh;
+}
+.shoppingCart main table {
+  border: 1px solid black;
+}
+.shoppingCart main table th, .shoppingCart main table td {
+  border: 1px solid black;
+  overflow: hidden;
+}
+.shoppingCart main table th img, .shoppingCart main table td img {
+  width: 70px;
+  height: 70px;
+  background: radial-gradient(#8892f1, #0c0e33);
+}
+
 .error404 {
   display: flex;
   justify-content: center;
@@ -855,7 +880,7 @@ body {
 .contact main section .messageUs-container {
   display: flex;
   flex-direction: column;
-  align-items: end;
+  align-items: flex-end;
   width: 50%;
   margin-top: 2rem;
 }
@@ -1039,6 +1064,11 @@ body {
   list-style: none;
   font-size: clamp(1rem, calc(0.8rem + 0.7vw), 1.3rem);
   margin: 0 2vw;
+}
+@media (max-width: 530px) {
+  .navbar .items li a {
+    margin: 0 1vw;
+  }
 }
 @media (max-width: 480px) {
   .navbar .items {
@@ -2118,7 +2148,7 @@ footer .container-below a:hover {
     height: 10px;
   }
 }
-.modal .container .data .addChart {
+.modal .container .data .addChart, .modal .container .data .addedToCart {
   display: block;
   margin: 0 auto;
   margin-top: 4rem;
@@ -2132,16 +2162,46 @@ footer .container-below a:hover {
   cursor: pointer;
   transition: 0.3s;
 }
-.modal .container .data .addChart:hover {
+.modal .container .data .addChart:hover, .modal .container .data .addedToCart:hover {
   background-color: #d6d6d6;
   color: #121113;
   transition: 0.3s;
   letter-spacing: 0.2rem;
 }
+@media (max-width: 1300px) {
+  .modal .container .data .addChart, .modal .container .data .addedToCart {
+    margin-top: 1rem;
+  }
+}
 @media (max-width: 1200px) {
-  .modal .container .data .addChart {
+  .modal .container .data .addChart, .modal .container .data .addedToCart {
     margin: 2rem auto;
   }
+}
+.modal .container .data .addedToCart {
+  background-color: green;
+}
+.modal .container .data .addedToCart:hover {
+  background-color: green;
+  color: #d6d6d6;
+  letter-spacing: 0rem;
+  cursor: not-allowed;
+}
+.modal .container .data .counter {
+  border: 1px solid #d6d6d6;
+  border-radius: 50%;
+  padding: 0 0.5rem;
+  background-color: transparent;
+  color: #d6d6d6;
+  font-size: 1.2rem;
+  text-align: center;
+  cursor: pointer;
+  transition: 0.3s;
+}
+.modal .container .data .counter:hover {
+  background-color: #d6d6d6;
+  color: #121113;
+  transition: 0.3s;
 }
 .modal .container .modal-close {
   position: absolute;

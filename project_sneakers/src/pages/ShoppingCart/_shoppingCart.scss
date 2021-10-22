@@ -1,0 +1,29 @@
+
+.shoppingCart{
+    min-height: 100vh;
+    width: 100%;
+    background-image: linear-gradient(to left bottom, #210000, #310706, #440609, #57040a, #6a0108, #7b070d, #8d0f10, #9f1713, #b52520, #cb312e, #e13e3b, #f84a4a);
+    background-repeat: no-repeat;
+    
+    header{
+        height: 15vh;
+    }
+    main{
+        height: 85vh;
+
+        table{
+            border: 1px solid black;
+            th,td{
+                border: 1px solid black;
+                overflow: hidden;
+                // background-color: #fff;
+                img{
+                    width: 70px;
+                    height: 70px;
+                    background: radial-gradient(#8892f1, #0c0e33);
+                }
+                
+            } 
+        }
+    }
+}

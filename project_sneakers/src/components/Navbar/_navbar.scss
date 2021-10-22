@@ -38,6 +38,13 @@
         list-style: none;
         font-size: clamp(1rem, calc(0.8rem + 0.7vw), 1.3rem); 
         margin: 0 2vw;
+        li{
+            a{
+                @media (max-width: 530px) {
+                    margin: 0 1vw;
+                }
+            }
+        }
     }
     @media (max-width: 480px) {
         .items{

@@ -1,4 +1,6 @@
-import { useRef } from "react";
+import { useRef, useState } from "react";
+import { useContext } from "react";
+import CartContext from "../../helpers/CartContext";
 
 const Modal = ({
   isOpen,
@@ -14,24 +16,49 @@ const Modal = ({
   image,
 }) => {
   const refNode = useRef();
+  const { handleAddProduct } = useContext(CartContext);
+  const [added, setAdded] = useState(false);
+  const [counter, setCounter] = useState(1);
+  const [color, setColor] = useState("normal");
+
+  const handleClose = () => {
+    closeModal();
+    setAdded(false);
+  };
 
   const handleColor = (e) => {
     if (e.target.id === "none") {
       refNode.current.style.boxShadow = `${e.target.id}`;
+      setColor(e.target.className);
     } else {
       refNode.current.style.boxShadow = `0 0 0 1500px ${e.target.id}`;
+      setColor(e.target.className);
+    }
+  };
+
+  const handleAdding = (e) => {
+    handleAddProduct(e);
+    setAdded(true);
+  };
+
+  const amount = (e) => {
+    if (e.target.innerText === "-") {
+      if (counter === 1) return;
+      setCounter((prev) => prev - 1);
+    } else {
+      setCounter((prev) => prev + 1);
     }
   };
 
   return (
-    <div className={isOpen ? "modal is-open" : "modal"} onClick={closeModal}>
+    <div className={isOpen ? "modal is-open" : "modal"} onClick={handleClose}>
       <div className="container" onClick={(e) => e.stopPropagation()}>
         <div className="image">
           <img src={image} alt={name} />
           <div className="test" ref={refNode}></div>
         </div>
         <div className="data">
-          <button className="modal-close" onClick={closeModal}>
+          <button className="modal-close" onClick={handleClose}>
             <i className="far fa-times-circle"></i>
           </button>
           <h1>{name}</h1>
@@ -57,8 +84,30 @@ const Modal = ({
           <div className="releaseYear">Release Year: {releaseYear}</div>
           <div className="sku">SKU: {sku}</div>
           <div className="price">Price: ${price}</div>
-          <button className="addChart" id={id}>
-            Add to Cart <i className="fas fa-cart-plus"></i>
+          <div className="price">
+            Amount: &nbsp;
+            <button className="counter" onClick={amount}>
+              -
+            </button>
+            &nbsp;&nbsp;{counter}&nbsp;&nbsp;
+            <button className="counter" onClick={amount}>
+              +
+            </button>
+          </div>
+          <button
+            className={added ? "addedToCart" : "addChart"}
+            id={id}
+            name={name}
+            data-brand={brand}
+            data-price={price}
+            data-image={image}
+            data-amount={counter}
+            data-color={color}
+            onClick={handleAdding}
+            disabled={added ? "disabled" : ""}
+          >
+            {added ? "Added" : "Add to Cart"}{" "}
+            <i className="fas fa-cart-plus"></i>
           </button>
         </div>
       </div>

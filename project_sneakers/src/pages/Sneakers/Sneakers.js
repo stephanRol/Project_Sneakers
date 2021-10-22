@@ -9,6 +9,7 @@ import { motion } from "framer-motion";
 import Modal from "../../components/Modal/Modal";
 import { useModal } from "../../hooks/useModal";
 import { usePagination } from "../../hooks/usePagination";
+import { memo } from "react";
 
 //import { useFetch } from "../../hooks/useFetch";
 
@@ -66,7 +67,7 @@ const Sneakers = () => {
       }
     };
     getData(url);
-  }, []);
+  }, [url]);
 
   useEffect(() => {
     if (data !== null) {
@@ -192,4 +193,4 @@ const Sneakers = () => {
   );
 };
 
-export default Sneakers;
+export default memo(Sneakers);

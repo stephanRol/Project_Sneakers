@@ -55,6 +55,15 @@ const Navbar = () => {
             Contact
           </Link>
         </li>
+        <li>
+          <Link to="/cart" className="item">
+            {navbar === "navbar active" ? (
+              "Cart"
+            ) : (
+              <i className="fas fa-cart-plus"></i>
+            )}
+          </Link>
+        </li>
       </ul>
     </nav>
   );

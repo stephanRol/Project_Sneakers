@@ -45,6 +45,11 @@ const Hamburger = () => {
               Contact
             </Link>
           </li>
+          <li className="hamburger-menu-list">
+            <Link to="/cart" className="hamburger-menu-list">
+              Cart
+            </Link>
+          </li>
         </ul>
       </div>
     </div>
