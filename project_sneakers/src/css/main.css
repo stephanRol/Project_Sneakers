@@ -697,6 +697,25 @@ body {
   line-height: 1.2rem;
 }
 
+.shoppingCart main .summary-payment .purchase-btn, .shoppingCart main .summary-payment table th .remove, .shoppingCart main .summary-payment table td .remove {
+  display: block;
+  margin: 0 auto;
+  padding: 0.5rem 1rem;
+  border: 1px solid #d6d6d6;
+  border-radius: 2rem;
+  background-color: transparent;
+  color: #d6d6d6;
+  font-size: 1rem;
+  text-align: center;
+  cursor: pointer;
+  transition: 0.3s;
+}
+.shoppingCart main .summary-payment .purchase-btn:hover, .shoppingCart main .summary-payment table th .remove:hover, .shoppingCart main .summary-payment table td .remove:hover {
+  background-color: #d6d6d6;
+  color: #121113;
+  transition: 0.3s;
+}
+
 .shoppingCart {
   min-height: 100vh;
   width: 100%;
@@ -707,19 +726,95 @@ body {
   height: 15vh;
 }
 .shoppingCart main {
-  height: 85vh;
+  min-height: 80vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-family: "Oswald";
+  color: #d6d6d6;
+  margin-bottom: 4rem;
 }
-.shoppingCart main table {
-  border: 1px solid black;
+.shoppingCart main .cart-empty {
+  text-align: center;
+  font-size: 2rem;
+  margin: 0 2rem;
+  margin-bottom: 6rem;
 }
-.shoppingCart main table th, .shoppingCart main table td {
-  border: 1px solid black;
+.shoppingCart main .summary-payment {
+  min-width: 60vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 15px;
+  background-image: linear-gradient(to right top, #ffffff33, #cecece33, #a0a0a033, #73737333, #4a4a4a33);
+  border: 1px solid #ffffff33;
+}
+@media (max-width: 1200px) {
+  .shoppingCart main .summary-payment {
+    width: 80%;
+    overflow-x: scroll;
+    align-items: flex-start;
+  }
+}
+.shoppingCart main .summary-payment p {
+  margin-bottom: 0;
+}
+@media (max-width: 1200px) {
+  .shoppingCart main .summary-payment p {
+    margin-left: 25rem;
+  }
+}
+.shoppingCart main .summary-payment table {
+  padding: 10px;
+  text-align: center;
+  letter-spacing: 0.1rem;
+  font-weight: 300;
+}
+.shoppingCart main .summary-payment table th, .shoppingCart main .summary-payment table td {
+  border: 1px solid #ffffff33;
   overflow: hidden;
+  padding: 5px 15px;
+  max-height: 30px;
 }
-.shoppingCart main table th img, .shoppingCart main table td img {
+.shoppingCart main .summary-payment table th img, .shoppingCart main .summary-payment table td img {
   width: 70px;
   height: 70px;
   background: radial-gradient(#8892f1, #0c0e33);
+}
+.shoppingCart main .summary-payment table th .blend, .shoppingCart main .summary-payment table td .blend {
+  mix-blend-mode: hue;
+  position: relative;
+  top: -200px;
+}
+.shoppingCart main .summary-payment table .total {
+  font-size: 1.4rem;
+}
+.shoppingCart main .summary-payment .payment-methods {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 1rem;
+}
+.shoppingCart main .summary-payment .payment-methods i {
+  font-size: 3rem;
+}
+.shoppingCart main .summary-payment .payment-methods input[type=radio] {
+  margin: 0 0.5rem 0 1rem;
+  cursor: pointer;
+}
+.shoppingCart main .summary-payment .purchase-btn {
+  margin: 1.5rem 0;
+}
+.shoppingCart main .summary-payment .purchase-btn:hover {
+  letter-spacing: 0.3rem;
+}
+@media (max-width: 1200px) {
+  .shoppingCart main .summary-payment .purchase-btn {
+    margin-left: 25rem;
+  }
 }
 
 .error404 {
@@ -1929,10 +2024,12 @@ footer .container-below a:hover {
   color: #d6d6d6;
   font-family: "Oswald";
   letter-spacing: 0.1rem;
+  line-height: 2.4rem;
   line-height: 3rem;
   padding: 4rem 2rem;
   font-size: clamp(3rem, calc(2rem + 1.8vw), 4.3rem);
   font-size: clamp(0.4rem, calc(0.4rem + 2vw), 1rem);
+  overflow-y: scroll;
 }
 @media (max-width: 1200px) {
   .modal .container .data {
@@ -2206,7 +2303,7 @@ footer .container-below a:hover {
 .modal .container .modal-close {
   position: absolute;
   top: 1rem;
-  right: 1rem;
+  right: 1.8rem;
   margin: 0.5rem;
   color: #d6d6d6;
   font-size: 1.7rem;

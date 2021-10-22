@@ -90,10 +90,12 @@
             color:colors.$font-color-secondary;
             font-family: fonts.$font-secondary;
             letter-spacing: 0.1rem;
+            line-height: 2.4rem;
             line-height: 3rem;
             padding: 4rem 2rem;
             font-size: clamp(3rem, calc(2rem + 1.8vw), 4.3rem);
             font-size: clamp(0.4rem, calc(0.4rem + 2vw), 1rem);
+            overflow-y: scroll;
 
             @media(max-width: 1200px) {
                 width: 100%;
@@ -213,7 +215,7 @@
         .modal-close{
             position: absolute;
             top: 1rem;
-            right: 1rem;
+            right: 1.8rem;
             margin: 0.5rem;
             color:colors.$font-color-secondary;
             font-size: 1.7rem;

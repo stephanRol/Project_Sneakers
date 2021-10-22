@@ -41,58 +41,90 @@ const ShoppingCart = () => {
         <Navbar />
       </header>
       <main>
-        <table>
-          <thead>
-            <tr>
-              <th></th>
-              <th>Image</th>
-              <th>Name</th>
-              <th>Brand</th>
-              <th>Color</th>
-              <th>Amount</th>
-              <th>Unit Preis</th>
-              <th>Preis</th>
-            </tr>
-          </thead>
-          <tbody>
-            {storagedData === null || storagedData.length === 0 ? (
-              <tr>
-                <td colSpan="8">Your Shopping Cart is Empty</td>
-              </tr>
-            ) : (
-              storagedData.map((el, index) => {
-                return (
-                  <tr key={index}>
-                    <td>
-                      <button id={el.name} onClick={handleDelete}>
-                        Delete
-                      </button>
-                    </td>
-                    <td>
-                      <img src={el.image} alt={el.name} />
-                      <div
-                        style={{
-                          boxShadow: `0 0 0 500px ${el.color}`,
-                          mixBlendMode: "hue",
-                        }}
-                      ></div>
-                    </td>
-                    <td>{el.name}</td>
-                    <td>{el.brand[0].toUpperCase() + el.brand.slice(1)}</td>
-                    <td>{el.color[0].toUpperCase() + el.color.slice(1)}</td>
-                    <td>{el.amount}</td>
-                    <td>${el.price}</td>
-                    <td>${el.price * el.amount}</td>
-                  </tr>
-                );
-              })
-            )}
-            <tr>
-              <td colSpan="7">Total</td>
-              <td>${sum}</td>
-            </tr>
-          </tbody>
-        </table>
+        {storagedData === null || storagedData.length === 0 ? (
+          <div className="cart-empty">
+            <p>Your Shopping Cart is Empty</p>
+            <i className="fas fa-shopping-cart"></i>
+          </div>
+        ) : (
+          <section className="summary-payment">
+            <p>Order Summary</p>
+            <table>
+              <thead>
+                <tr>
+                  <th></th>
+                  <th>Image</th>
+                  <th>Name</th>
+                  <th>Brand</th>
+                  <th>Color</th>
+                  <th>Amount</th>
+                  <th>Unit Preis</th>
+                  <th>Preis</th>
+                </tr>
+              </thead>
+              <tbody>
+                {storagedData.map((el, index) => {
+                  return (
+                    <tr key={index}>
+                      <td>
+                        <button
+                          className="remove"
+                          id={el.name}
+                          onClick={handleDelete}
+                        >
+                          Remove
+                        </button>
+                      </td>
+                      <td>
+                        <img src={el.image} alt={el.name} />
+                        <div
+                          className="blend"
+                          style={{
+                            boxShadow: `0 0 0 1500px ${el.color}`,
+                            // mixBlendMode: "hue",
+                          }}
+                        ></div>
+                      </td>
+                      <td>{el.name}</td>
+                      <td>{el.brand[0].toUpperCase() + el.brand.slice(1)}</td>
+                      <td>{el.color[0].toUpperCase() + el.color.slice(1)}</td>
+                      <td>{el.amount}</td>
+                      <td>${el.price}</td>
+                      <td>${el.price * el.amount}</td>
+                    </tr>
+                  );
+                })}
+                <tr>
+                  <td colSpan="7">
+                    <b>Total</b>
+                  </td>
+                  <td className="total">
+                    <b>${sum}</b>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+
+            <p>Payment Method</p>
+            <div className="payment-methods">
+              <input type="radio" name="payment" />
+              <i className="fab fa-cc-amex"></i>
+              <input type="radio" name="payment" />
+              <i class="fab fa-cc-diners-club"></i>
+              <input type="radio" name="payment" />
+              <i class="fab fa-cc-mastercard"></i>
+              <input type="radio" name="payment" />
+              <i class="fab fa-cc-visa"></i>
+              <input type="radio" name="payment" />
+              <i class="fab fa-cc-paypal"></i>
+              <input type="radio" name="payment" />
+              <i class="fab fa-cc-amazon-pay"></i>
+              <input type="radio" name="payment" />
+              <i class="fab fa-cc-apple-pay"></i>
+            </div>
+            <button className="purchase-btn">NEXT STEP</button>
+          </section>
+        )}
       </main>
       <footer>
         <Footer />
