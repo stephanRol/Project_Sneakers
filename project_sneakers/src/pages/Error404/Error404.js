@@ -1,7 +1,6 @@
 import React from "react";
 
-const Error404 = ({ error }) => {
-  console.log(error);
+const Error404 = ({ error, apiFail }) => {
   return (
     <div className="error404">
       {error ? (
@@ -15,7 +14,7 @@ const Error404 = ({ error }) => {
             Alternatively you can test the application with internal data from a
             JSON file.
           </p>
-          <button>Test now</button>
+          <button onClick={apiFail}>Test now</button>
         </>
       ) : (
         <h2 className="error err">404: Not Found</h2>

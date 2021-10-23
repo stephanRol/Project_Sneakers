@@ -10,38 +10,34 @@ import Modal from "../../components/Modal/Modal";
 import { useModal } from "../../hooks/useModal";
 import { usePagination } from "../../hooks/usePagination";
 import { memo } from "react";
-
-//import { useFetch } from "../../hooks/useFetch";
+import { jsonTest } from "../../helpers/JsonTest";
 
 const Sneakers = () => {
   const [data, setData] = useState(null);
-  // const [isPending, setIsPending] = useState(true);
   const [error, setError] = useState(null);
 
-  let url = "http://localhost:3004/db";
-  // let url = "https://the-sneaker-database.p.rapidapi.com/sneakers?limit=100";
+  // let url = "http://localhost:3004/db";
+  let url = "https://the-sneaker-database.p.rapidapi.com/sneakers?limit=100";
 
   const [filteredValues, setFilteredValues] = useState("");
   const [isOpen, openModal, closeModal, modalKey] = useModal();
-
-  //let { data } = useFetch(url);
 
   let { start, end, LIMIT, handlePrev, handleNext, handleBegin, handleFinal } =
     usePagination(filteredValues);
 
   useEffect(() => {
+    if (error) return;
     const getData = async (url) => {
       try {
-        // let res = await fetch(url, {
-        //   method: "GET",
-        //   headers: {
-        //     "x-rapidapi-host": "the-sneaker-database.p.rapidapi.com",
-        //     "x-rapidapi-key":
-        //       "e68a",
-        //   },
-        // });
+        let res = await fetch(url, {
+          method: "GET",
+          headers: {
+            "x-rapidapi-host": "the-sneaker-database.p.rapidapi.com",
+            "x-rapidapi-key": "e68a",
+          },
+        });
 
-        let res = await fetch(url);
+        // let res = await fetch(url);
 
         if (!res.ok) {
           let objError = {
@@ -60,11 +56,9 @@ const Sneakers = () => {
             el.retailPrice !== 0
         );
 
-        // setIsPending(false);
         setData(result);
         setError({ err: false });
       } catch (err) {
-        // setIsPending(true);
         setError(err);
       }
     };
@@ -77,11 +71,22 @@ const Sneakers = () => {
     }
   }, [data]);
 
+  const apiFail = () => {
+    //This function will be used if the API not respond
+    let result = jsonTest.results.filter(
+      (el) =>
+        el.image.original !== "" &&
+        el.image.original.slice(-4) === ".png" &&
+        el.retailPrice !== 0
+    );
+    setData(result);
+  };
+
   return (
     <>
       {data === null || filteredValues === "" ? (
         error ? (
-          <Error404 error={error} />
+          <Error404 error={error} apiFail={apiFail} />
         ) : (
           <Loader />
         )
