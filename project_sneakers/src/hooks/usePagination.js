@@ -4,7 +4,7 @@ export const usePagination = (filteredValues) => {
   let { search } = useLocation();
   let query = new URLSearchParams(search);
 
-  const LIMIT = 6;
+  const LIMIT = 9;
   let start = parseInt(query.get("start")) || 1;
   let end = parseInt(query.get("end")) || LIMIT;
 

@@ -55,7 +55,9 @@ const Sneakers = () => {
 
         let result = data.results.filter(
           (el) =>
-            el.image.original !== "" && el.image.original.slice(-4) === ".png"
+            el.image.original !== "" &&
+            el.image.original.slice(-4) === ".png" &&
+            el.retailPrice !== 0
         );
 
         // setIsPending(false);

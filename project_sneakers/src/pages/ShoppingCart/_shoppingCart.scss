@@ -57,6 +57,7 @@
             border-radius: 15px;
             background-image: linear-gradient(to right top, #ffffff33, #cecece33, #a0a0a033, #73737333, #4a4a4a33);
             border: 1px solid #ffffff33;
+            margin-bottom: 2rem;
             
             @media (max-width:1200px){
                 width: 80%;
@@ -78,7 +79,7 @@
             font-weight: 300;
 
                 th,td{
-                border: 1px solid #ffffff33;
+                border: 1px solid #ffffff60;
                 overflow: hidden;
                 padding: 5px 15px;
                 max-height: 30px;
