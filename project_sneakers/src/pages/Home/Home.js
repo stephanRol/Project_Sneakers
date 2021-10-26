@@ -22,7 +22,6 @@ const Home = () => {
           <h3 className="main-title-2">Spring</h3>
           <h3 className="main-title-3">Collection</h3>
         </div>
-
         <div className="glassmorphism-box">
           <div className="glassmorphism">
             <div className="sneaker-home-img"></div>

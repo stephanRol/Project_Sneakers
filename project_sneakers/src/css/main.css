@@ -553,21 +553,6 @@ body {
   }
 }
 
-@media (max-width: 1024px) {
-  footer {
-    background-color: #ff8888;
-  }
-}
-@media (max-width: 768px) {
-  footer {
-    background-color: #88bfff;
-  }
-}
-@media (max-width: 480px) {
-  footer {
-    background-color: #fffd88;
-  }
-}
 @keyframes scroll-reveal {
   100% {
     opacity: 1;
@@ -824,7 +809,7 @@ body {
   align-items: center;
   flex-direction: column;
   width: 100vw;
-  height: 100vh;
+  min-height: 100vh;
 }
 .error404 .error {
   width: 60%;
@@ -832,15 +817,13 @@ body {
   font-family: "Oswald";
   color: #d6d6d6;
   text-align: center;
-  font-size: 1.5rem;
+  font-size: clamp(0.1rem, calc(0.3rem + 3vw), 1.5rem);
   font-weight: 300;
   letter-spacing: 0.1rem;
   line-height: 3rem;
 }
 .error404 button {
   margin-bottom: 2rem;
-  bottom: 60px;
-  left: 40px;
   height: 2.8rem;
   width: 7.5rem;
   font-size: 1rem;

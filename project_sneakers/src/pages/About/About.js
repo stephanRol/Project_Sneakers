@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import Navbar from "../../components/Navbar/Navbar";
 import sneakersTeam from "../../assets/sneakers-team-small.webp";
 import AutoplayCarrousel from "../../components/AutoplayCarrousel/AutoplayCarrousel";
@@ -21,73 +21,60 @@ const About = () => {
   const [counterHeight, setCounterHeight] = useState(false);
   const [loading, setLoading] = useState(true);
 
+  const element = useRef(),
+    title = useRef(),
+    aboutInfo = useRef(),
+    aboutInfoWomen = useRef(),
+    aboutInfoMen = useRef(),
+    aboutInfoTeam = useRef(),
+    main = useRef(),
+    border = useRef(),
+    womenAbout = useRef(),
+    menAbout = useRef(),
+    aboutInfoTeamArticle = useRef(),
+    aboutInfoTeamImages = useRef(),
+    womenSneakersImg = useRef(),
+    menSneakersImg = useRef(),
+    womenAboutBg = useRef(),
+    menAboutBg = useRef();
+
   const animations = () => {
-    const element = document.querySelector(".about-header");
-    const title = document.querySelector(".wrap-text-about");
-    const aboutInfo = document.querySelector(".about-info");
-    const aboutInfoWomen = document.querySelector(".about-info-women");
-    const aboutInfoMen = document.querySelector(".about-info-men");
-    const aboutInfoTeam = document.querySelector(".about-info-team");
-    const main = document.querySelector("main");
-    const border = document.querySelector(".border");
-    const womenAbout = document.querySelector(
-      ".about-info-women section article"
-    );
-    const menAbout = document.querySelector(".about-info-men section article");
-    const aboutInfoTeamArticle = document.querySelector(
-      ".about-info-team article"
-    );
-    const aboutInfoTeamImages = document.querySelector(
-      ".about-info-team .team-info"
-    );
-
-    const womenSneakersImg = document.querySelector(".sneaker-women-img");
-    const menSneakersImg = document.querySelector(".sneaker-men-img");
-    const womenAboutBg = document.querySelector(
-      ".about-info-women .about-info-bg"
-    );
-    const menAboutBg = document.querySelector(".about-info-men .about-info-bg");
-
-    if (element == null) {
-      console.log("me viro de about");
+    if (element.current == null) {
       return;
     }
 
     let scroll = window.pageYOffset;
-    let headerHeight = element.offsetHeight;
-    let aboutInfoHeight = aboutInfo.offsetHeight;
-    let aboutInfoWomenHeight = aboutInfoWomen.offsetHeight;
-    let aboutInfoMenHeight = aboutInfoMen.offsetHeight;
-    let aboutInfoTeamHeight = aboutInfoTeam.offsetHeight;
-    let mainHeight = main.offsetHeight;
-    //let carrouselHeight = carrousel.offsetHeight;
-    console.log("La altura del main es: " + mainHeight);
-    console.log("La altura del scroll es: " + scroll);
+    let headerHeight = element.current.offsetHeight;
+    let aboutInfoHeight = aboutInfo.current.offsetHeight;
+    let aboutInfoWomenHeight = aboutInfoWomen.current.offsetHeight;
+    let aboutInfoMenHeight = aboutInfoMen.current.offsetHeight;
+    let aboutInfoTeamHeight = aboutInfoTeam.current.offsetHeight;
+    let mainHeight = main.current.offsetHeight;
 
     const height1 = headerHeight + aboutInfoHeight;
     const height2 = height1 + aboutInfoWomenHeight;
     const height3 = height2 + aboutInfoMenHeight;
     const height4 = height3 + aboutInfoTeamHeight;
-    //const height5 = height4 + carrouselHeight;
 
-    // element.style.transform = `translateY(${scroll * -0.5}px)`;
-    element.style.backgroundPosition = `center top ${scroll * -0.5}px`;
-    title.style.opacity = 1 - scroll / (headerHeight / 2);
-    aboutInfo.style.opacity = scroll / (headerHeight / 1.4);
-    border.style.width = `${scroll / 25}%`;
-    womenAbout.style.opacity = scroll / (headerHeight / 0.65);
-    womenSneakersImg.style.transform = `rotate(${scroll * 0.012}deg)`;
-    womenAboutBg.style.backgroundPosition = `center top ${
+    element.current.style.backgroundPosition = `center top ${scroll * -0.5}px`;
+    title.current.style.opacity = 1 - scroll / (headerHeight / 2);
+    aboutInfo.current.style.opacity = scroll / (headerHeight / 1.4);
+    border.current.style.width = `${scroll / 25}%`;
+    womenAbout.current.style.opacity = scroll / (headerHeight / 0.65);
+    womenSneakersImg.current.style.transform = `rotate(${scroll * 0.012}deg)`;
+    womenAboutBg.current.style.backgroundPosition = `center top ${
       (scroll - height4 / 4) * -0.6
     }px`;
-    menAbout.style.opacity = scroll / (height3 / 1.1);
-    menSneakersImg.style.transform = `rotate3d(${scroll / 10000},1,0,180deg)`;
-    menAboutBg.style.backgroundPosition = `center top ${
+    menAbout.current.style.opacity = scroll / (height3 / 1.1);
+    menSneakersImg.current.style.transform = `rotate3d(${
+      scroll / 10000
+    },1,0,180deg)`;
+    menAboutBg.current.style.backgroundPosition = `center top ${
       ((scroll - height2) / 4) * -0.8
     }px`;
     if (scroll > height2 + aboutInfoMenHeight / 3) {
-      aboutInfoTeamArticle.style.animation = `scroll-reveal 2s ease-in forwards`;
-      aboutInfoTeamImages.style.animation = `scroll-reveal 2s ease-in forwards`;
+      aboutInfoTeamArticle.current.style.animation = `scroll-reveal 2s ease-in forwards`;
+      aboutInfoTeamImages.current.style.animation = `scroll-reveal 2s ease-in forwards`;
     }
 
     if (scroll > mainHeight) {
@@ -134,18 +121,18 @@ const About = () => {
         >
           <header>
             <Navbar />
-            <div className="about-header">
-              <div className="wrap-text-about">
+            <div className="about-header" ref={element}>
+              <div className="wrap-text-about" ref={title}>
                 <h2>We make your move</h2>
               </div>
             </div>
           </header>
-          <main>
-            <div className="about-info">
+          <main ref={main}>
+            <div className="about-info" ref={aboutInfo}>
               <div className="about-title-description">
                 <h2>
                   About Us
-                  <div className="border"></div>
+                  <div className="border" ref={border}></div>
                 </h2>
                 <p>
                   Lorem ipsum dolor sit, amet consectetur adipisicing elit.
@@ -167,11 +154,11 @@ const About = () => {
                 alt="sneakers-team"
               />
             </div>
-            <div className="about-info-women">
-              <div className="about-info-bg"></div>
+            <div className="about-info-women" ref={aboutInfoWomen}>
+              <div className="about-info-bg" ref={womenAboutBg}></div>
               <section>
-                <div className="sneaker-women-img"></div>
-                <article>
+                <div className="sneaker-women-img" ref={womenSneakersImg}></div>
+                <article ref={womenAbout}>
                   <h2>Women</h2>
                   <p>
                     Lorem ipsum dolor sit amet consectetur adipisicing elit.
@@ -183,10 +170,10 @@ const About = () => {
                 </article>
               </section>
             </div>
-            <div className="about-info-men">
-              <div className="about-info-bg"></div>
+            <div className="about-info-men" ref={aboutInfoMen}>
+              <div className="about-info-bg" ref={menAboutBg}></div>
               <section>
-                <article>
+                <article ref={menAbout}>
                   <h2>Men</h2>
                   <p>
                     Lorem, ipsum dolor sit amet consectetur adipisicing elit.
@@ -196,11 +183,11 @@ const About = () => {
                     cupiditate eaque quisquam,enim minima sint quidem veritatis.
                   </p>
                 </article>
-                <div className="sneaker-men-img"></div>
+                <div className="sneaker-men-img" ref={menSneakersImg}></div>
               </section>
             </div>
-            <div className="about-info-team">
-              <article>
+            <div className="about-info-team" ref={aboutInfoTeam}>
+              <article ref={aboutInfoTeamArticle}>
                 <h2>Meet Our Team</h2>
                 <p>
                   Lorem ipsum dolor sit, amet consectetur adipisicing elit. Unde
@@ -212,7 +199,7 @@ const About = () => {
                   hic debitis quidem.
                 </p>
               </article>
-              <div className="team-info">
+              <div className="team-info" ref={aboutInfoTeamImages}>
                 {!users
                   ? "Charging..."
                   : users.map((user, index) => {

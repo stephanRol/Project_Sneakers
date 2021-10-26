@@ -99,7 +99,13 @@ const Footer = () => {
         <div className="container-below">
           <p>
             Copyright &copy; 2021 Sneakers GmbH Created by{" "}
-            <a href="#html">StepDevs</a>{" "}
+            <a
+              href="https://github.com/stephanRol"
+              target="_blank"
+              rel="noreferrer"
+            >
+              StepDevs
+            </a>{" "}
           </p>
         </div>
       </footer>

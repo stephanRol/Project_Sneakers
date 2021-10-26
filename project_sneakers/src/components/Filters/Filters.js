@@ -48,7 +48,6 @@ const Filters = ({ data, filteredValues, setFilteredValues, LIMIT }) => {
     if (e.target.checked === true) {
       setForm({
         ...form,
-        // [e.target.name]: e.target.checked,
         [e.target.name]: e.target.dataset.sort,
       });
     } else {

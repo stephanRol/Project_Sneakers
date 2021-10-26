@@ -16,9 +16,6 @@ const Sneakers = () => {
   const [data, setData] = useState(null);
   const [error, setError] = useState(null);
 
-  // let url = "http://localhost:3004/db";
-  let url = "https://the-sneaker-database.p.rapidapi.com/sneakers?limit=100";
-
   const [filteredValues, setFilteredValues] = useState("");
   const [isOpen, openModal, closeModal, modalKey] = useModal();
 
@@ -27,17 +24,9 @@ const Sneakers = () => {
 
   useEffect(() => {
     if (error) return;
-    const getData = async (url) => {
+    const getData = async () => {
       try {
-        let res = await fetch(url, {
-          method: "GET",
-          headers: {
-            "x-rapidapi-host": "the-sneaker-database.p.rapidapi.com",
-            "x-rapidapi-key": "e68a",
-          },
-        });
-
-        // let res = await fetch(url);
+        let res = await fetch("/api");
 
         if (!res.ok) {
           let objError = {
@@ -62,8 +51,8 @@ const Sneakers = () => {
         setError(err);
       }
     };
-    getData(url);
-  }, [url]);
+    getData();
+  }, [error]);
 
   useEffect(() => {
     if (data !== null) {

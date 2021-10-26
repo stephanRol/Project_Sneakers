@@ -173,7 +173,6 @@ const Contact = () => {
           </div>
           <div className="form-container">
             {loading ? (
-              // {true ? (
               <div className="loader-form">
                 <h2>&nbsp;&nbsp;Sending...</h2>
                 <i className="fas fa-circle-notch fa-spin"></i>
@@ -201,7 +200,6 @@ const Contact = () => {
                     required
                   />
                   {errors.email && <p className="inputError">{errors.email}</p>}
-
                   <input
                     type="text"
                     name="subject"
@@ -214,7 +212,6 @@ const Contact = () => {
                   {errors.subject && (
                     <p className="inputError">{errors.subject}</p>
                   )}
-
                   <textarea
                     name="comments"
                     cols="50"
@@ -228,7 +225,6 @@ const Contact = () => {
                   {errors.comments && (
                     <p className="inputError">{errors.comments}</p>
                   )}
-
                   <input type="submit" value="Send Message" />
                 </form>
                 {response && (

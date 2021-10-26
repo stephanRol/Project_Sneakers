@@ -64,7 +64,6 @@
                 overflow-x: scroll;
                 align-items: flex-start;
             }
-
             p{
                 margin-bottom: 0;
                 @media (max-width:1200px){
@@ -77,13 +76,13 @@
             text-align: center;
             letter-spacing: 0.1rem;
             font-weight: 300;
-
+                
                 th,td{
                 border: 1px solid #ffffff60;
                 overflow: hidden;
                 padding: 5px 15px;
                 max-height: 30px;
-
+                
                     img{
                         width: 70px;
                         height: 70px;
@@ -102,7 +101,6 @@
                     font-size: 1.4rem;
                 }
             }
-
             .payment-methods{
                 display: flex;
                 justify-content: center;
@@ -116,8 +114,7 @@
                     margin: 0 0.5rem 0 1rem;
                     cursor: pointer;
                 }
-            }
-            
+            }       
             .purchase-btn{
                 @extend %cart-btn;
                 margin: 1.5rem 0;

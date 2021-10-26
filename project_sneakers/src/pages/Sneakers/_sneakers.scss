@@ -54,7 +54,6 @@
                 display: flex;
                 flex-wrap: wrap;
                 width: 100%;
-                // justify-content: center; AQUI ORDENA EL ULTIMO ELEMENTO AL CENTRO
                 @media (max-width: 1260px) {
                     justify-content: center;
                 }
@@ -69,7 +68,6 @@
                 font-size: 2rem;
                 font-weight: 300;
                 letter-spacing: 0.05rem;
-
             }
 
             .pagination{
@@ -97,7 +95,6 @@
                             padding: 0.8rem 1rem;
                             border: 1px solid colors.$font-color-3;
                             font-family: fonts.$font-secondary;
-                            // color: colors.$font-color-secondary;
                             color: colors.$font-color-3;
                             cursor: pointer;
                             transition: 0.3s;
@@ -109,8 +106,7 @@
                                 box-shadow: 0px 0px 6px rgb(255, 255, 255);
                                 text-shadow: 0px 0px 6px rgb(255, 255, 255);
                                 transition: 0.3s;
-                            }
-        
+                            }  
                         }
                     }
                 }
@@ -133,7 +129,6 @@
     letter-spacing: 0.1rem;
     line-height: 1.2rem;
 }
-
 
 //Common breakpoints for widths of devices:
 

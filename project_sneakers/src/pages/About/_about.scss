@@ -88,7 +88,6 @@ body{
             background-attachment: fixed;
             clip-path: polygon(0 0, 100% 0, 100% 75%, 50% 90%, 0 75%);
 
-
             .wrap-text-about{
                 display: flex;
                 justify-content: center;
@@ -131,7 +130,6 @@ body{
                     width: 80%;
                 }    
                 h2{
-                    // font-size: 2.5rem;
                     .border{
                         position: relative;
                         width: 0%;
@@ -298,7 +296,6 @@ body{
                     background-size: cover;
                     width: 53vw;
                     height: 70%;
-                    // transform: rotate3d(0,1,0,180deg) + rotate(25deg);
                     transform: rotate3d(0.22,1,0,180deg);
 
                     @media (max-width: 768px) {
@@ -330,7 +327,6 @@ body{
             background-attachment: fixed;
             opacity: 0.95;
 
-
             @media (max-width: 1200px) {
                 padding: 15% 0 10% 0;
                 clip-path: polygon(0 10%,  100% 0%, 100% 100%, 0 100%);
@@ -345,7 +341,6 @@ body{
                 padding: 45% 0 20% 0;
             } 
             
-
             article{
                 display: flex;
                 flex-direction: column;
@@ -372,7 +367,6 @@ body{
                 max-width: 1320px;
                 margin: 0 auto;
                 opacity: 0;
-
 
                 @for $i from 1 through 6{
                     .team-member-#{$i}{
@@ -402,27 +396,6 @@ body{
 // 769px — 1024px: Small screens, laptops
 // 1025px — 1200px: Desktops, large screens
 // 1201px and more —  Extra large screens, TV
-
-@media (max-width: 1024px) {
-
-    footer{
-        background-color: rgb(255, 136, 136);
-    }
-}
-@media (max-width: 768px) {
-
-    footer{
-        background-color: rgb(136, 191, 255);
-    }
-
-}
-@media (max-width: 480px) {
-
-    footer{
-        background-color: rgb(255, 253, 136);
-    }
-
-}
 
 @keyframes scroll-reveal{
     100%{

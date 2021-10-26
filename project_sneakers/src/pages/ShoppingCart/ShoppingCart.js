@@ -3,12 +3,11 @@ import Navbar from "../../components/Navbar/Navbar";
 import { useContext, useState } from "react";
 import CartContext from "../../helpers/CartContext";
 import Footer from "../../components/Footer/Footer";
+import { motion } from "framer-motion";
 
 const ShoppingCart = () => {
   const [storagedData, setStoragedData] = useState([]);
   const { setProducts } = useContext(CartContext);
-
-  console.log("SD:", storagedData);
 
   useEffect(() => {
     const myArray = localStorage.getItem("products");
@@ -25,10 +24,8 @@ const ShoppingCart = () => {
   }
 
   const handleDelete = (e) => {
-    console.log(storagedData);
-    console.log(e.target.id);
     const filtered = storagedData.filter(
-      (el, index) => el.name !== e.target.id
+      (el, index) => index.toString() !== e.target.id.toString()
     );
     setStoragedData(filtered);
     setProducts(filtered);
@@ -36,7 +33,13 @@ const ShoppingCart = () => {
   };
 
   return (
-    <div className="shoppingCart">
+    <motion.div
+      className="shoppingCart"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      transition={{ duration: 0.4 }}
+    >
       <header>
         <Navbar />
       </header>
@@ -69,7 +72,7 @@ const ShoppingCart = () => {
                       <td>
                         <button
                           className="remove"
-                          id={el.name}
+                          id={index}
                           onClick={handleDelete}
                         >
                           Remove
@@ -81,7 +84,6 @@ const ShoppingCart = () => {
                           className="blend"
                           style={{
                             boxShadow: `0 0 0 1500px ${el.color}`,
-                            // mixBlendMode: "hue",
                           }}
                         ></div>
                       </td>
@@ -104,23 +106,22 @@ const ShoppingCart = () => {
                 </tr>
               </tbody>
             </table>
-
             <p>Payment Method</p>
             <div className="payment-methods">
               <input type="radio" name="payment" />
               <i className="fab fa-cc-amex"></i>
               <input type="radio" name="payment" />
-              <i class="fab fa-cc-diners-club"></i>
+              <i className="fab fa-cc-diners-club"></i>
               <input type="radio" name="payment" />
-              <i class="fab fa-cc-mastercard"></i>
+              <i className="fab fa-cc-mastercard"></i>
               <input type="radio" name="payment" />
-              <i class="fab fa-cc-visa"></i>
+              <i className="fab fa-cc-visa"></i>
               <input type="radio" name="payment" />
-              <i class="fab fa-cc-paypal"></i>
+              <i className="fab fa-cc-paypal"></i>
               <input type="radio" name="payment" />
-              <i class="fab fa-cc-amazon-pay"></i>
+              <i className="fab fa-cc-amazon-pay"></i>
               <input type="radio" name="payment" />
-              <i class="fab fa-cc-apple-pay"></i>
+              <i className="fab fa-cc-apple-pay"></i>
             </div>
             <button className="purchase-btn">NEXT STEP</button>
           </section>
@@ -129,7 +130,7 @@ const ShoppingCart = () => {
       <footer>
         <Footer />
       </footer>
-    </div>
+    </motion.div>
   );
 };
 
