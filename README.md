@@ -1,5 +1,8 @@
 # Project_Sneakers
-React, Sass, Responsive Design, Flexbox, Grid CSS, API REST 
+Tech Stack:  
+React, Sass, Responsive Design, Flexbox, Grid CSS, API REST  
+Description:  
+E-Commerce Frontend App
 
 ## Home Page
 
