@@ -26,3 +26,8 @@ E-Commerce Frontend App
 
 ## Cart Page
 
+![cart](https://user-images.githubusercontent.com/79340525/150599681-378e2aa7-04b7-4a29-94a2-215d8b20c7df.jpg)
+
+For more details visit:  
+https://sneakers-app-react.herokuapp.com/#/
+
