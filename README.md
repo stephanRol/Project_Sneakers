@@ -1,7 +1,7 @@
 # Project_Sneakers
-Tech Stack:  
+### `Tech Stack:`  
 React, Sass, Responsive Design, Flexbox, Grid CSS, API REST  
-Description:  
+### `Description:`  
 E-Commerce Frontend App
 
 ## Home Page
@@ -23,3 +23,6 @@ E-Commerce Frontend App
 ## Contact Page
 
 ![contact](https://user-images.githubusercontent.com/79340525/150598766-4117f68e-7cf2-4256-bb47-77951c838c5b.jpg)
+
+## Cart Page
+
