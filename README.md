@@ -16,7 +16,7 @@ E-Commerce Frontend App
 
 ![sneakers](https://user-images.githubusercontent.com/79340525/150598737-02354dbf-644a-404a-9898-e2defaf17b87.jpg)
 
-##Sneaker Detail
+## Sneaker Detail
 
 ![sneaker_detail](https://user-images.githubusercontent.com/79340525/150598758-96671026-4c8a-4e87-a6bb-8460a063ceb3.jpg)
 
